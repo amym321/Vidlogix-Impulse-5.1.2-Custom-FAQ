@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "164882976748ec8d45": {
+      "type": "smart-header-section",
+      "settings": {
+        "page_title": "",
+        "page_description": ""
+      }
+    },
+    "16400379680befddc2": {
+      "type": "rich-text",
+      "blocks": {
+        "1640037968f4dadfc5-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Vidlogix wants you to be thrilled with your new purchase. However, if you need to return an item, we're here to help.<\/p><p>For any undamaged product, return it with its included accessories and packaging along with the original receipt (or gift receipt) within <strong>30 days. <\/strong>We’ll offer a refund based on the original payment method.<\/p>",
+            "beacon_popup": false
+          }
+        },
+        "3715c08b-c9fa-465a-b1e1-04387d8730c8": {
+          "type": "button",
+          "settings": {
+            "link": "shopify:\/\/pages\/contact",
+            "link_text": "REQUEST AN RMA ONLINE"
+          }
+        }
+      },
+      "block_order": [
+        "1640037968f4dadfc5-1",
+        "3715c08b-c9fa-465a-b1e1-04387d8730c8"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "16400379788bcd19c4": {
+      "type": "text-columns",
+      "disabled": true,
+      "blocks": {
+        "1640037978a888e8c4-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/Paypal-Logo.png",
+            "image_width": 150,
+            "title": "Return shipping is on PayPal when you checkout with PayPal.",
+            "text": "<p>If you aren’t happy with your order, PayPal will provide a free return shipping label or refund the cost of sending it back on eligible purchases.<\/p>",
+            "button_label": "Learn More",
+            "button_link": "https:\/\/www.paypal.com\/us\/webapps\/mpp\/returns"
+          }
+        }
+      },
+      "block_order": [
+        "1640037978a888e8c4-0"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false,
+        "box_shadow": true
+      }
+    },
+    "1640037982ebbadc89": {
+      "type": "faq",
+      "blocks": {
+        "16400379824b518b3b-0": {
+          "type": "question",
+          "settings": {
+            "title": "Return instructions",
+            "map_popup": false,
+            "map_text": "",
+            "text": "<p>Web Return (WR) numbers are required for all returns. WR numbers are valid for 12 days. Delinquent and unauthorized returns may be returned at the sender's expense.<\/p><p>In 1 business day you’ll hear back from us with your Web Return (WR) number.<\/p>",
+            "button_link2": "",
+            "button_text2": "Request a RMA online",
+            "button_chat2": false,
+            "text2": "<p>Pack your items carefully since they are still your items until we have verified their functionality and physical condition. Please do not deface or treat the item box as the shipping box.<\/p><p>Any electronics containing user profile data must be either factory reset or password unlocked before sending back to Vidlogix for return.<\/p><p>Ensure that there are no other tracking labels attached to your package. Remove or cover any hazardous materials markings if you are shipping a non-hazardous item.<\/p><p>Affix the mailing label squarely onto the address side of the parcel, covering up any previous delivery address and barcode without overlapping any adjacent side.<\/p><p>Choose the return ship method most convenient to you, but we strongly suggest choosing a carrier that will provide you tracking information and insurance. Unfortunately, we cannot be responsible for your return until it is received at our distribution center.<\/p>",
+            "anchor_link": "return-instructions"
+          }
+        },
+        "7bd60e6a-a7a7-4add-afd9-0c54eff2c6ca": {
+          "type": "question",
+          "settings": {
+            "title": "Refund status",
+            "map_popup": false,
+            "map_text": "",
+            "text": "<p>Returns are processed on Saturdays. Pending charges will be removed from your bank statement within three business days as if the transaction never happened. Charges already processed will be refunded to your original payment method within five to seven business days. Your refund timeline may vary due to differences in bank processing times.<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "",
+            "anchor_link": "return-status"
+          }
+        },
+        "0291a141-1043-45b3-9095-ce4b55be1a64": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "Warranty policy",
+            "map_popup": false,
+            "map_text": "",
+            "text": "<p>All items sold by Vidlogix are warranted solely by the manufacturer (Vendor). All items needing repair should be sent to the Vendor directly for service. Vidlogix is not liable if the Vendor fails to perform warranty service.<\/p><p>Vidlogix is not responsible for personal data or items left in returned merchandise. Any electronics containing user profile data must be either factory reset or password unlocked before sending back to Vidlogix for return.<\/p><p>Vidlogix will not be responsible for any consequential or incidental damage resulting from the sale or use of any merchandise purchased from us. Vidlogix’s liability is limited to the monetary value of the merchandise. Claims for missing items or items damaged in transit must be received within two business days of receipt of merchandise. <\/p><p>There is no implied warranty of merchantability or fitness for a particular purpose on any item sold by Vidlogix.<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "",
+            "anchor_link": ""
+          }
+        },
+        "16400379824b518b3b-1": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "title": "Important details",
+            "map_popup": false,
+            "map_text": "",
+            "text": "<p><strong>Refundable<\/strong> – Factory sealed, shrink-wrapped, unopened, unused, and undamaged items in the original packaging are refundable within 30 days. Upon inspection, damaged\/defective items will be replaced (subject to availability). Vidlogix does not issue advanced replacements. The fastest way to receive a replacement is to make a new order. Damaged goods or shortages must be reported within two (2) days of receipt of goods. Our associates cannot replace a missing part or piece from an item.<\/p><p><strong>Non-refundable<\/strong> – The money-back guarantee excludes gardens, air purifiers, kitchen appliances, personal protective equipment (PPE), hard disk drives (HDD), software, televisions, and unsealed (inner & outer seals), clearance, and special order items. You should send damaged\/defective items to the manufacturer for service. Vidlogix is not liable if the manufacturer fails to perform warranty service.<\/p><p><strong>Return shipping fees – <\/strong>Original order shipping charges, if applicable, are not refundable on correctly shipped orders. If you have received a damaged, defective or incorrect item, please get in touch with us, and we will arrange the return. If you wish to return your item for another reason, e.g., the item is unsuitable, please arrange postage yourself. Vidlogix can issue one (1) return shipping label per order for a flat fee of $12 (&lt; 10 lbs). Return shipping fees are deducted from your refund.<\/p><p><strong>Restocking fees<\/strong> – All returned merchandise must be in the same condition as sold, with all included accessories. If the state differs, we reserve the right to charge a 20% restocking fee.<\/p><p><strong>Undeliverable<\/strong> – If an order is refused or returned to us due to inaccurate or incorrect address information or because it was declined or undeliverable, Vidlogix reserves the right to retain the original shipping\/handling fee and to charge the payment method originally used for costs we incur related to the return of the undeliverable packages or merchandise to us.<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "",
+            "anchor_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16400379824b518b3b-0",
+        "7bd60e6a-a7a7-4add-afd9-0c54eff2c6ca",
+        "0291a141-1043-45b3-9095-ce4b55be1a64",
+        "16400379824b518b3b-1"
+      ],
+      "settings": {
+        "title": "FAQs"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164882976748ec8d45",
+    "16400379680befddc2",
+    "16400379788bcd19c4",
+    "1640037982ebbadc89"
+  ]
+}
