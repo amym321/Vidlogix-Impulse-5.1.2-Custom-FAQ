@@ -73,7 +73,7 @@
       ],
       "settings": {
         "section_height": "natural",
-        "mobile_height": "250px",
+        "mobile_height": "auto",
         "parallax": false,
         "style": "bars",
         "autoplay": true,
