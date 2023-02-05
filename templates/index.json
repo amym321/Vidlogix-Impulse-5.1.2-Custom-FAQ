@@ -65,12 +65,34 @@
             "overlay_opacity": 0,
             "focal_point": "80% 50%"
           }
+        },
+        "3028a9f7-970f-4d56-824e-9723e4992943": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "chat_widget": false,
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify:\/\/shop_images\/1.Landscape.png",
+            "image_mobile": "shopify:\/\/shop_images\/1.Landscape.png",
+            "overlay_opacity": 0,
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
         "slideshow-0",
         "slideshow-1",
-        "a18b8778-dac9-4bcc-870e-56d058692b80"
+        "a18b8778-dac9-4bcc-870e-56d058692b80",
+        "3028a9f7-970f-4d56-824e-9723e4992943"
       ],
       "settings": {
         "section_height": "natural",
