@@ -61,6 +61,7 @@
             "text_color": "#ffffff",
             "text_align": "vertical-center horizontal-left",
             "image": "shopify:\/\/shop_images\/1.Landscape.png",
+            "image_mobile": "shopify:\/\/shop_images\/1080_x_1350.jpg",
             "overlay_opacity": 0,
             "focal_point": "80% 50%"
           }
