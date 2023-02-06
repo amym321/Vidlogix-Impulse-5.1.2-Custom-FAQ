@@ -13,29 +13,64 @@
           "type": "rich-text",
           "settings": {
             "title": "Shipping",
-            "text": ""
+            "text": "",
+            "button_link": "",
+            "button_text": "Button Text",
+            "button_chat": false,
+            "align_text": "left"
           }
         },
         "faq-1": {
           "type": "question",
           "settings": {
+            "title": "1 Frequently asked question",
+            "map_popup": false,
+            "map_text": "",
+            "text": "<p>1.1 Use the text to answer questions<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "<p>1.2 Use the text to answer questions<\/p>",
+            "anchor_link": ""
           }
         },
         "faq-2": {
           "type": "question",
           "settings": {
+            "title": "2 Frequently asked question",
+            "map_popup": true,
+            "map_text": "",
+            "text": "<p>2.1 Use the text to answer questions<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "<p>2.2 Use the text to answer questions<\/p>",
+            "anchor_link": ""
           }
         },
         "faq-3": {
           "type": "rich-text",
           "settings": {
             "title": "Returns",
-            "text": ""
+            "text": "",
+            "button_link": "",
+            "button_text": "Button Text",
+            "button_chat": false,
+            "align_text": "left"
           }
         },
         "faq-4": {
           "type": "question",
           "settings": {
+            "title": "11 Frequently asked question",
+            "map_popup": false,
+            "map_text": "<p><\/p>",
+            "text": "<p>Use the text to answer questions<\/p>",
+            "button_link2": "",
+            "button_text2": "Button text",
+            "button_chat2": false,
+            "text2": "<p>Use the text to answer questions<\/p>",
+            "anchor_link": ""
           }
         }
       },
