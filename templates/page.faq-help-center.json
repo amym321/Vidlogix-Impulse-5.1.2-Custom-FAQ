@@ -11,6 +11,7 @@
       "blocks": {
         "faq-0": {
           "type": "rich-text",
+          "disabled": true,
           "settings": {
             "title": "Shipping",
             "text": "",
@@ -50,6 +51,7 @@
         },
         "faq-3": {
           "type": "rich-text",
+          "disabled": true,
           "settings": {
             "title": "Returns",
             "text": "",
