@@ -1,9 +1,9 @@
 {% comment %} code change per 4.1.1 customization {% endcomment %}
 {%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
 
-<Div class="{% unless template == 'page.terms' %} index-section {% endunless %}">
+<Div class="help-center {% unless template == 'page.terms' %} index-section {% endunless %}">
 
-  <div class="page-width page-width--narrow ">
+  <div class="page-width">
 
     {%- if section.settings.title != blank -%}
       <header class="section-header">
@@ -14,16 +14,17 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      {%- for block in section.blocks -%}
 
-      {% comment %} UPS Map popup - am {% endcomment %}
-      {% render 'map-popup' %}
+<div class="help-center-wrapper" style="display: flex;">
+{% comment %} left side - questions {% endcomment %}
+  <div class="help-center-left" style="flex-basis: 33%; background-color: #fff !important;">
+      {%- for block in section.blocks -%}
 
         <div {{ block.shopify_attributes }}>
           {% case block.type %}
 
             {% when 'rich-text'%}
-              <div class=" {% unless template == 'page.terms' %} index-section {% endunless %} index-section--faq">
+              {% comment %} <div class=" {% unless template == 'page.terms' %} index-section {% endunless %} index-section--faq">
                 <div class="text-{{ block.settings.align_text }}">
                   {%- if block.settings.title != blank -%}
                     <div class="section-header">
@@ -50,7 +51,34 @@
                   {%- endif -%}
 
                 </div>
+              </div>  {% endcomment %}
+
+            {% when 'question'%}
+              <div class="faq-section" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
+                {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
+                <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                  {%- render 'collapsible-icons-alt', no_circle: true -%}
+                  <span itemprop="name">{{ block.settings.title }}</span>
+                </button>
+
               </div>
+          {% endcase %}
+
+        </div>
+      {%- endfor -%}
+  </div>
+
+{% comment %} right side - answers {% endcomment %}
+  <div class="help-center-right" style="flex-basis: 66%; background: top center repeat;
+    background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
+      {%- for block in section.blocks -%}
+
+      {% comment %} UPS Map popup - am {% endcomment %}
+      {% render 'map-popup' %}
+
+        <div {{ block.shopify_attributes }}>
+          {% case block.type %}
 
             {% when 'question'%}
               <div class="faq-section" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -89,8 +117,14 @@
                 </div>
               </div>
           {% endcase %}
+
         </div>
       {%- endfor -%}
+  </div>
+
+</div>
+
+      
     {%- endif -%}
 
     {%- if section.blocks.size == 0 -%}
@@ -103,16 +137,41 @@
 
 {%- if section.settings.divider -%}</div>{%- endif -%}
 
+<style>
+  @media screen and (min-width: 769px) {
+    .help-center {
+      padding:0;
+      margin:0;
+      background: top center repeat;
+      background-image: url('https://cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_2.jpg');
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .help-center {
+      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');
+    }
+  }
+  .help-center .help-center-left,
+  .help-center .help-center-right {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .help-center .faq-section {
+    border-bottom: 1px solid #cccbcb;
+}
+
+</style>
+
 {% schema %}
   {
-    "name": "FAQ",
+    "name": "FAQ Help Center",
     "class": "nothing",
     "settings": [
       {
         "type": "text",
         "id": "title",
         "label": "Heading",
-        "default": "FAQs"
+        "default": "FAQ Help Center."
       }
     ],
     "blocks": [
@@ -180,7 +239,7 @@
             "type": "text",
             "id": "title",
             "label": "Question",
-            "default": "Frequently asked question"
+            "default": "11 Frequently asked question"
           },
           {
             "type": "checkbox",
