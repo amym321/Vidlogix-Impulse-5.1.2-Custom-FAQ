@@ -45,25 +45,26 @@
     "faq-help": {
       "type": "faq-help-center",
       "blocks": {
-        "faq-0": {
-          "type": "rich-text",
-          "disabled": true,
-          "settings": {
-            "title": "Shipping",
-            "text": "",
-            "button_link": "",
-            "button_text": "Button Text",
-            "button_chat": false,
-            "align_text": "left"
-          }
-        },
         "faq-1": {
           "type": "question",
           "settings": {
-            "title": "1 Frequently asked question",
+            "title": "Shipping & Delivery",
+            "subheading-1": "Delivery Times",
+            "text-1": "<p>Some items on our website are not regularly stocked. Availability on these items may show as Special Order.<\/p><p>In some cases, the manufacturer will ship select items to you directly. You may generally expect these items to arrive at U.S. destinations in 7-10 days, unless specified otherwise. <\/p><p>If items in your order qualify as a stock exception, we will ask you whether you'd like us to ship your full order when all items are in stock, or if you'd like to split a shipment (at no extra cost). The estimated delivery shown reflects the shipping time once your item reaches our warehouse.<\/p><p>The Restock Date posted on the product detail page is when we reasonably expect to have the product in stock based on anticipated demand, communications from the manufacturer, and other factors. The estimated time of arrival (ETA) date advised is the time required for the order to be delivered to our distribution center. These dates are good faith estimates and subject to delays or changes. You may cancel an order at any time before shipment. <\/p><p>If we email you a tracking number during the day, the information may not post to the carrier's website until that evening. <\/p><p>Business days are defined as Monday to Friday, excluding holidays.<\/p>",
+            "subheading-2": "Freight Shipping",
+            "text-2": "<p>Large or heavy items, including select TVs, require freight shipping. Available to most physical addresses in the 48 contiguous United States. Additional restrictions may apply, Call 631-372-5004 for more details.<\/p><p>Delivery time is <strong>2-5 business days<\/strong> for most orders. Allow extra time for delivery to remote addresses.<\/p><p><strong>Someone must receive the delivery.<\/strong> The freight carrier will contact you to schedule delivery to your door or the lobby area of your apartment or condo. Someone will need to be available to meet the driver and sign for the package. Freight deliveries are scheduled for Monday through Friday between 9 AM and 5 PM.<\/p><p><strong>What to expect from the delivery driver.<\/strong> This is a large, heavy item, so arrange to have someone else there to help you unpack and install your equipment. The delivery driver will not help you unpack or set up your new equipment, nor will he remove your old equipment or packaging.<\/p><p><strong>White Glove Delivery<\/strong>. Select televisions (TVs) qualify for white glove delivery. \"White Glove\" is a premium service that includes carrying the product into any accessible room of your home and unboxing it. The delivery includes the removal and disposal of packaging. Installation is not included.<\/p><p><strong>Keep the product packaging.<\/strong> You'll need it if you have to return or move your item.<\/p><p><strong>DAMAGED & MISSING MERCHANDISE MUST BE REPORTED WITHIN 7 DAYS OF RECEIVING YOUR ORDER.<\/strong><\/p><p>Prior to signing receipt of your shipment, carefully inspect the box or boxes for any damage. If you see damage you must mark the delivery receipt accordingly. It is recommended to take pictures of the outside of the box and the inside of the box. Then unpack the contents to ensure there is no concealed damage or missing items.<\/p><p>E-mail the following documentation to <a href=\"mailto:hello@vidlogix.com\" target=\"_blank\" title=\"hello@vidlogix.com\">hello@vidlogix.com<\/a> and we will be happy to work with the freight company to process a damage claim. <\/p><ul><li>Vidlogix order number<\/li><li>Freight tracking number<\/li><li>Photographs and description of damage<\/li><li>Serial Number (S\/N)<\/li><\/ul>",
+            "subheading-3": "Subheading for Heading",
+            "text-3": "<p>Use the text to answer questions<\/p>",
+            "subheading-4": "Subheading for Heading",
+            "text-4": "<p>Use the text to answer questions<\/p>",
+            "subheading-5": "Subheading for Heading",
+            "text-5": "<p>Use the text to answer questions<\/p>",
+            "subheading-6": "Subheading for Heading",
+            "text-6": "<p>Use the text to answer questions<\/p>",
+            "subheading-7": "Subheading for Heading",
+            "text-7": "<p>Use the text to answer questions<\/p>",
             "map_popup": false,
             "map_text": "",
-            "text": "<p>1.1 Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions  Use the text to answer questions <\/p>",
             "button_link2": "",
             "button_text2": "Button text",
             "button_chat2": false,
@@ -75,9 +76,22 @@
           "type": "question",
           "settings": {
             "title": "2 Frequently asked question",
+            "subheading-1": "Subheading for Heading",
+            "text-1": "<p>Use the text to answer questions<\/p>",
+            "subheading-2": "Subheading for Heading",
+            "text-2": "<p>Use the text to answer questions<\/p>",
+            "subheading-3": "Subheading for Heading",
+            "text-3": "<p>Use the text to answer questions<\/p>",
+            "subheading-4": "Subheading for Heading",
+            "text-4": "<p>Use the text to answer questions<\/p>",
+            "subheading-5": "Subheading for Heading",
+            "text-5": "<p>Use the text to answer questions<\/p>",
+            "subheading-6": "Subheading for Heading",
+            "text-6": "<p>Use the text to answer questions<\/p>",
+            "subheading-7": "Subheading for Heading",
+            "text-7": "<p>Use the text to answer questions<\/p>",
             "map_popup": true,
             "map_text": "",
-            "text": "<p><\/p><p>2.1 Use the text to answer questions<\/p>",
             "button_link2": "",
             "button_text2": "Button text",
             "button_chat2": false,
@@ -85,25 +99,26 @@
             "anchor_link": ""
           }
         },
-        "faq-3": {
-          "type": "rich-text",
-          "disabled": true,
-          "settings": {
-            "title": "Returns",
-            "text": "",
-            "button_link": "",
-            "button_text": "Button Text",
-            "button_chat": false,
-            "align_text": "left"
-          }
-        },
         "faq-4": {
           "type": "question",
           "settings": {
             "title": "3 Frequently asked question",
+            "subheading-1": "Subheading for Heading",
+            "text-1": "<p>Use the text to answer questions<\/p>",
+            "subheading-2": "Subheading for Heading",
+            "text-2": "<p>Use the text to answer questions<\/p>",
+            "subheading-3": "Subheading for Heading",
+            "text-3": "<p>Use the text to answer questions<\/p>",
+            "subheading-4": "Subheading for Heading",
+            "text-4": "<p>Use the text to answer questions<\/p>",
+            "subheading-5": "Subheading for Heading",
+            "text-5": "<p>Use the text to answer questions<\/p>",
+            "subheading-6": "Subheading for Heading",
+            "text-6": "<p>Use the text to answer questions<\/p>",
+            "subheading-7": "Subheading for Heading",
+            "text-7": "<p>Use the text to answer questions<\/p>",
             "map_popup": false,
             "map_text": "",
-            "text": "<p>3.1 Use the text to answer questions<\/p>",
             "button_link2": "",
             "button_text2": "Button text",
             "button_chat2": false,
@@ -113,10 +128,8 @@
         }
       },
       "block_order": [
-        "faq-0",
         "faq-1",
         "faq-2",
-        "faq-3",
         "faq-4"
       ],
       "settings": {
