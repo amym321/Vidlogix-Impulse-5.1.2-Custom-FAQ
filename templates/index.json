@@ -82,8 +82,8 @@
             "color_accent": "rgba(0,0,0,0)",
             "text_color": "#000000",
             "text_align": "vertical-center horizontal-center",
-            "image": "shopify:\/\/shop_images\/1.Landscape.png",
-            "image_mobile": "shopify:\/\/shop_images\/107.Vertical.png",
+            "image": "shopify:\/\/shop_images\/1.Landscape.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/107.Vertical.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
