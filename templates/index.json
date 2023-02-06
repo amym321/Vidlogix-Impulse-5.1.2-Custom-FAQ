@@ -76,8 +76,8 @@
       "settings": {
         "full_width": false,
         "gutter_size": 0,
-        "space_above": true,
-        "space_below": true
+        "space_above": false,
+        "space_below": false
       }
     },
     "1637960314fb05cbb5": {
