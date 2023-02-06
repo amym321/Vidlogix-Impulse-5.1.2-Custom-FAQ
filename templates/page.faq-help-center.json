@@ -40,7 +40,7 @@
             "title": "2 Frequently asked question",
             "map_popup": true,
             "map_text": "",
-            "text": "<p>2.1 Use the text to answer questions<\/p>",
+            "text": "<p><\/p><p>2.1 Use the text to answer questions<\/p>",
             "button_link2": "",
             "button_text2": "Button text",
             "button_chat2": false,
@@ -62,14 +62,14 @@
         "faq-4": {
           "type": "question",
           "settings": {
-            "title": "11 Frequently asked question",
+            "title": "3 Frequently asked question",
             "map_popup": false,
-            "map_text": "<p><\/p>",
-            "text": "<p>Use the text to answer questions<\/p>",
+            "map_text": "",
+            "text": "<p>3.1 Use the text to answer questions<\/p>",
             "button_link2": "",
             "button_text2": "Button text",
             "button_chat2": false,
-            "text2": "<p>Use the text to answer questions<\/p>",
+            "text2": "<p>3.2 Use the text to answer questions<\/p>",
             "anchor_link": ""
           }
         }
