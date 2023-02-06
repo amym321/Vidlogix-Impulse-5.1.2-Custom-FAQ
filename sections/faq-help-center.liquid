@@ -3,7 +3,9 @@
 
 <Div class="help-center {% unless template == 'page.terms' %} index-section {% endunless %}">
 
-  <div class="page-width">
+  <div 
+  {% comment %} class="page-width" {% endcomment %}
+  >
 
     {%- if section.settings.title != blank -%}
       <header class="section-header">
@@ -15,12 +17,16 @@
 
     {%- if section.blocks.size > 0 -%}
 
-<div class="help-center-wrapper" style="display: flex;">
+<div class="help-center-wrapper" style="display: flex; margin: 0 auto; min-height: 375px;">
+
 {% comment %} left side - questions {% endcomment %}
-  <div class="help-center-left" style="flex-basis: 33%; background-color: #fff !important;">
+  <div class="help-center-left" style="flex-basis: 33%; flex-shrink: 0;
+    padding-top: 50px;  padding-bottom: 50px;
+    background-color: #fff !important;">
+    <div class="left-wrapper" style="padding: 50px 50px;">
       {%- for block in section.blocks -%}
 
-        <div {{ block.shopify_attributes }}>
+        <div {{ block.shopify_attributes }} style="max-width: 500px;">
           {% case block.type %}
 
             {% when 'rich-text'%}
@@ -59,25 +65,33 @@
                 {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
                 <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
                   {%- render 'collapsible-icons-alt', no_circle: true -%}
-                  <span itemprop="name">{{ block.settings.title }}</span>
+                  <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                 </button>
+
+                <h4 style="margin-left:30px"><span itemprop="name">{{ block.settings.subheading-1 }}</span></h4>
+                <h4 style="margin-left:30px"><span itemprop="name">{{ block.settings.subheading-2 }}</span></h4>
 
               </div>
           {% endcase %}
 
         </div>
       {%- endfor -%}
+    </div>
   </div>
 
 {% comment %} right side - answers {% endcomment %}
-  <div class="help-center-right" style="flex-basis: 66%; background: top center repeat;
-    background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
+  <div class="help-center-right" style="flex-basis: 67%; flex-grow: 1; 
+      padding-top: 50px;  padding-bottom: 50px;
+      background: top center repeat;
+      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
+    <div class="right-wrapper" style="padding: 50px 50px;">
+    
       {%- for block in section.blocks -%}
 
       {% comment %} UPS Map popup - am {% endcomment %}
       {% render 'map-popup' %}
 
-        <div {{ block.shopify_attributes }}>
+        <div {{ block.shopify_attributes }} style="flex-basis: 67%; max-width: 1000px;">
           {% case block.type %}
 
             {% when 'question'%}
@@ -86,7 +100,7 @@
                 {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
                 <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
                   {%- render 'collapsible-icons-alt', no_circle: true -%}
-                  <span itemprop="name">{{ block.settings.title }}</span>
+                  <h2><span itemprop="name">{{ block.settings.title }}</span></h2>
                 </button>
                 <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                   <div class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
@@ -100,18 +114,30 @@
                         <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
                       {% endif %}
                     {% endif %}
-                    {{ block.settings.text }}
-                      {% comment %} code added - am. added more text & button to question block{% endcomment %}
-                      {% if block.settings.button_chat2  %}
-                      <a href="/pages\/contact" class="btn">
-                        {{ block.settings.button_text2 }}
-                      </a>
-                    {% elsif block.settings.button_link2 != blank %}
-                      <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
-                        {{ block.settings.button_text2 }}
-                      </a>
-                    {% endif %}
-                    {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
+
+                    <h3>{{ block.settings.subheading-1 }}</h3>
+                    {{ block.settings.text-1 }}
+                    <h3>{{ block.settings.subheading-2 }}</h3>
+                    {{ block.settings.text-2 }}
+                    <h3>{{ block.settings.subheading-3 }}</h3>
+                    {{ block.settings.text-3 }}
+                    <h3>{{ block.settings.subheading-4 }}</h3>
+                    {{ block.settings.text-4 }}
+                    <h3>{{ block.settings.subheading-5 }}</h3>
+                    {{ block.settings.text-6 }}
+                    <h3>{{ block.settings.subheading-5 }}</h3>
+                    {{ block.settings.text-6 }}
+                            {% comment %} code added - am. added more text & button to question block{% endcomment %}
+                            {% if block.settings.button_chat2  %}
+                              <a href="/pages\/contact" class="btn">
+                                {{ block.settings.button_text2 }}
+                              </a>
+                            {% elsif block.settings.button_link2 != blank %}
+                              <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
+                                {{ block.settings.button_text2 }}
+                              </a>
+                            {% endif %}
+                            {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
                   </div>
 
                 </div>
@@ -120,6 +146,8 @@
 
         </div>
       {%- endfor -%}
+    </div>
+
   </div>
 
 </div>
@@ -138,23 +166,38 @@
 {%- if section.settings.divider -%}</div>{%- endif -%}
 
 <style>
+  /* Slidewhow Hero Banner */
+  .help-center-banner .animation-contents {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  /* FAQ's */
+  .help-center {
+    padding:0;
+    margin:0;
+  }
+  .help-center h1, .help-center h2, .help-center h3, .help-center h4, .help-center h5 {
+    font-family: "Sofia Pro";
+  }
+  
   @media screen and (min-width: 769px) {
     .help-center {
-      padding:0;
-      margin:0;
-      background: top center repeat;
-      background-image: url('https://cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_2.jpg');
+      /*background: top center repeat;
+      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_2.jpg');*/
     }
   }
   @media screen and (max-width: 768px) {
     .help-center {
       background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');
+      /*background-image: linear-gradient(to right, white, white,  #ffffff00, #ffffff00);*/
+      /*background-image: linear-gradient(to right, white, white,  #ffffff00), url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');*/
     }
   }
   .help-center .help-center-left,
   .help-center .help-center-right {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    /*padding-top: 50px;
+    padding-bottom: 50px;*/
   }
   .help-center .faq-section {
     border-bottom: 1px solid #cccbcb;
@@ -176,70 +219,100 @@
     ],
     "blocks": [
       {
-        "type": "rich-text",
-        "name": "Rich text",
+        "type": "question",
+        "name": "FAQ",
         "settings": [
           {
             "type": "text",
             "id": "title",
-            "label": "Title",
-            "default": "Rich text"
+            "label": "Heading",
+            "default": "Heading",
+            "info": "Headings are the 1st level."
+          },
+          {
+            "type": "text",
+            "id": "subheading-1",
+            "label": "Subheading 1",
+            "default": "Subheading for Heading",
+            "info": "Subheadings are the indented 2nd level within a Heading."
           },
           {
             "type": "richtext",
-            "id": "text",
-            "label": "Text",
-            "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>"
-          },
-          
-          {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button link"
+            "id": "text-1",
+            "label": "Text Response to Subheading 1",
+            "default": "<p>Use the text to answer questions</p>"
           },
           {
             "type": "text",
-            "id": "button_text",
-            "label": "Button text",
-            "default": "Button Text"
+            "id": "subheading-2",
+            "label": "Subheading 2",
+            "default": "Subheading for Heading"
           },
           {
-            "type": "checkbox",
-            "id": "button_chat",
-            "label": "Button launches chat widget. Defaults to Contact page for now",
-            "default": false
+            "type": "richtext",
+            "id": "text-2",
+            "label": "Text Response to Subheading 2",
+            "default": "<p>Use the text to answer questions</p>"
           },
-          {
-            "type": "select",
-            "id": "align_text",
-            "label": "Text alignment",
-            "default": "left",
-            "options": [
-              {
-                "value": "left",
-                "label": "Left"
-              },
-              {
-                "value": "center",
-                "label": "Centered"
-              },
-              {
-                "value": "right",
-                "label": "Right"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "question",
-        "name": "Question",
-        "settings": [
           {
             "type": "text",
-            "id": "title",
-            "label": "Question",
-            "default": "11 Frequently asked question"
+            "id": "subheading-3",
+            "label": "Subheading 3",
+            "default": "Subheading for Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "text-3",
+            "label": "Text Response to Subheading 3",
+            "default": "<p>Use the text to answer questions</p>"
+          },
+          {
+            "type": "text",
+            "id": "subheading-4",
+            "label": "Subheading 4",
+            "default": "Subheading for Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "text-4",
+            "label": "Text Response to Subheading 4",
+            "default": "<p>Use the text to answer questions</p>"
+          },
+          {
+            "type": "text",
+            "id": "subheading-5",
+            "label": "Subheading 5",
+            "default": "Subheading for Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "text-5",
+            "label": "Text Response to Subheading 5",
+            "default": "<p>Use the text to answer questions</p>"
+          },
+          {
+            "type": "text",
+            "id": "subheading-6",
+            "label": "Subheading 6",
+            "default": "Subheading for Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "text-6",
+            "label": "Text Response to Subheading 6",
+            "default": "<p>Use the text to answer questions</p>"
+          },
+          {
+            "type": "text",
+            "id": "subheading-7",
+            "label": "Subheading 7",
+            "default": "Subheading for Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "text-7",
+            "label": "Text Response to Subheading 7",
+            "default": "<p>Use the text to answer questions</p>"
           },
           {
             "type": "checkbox",
@@ -253,13 +326,6 @@
             "label": "Map Popup Text",
             "default": "<p></p>",
             "info": "Empty text opens Beacon popup. Entered text opens custom popup."
-          },
-
-          {
-            "type": "richtext",
-            "id": "text",
-            "label": "Text Response",
-            "default": "<p>Use the text to answer questions</p>"
           },
           {
             "type": "url",
@@ -278,12 +344,12 @@
             "label": "Button launches chat widget. Defaults to Contact page for now",
             "default": false
           },
-          {
-            "type": "richtext",
-            "id": "text2",
-            "label": "Text Response",
-            "default": "<p>Use the text to answer questions</p>"
-          },
+              {
+                "type": "richtext",
+                "id": "text2",
+                "label": "Text Response",
+                "default": "<p>Use the text to answer questions</p>"
+              },
           {
             "type": "text",
             "id": "anchor_link",
