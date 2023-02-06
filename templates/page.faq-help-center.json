@@ -13,9 +13,9 @@
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "Endless\npossibilities.",
-            "title_size": 80,
-            "subheading": "Bring your brand to life",
+            "title": "Shipping & Deliveries",
+            "title_size": 50,
+            "subheading": "",
             "chat_widget": false,
             "link": "",
             "link_text": "Optional button",
@@ -23,7 +23,8 @@
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
             "text_color": "#000000",
-            "text_align": "vertical-center horizontal-center",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify:\/\/shop_images\/coffee-shop-working-watercolour.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
