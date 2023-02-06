@@ -1,28 +1,5 @@
 {
   "sections": {
-    "d28b4070-7e34-433e-8873-aba800865873": {
-      "type": "promo-grid",
-      "disabled": true,
-      "blocks": {
-        "0d1b1348-4f2d-4e6f-a652-e67b3a6864cf": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/2.Landscape.png",
-            "link": "",
-            "width": "100"
-          }
-        }
-      },
-      "block_order": [
-        "0d1b1348-4f2d-4e6f-a652-e67b3a6864cf"
-      ],
-      "settings": {
-        "full_width": false,
-        "gutter_size": 20,
-        "space_above": true,
-        "space_below": true
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -58,6 +35,29 @@
         "style": "bars",
         "autoplay": true,
         "autoplay_speed": 7
+      }
+    },
+    "d28b4070-7e34-433e-8873-aba800865873": {
+      "type": "promo-grid",
+      "disabled": true,
+      "blocks": {
+        "0d1b1348-4f2d-4e6f-a652-e67b3a6864cf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2.Landscape.png",
+            "link": "",
+            "width": "100"
+          }
+        }
+      },
+      "block_order": [
+        "0d1b1348-4f2d-4e6f-a652-e67b3a6864cf"
+      ],
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": true,
+        "space_below": true
       }
     },
     "1637960314fb05cbb5": {
@@ -261,8 +261,8 @@
     }
   },
   "order": [
-    "d28b4070-7e34-433e-8873-aba800865873",
     "slideshow",
+    "d28b4070-7e34-433e-8873-aba800865873",
     "1637960314fb05cbb5",
     "16374663436f00eb2c",
     "blog-posts",
