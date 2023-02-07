@@ -2,7 +2,6 @@
   "sections": {
     "slideshow": {
       "type": "slideshow",
-      "disabled": true,
       "blocks": {
         "3028a9f7-970f-4d56-824e-9723e4992943": {
           "type": "image",
@@ -40,6 +39,7 @@
     },
     "d28b4070-7e34-433e-8873-aba800865873": {
       "type": "promo-grid",
+      "disabled": true,
       "blocks": {
         "0d1b1348-4f2d-4e6f-a652-e67b3a6864cf": {
           "type": "image",
