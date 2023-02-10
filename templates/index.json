@@ -44,11 +44,31 @@
             "overlay_opacity": 4,
             "focal_point": "80% 100%"
           }
+        },
+        "7ac7585f-9cd9-4e5c-a847-155fd90378da": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Nest Wifi",
+            "title_size": 42,
+            "subheading": "The easy to set up, whole‑home Wi‑Fi.",
+            "chat_widget": false,
+            "link": "",
+            "link_text": "Optional button",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "text_align": "vertical-center horizontal-center",
+            "overlay_opacity": 0,
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
         "3028a9f7-970f-4d56-824e-9723e4992943",
-        "d2bdd368-77dd-43ff-8da3-bbcf9de25c8f"
+        "d2bdd368-77dd-43ff-8da3-bbcf9de25c8f",
+        "7ac7585f-9cd9-4e5c-a847-155fd90378da"
       ],
       "settings": {
         "section_height": "550px",
