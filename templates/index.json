@@ -62,7 +62,7 @@
             "text_align": "vertical-center horizontal-left",
             "image": "shopify:\/\/shop_images\/Google-Nest-Wifi.jpg",
             "overlay_opacity": 0,
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         }
       },
