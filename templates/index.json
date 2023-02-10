@@ -37,11 +37,11 @@
             "link_text": "Shop Now",
             "link_2": "",
             "link_text_2": "",
-            "color_accent": "rgba(0,0,0,0)",
+            "color_accent": "#f6c12f",
             "text_color": "#000000",
-            "text_align": "vertical-center horizontal-center",
-            "overlay_opacity": 0,
-            "focal_point": "center center"
+            "text_align": "vertical-center horizontal-left",
+            "overlay_opacity": 4,
+            "focal_point": "80% 100%"
           }
         }
       },
