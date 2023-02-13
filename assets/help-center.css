@@ -1,3 +1,4 @@
+/* from vermicular */
 
 /* wrapper */
 @media (min-width: 1024px) {
@@ -11,8 +12,8 @@
 /* left container <aside class="help-center__sidebar" style=""> */
 @media (min-width: 1485px) {
 .help-center__sidebar {
-    -ms-flex-preferred-size: 490px;
-    flex-basis: 490px;
+    -ms-flex-preferred-size: 33%;
+    flex-basis: 33%;
   }
 }
 @media (min-width: 1024px) {
@@ -39,3 +40,19 @@
 
 
 /* right container */
+@media (min-width: 1024px) {
+  .help-center__main {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+  }
+}
+@media (min-width: 800px) {
+  .help-center__main {
+      background: url(../img/texture_iron-white.jpg) top center repeat;
+  }
+}
+.help-center__main {
+  padding: 0;
+  min-height: 300px;
+}

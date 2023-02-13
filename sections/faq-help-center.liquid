@@ -41,14 +41,41 @@
                   <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                 </button>
 
-                <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                  {%- render 'collapsible-icons-alt', no_circle: true -%}
-                  <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-1 }}</span></h4>
-                </button>
-                <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                  {%- render 'collapsible-icons-alt', no_circle: true -%}
-                  <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-2 }}</span></h4>
-                </button>
+                {% if block.settings.subheading-1 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-1 }}</span></h4>
+                  </button>
+                {% endif %}
+                {% if block.settings.subheading-2 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-2 }}</span></h4>
+                  </button>
+                {% endif %}
+                {% if block.settings.subheading-3 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-3 }}</span></h4>
+                  </button>
+                {% endif %}
+                {% if block.settings.subheading-4 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-4 }}</span></h4>
+                  </button>
+                {% endif %} 
+                {% if block.settings.subheading-5 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-5 }}</span></h4>
+                  </button>
+                {% endif %}
+                {% if block.settings.subheading-6 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-6 }}</span></h4>
+                  </button>
+                {% endif %} 
+                {% if block.settings.subheading-7 != empty %}
+                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-7 }}</span></h4>
+                  </button>
+                {% endif %}
 
               </div>
           {% endcase %}
@@ -96,9 +123,10 @@
                   <span class="" style="transform: translateY(-10px);">{%- render 'collapsible-icons-alt', no_circle: true -%}</span>
                   {% comment %} <span itemprop="name">{{ block.settings.title }}</span> {% endcomment %}
                   <h3><span style="font-weight:bold;">{{ block.settings.subheading-1 }}</span></h3>
-
                 </button>
-                <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+
+<div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+
                   <div class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
                   {% comment %} UPS Map popup - am {% endcomment %}
                     {% if block.settings.map_popup %}
