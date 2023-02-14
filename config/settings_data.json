@@ -259,7 +259,7 @@
       "newsletter-popup": {
         "type": "newsletter-popup",
         "settings": {
-          "mode": "disabled",
+          "mode": "testing",
           "popup_seconds": 5,
           "popup_days": 30,
           "popup_title": "Sonos Arc Giveaway",
@@ -267,6 +267,8 @@
           "popup_text": "<p>Never miss an offer. Join the list to receive exclusive offers and updates. Plus, enter to win a coveted <strong>Sonos Arc Soundbar<\/strong>.<br\/><a href=\"\/pages\/contest\" target=\"_blank\" title=\"Vidlogix Gear Giveaway\">Contest Rules<\/a><\/p>",
           "close_text": "No thanks! I don't like free gear!",
           "enable_newsletter": true,
+          "button_chat": true,
+          "chat_button_label": "get help",
           "button_label": "Optional button",
           "button_link": "",
           "enable_button": false
