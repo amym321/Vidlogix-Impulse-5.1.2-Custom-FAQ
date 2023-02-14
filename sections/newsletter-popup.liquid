@@ -52,8 +52,7 @@
           <button type="button" class="text-close js-modal-close">{{ section.settings.close_text }}</button>
 
           {% if section.settings.button_chat == true and section.settings.chat_button_label != blank %}
-            <br><br>
-            <a  href="#" onclick="Beacon('open');" class="btn">
+            <a  href="#" onclick="Beacon('open');" class="btn chat-button">
               {{ section.settings.chat_button_label }}
             </a>
           {% endif %}
