@@ -51,12 +51,6 @@
 
           <button type="button" class="text-close js-modal-close">{{ section.settings.close_text }}</button>
 
-          {% if section.settings.button_chat == true and section.settings.chat_button_label != blank %}
-            <a  href="#" onclick="Beacon('open');" class="btn chat-button">
-              {{ section.settings.chat_button_label }}
-            </a>
-          {% endif %}
-
         </div>
       </div>
 
@@ -159,17 +153,6 @@
         "id": "enable_newsletter",
         "label": "Enable newsletter",
         "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "button_chat",
-        "label": "Button opens chat widget Help Scout Beacon",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "chat_button_label",
-        "label": "Button label"
       },
       {
         "type": "header",
