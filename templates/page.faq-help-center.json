@@ -12,8 +12,8 @@
         "template--14856597438531__657f9cde-4112-4088-8db3-fe9c80e32953-1675719952eeb297ef-0": {
           "type": "image",
           "settings": {
-            "top_subheading": "HELP CENTER",
-            "title": "Returns & Refunds",
+            "top_subheading": "",
+            "title": "HELP CENTER",
             "title_size": 50,
             "subheading": "",
             "chat_widget": false,
