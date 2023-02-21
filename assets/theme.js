@@ -1960,18 +1960,18 @@ lazySizesConfig.expFactor = 4;
       trigger: '.collapsible-trigger',
       module: '.collapsible-content',
       moduleInner: '.collapsible-content__inner',
-      tabs: '.collapsible-trigger--tab',
-      helpTrigger: '.collapsible-right-trigger',
-      helpModule: '.collapsible-right-container'
+      tabs: '.collapsible-trigger--tab'
+      // helpTrigger: '.collapsible-right-trigger',
+      // helpModule: '.collapsible-right-container'
     };
   
     var classes = {
       hide: 'hide',
       open: 'is-open',
       autoHeight: 'collapsible--auto-height',
-      tabs: 'collapsible-trigger--tab',
-      helpTrigger: '.collapsible-right-trigger',
-      helpModule: '.collapsible-right-container'
+      tabs: 'collapsible-trigger--tab'
+      // helpTrigger: '.collapsible-right-trigger',
+      // helpModule: '.collapsible-right-container'
     };
   
     var namespace = '.collapsible';
@@ -2000,14 +2000,11 @@ lazySizesConfig.expFactor = 4;
       var isOpen = el.classList.contains(classes.open);
       var isTab = el.classList.contains(classes.tabs);
       var moduleId = el.getAttribute('aria-controls');
+      var moduleIdRight = el.getAttribute('aria-controls-right');
       var container = document.getElementById(moduleId);
-      var isHelpCenter = el.classList.contains(classes.helpModule);
+      var containerRight = document.getElementById(moduleIdRight);
+      // var isHelpCenter = el.classList.contains(classes.helpModule);
   
-      // console.log('log 10) element'+ el);
-      // console.log('log 11) element .is-open'+ isOpen);
-      // console.log('log 12) element .collapsible-trigger--tab'+ isTab);
-      // console.log('log 13) attribute aria-controls'+ moduleId);
-      // console.log('log 14) container w/ attribute'+ container);
 
       if (!moduleId) {
         moduleId = el.dataset.controls;
@@ -2037,6 +2034,13 @@ lazySizesConfig.expFactor = 4;
       var isAutoHeight = container.classList.contains(classes.autoHeight);
       var parentCollapsibleEl = container.parentNode.closest(selectors.module);
       var childHeight = height;
+
+      if (containerRight) {
+        var heightRight = containerRight.querySelector(selectors.moduleInner).offsetHeight;
+        var isAutoHeightRight = containerRight.classList.contains(classes.autoHeight);
+        var parentCollapsibleElRight = containerRight.parentNode.closest(selectors.module);
+        var childHeightRight = heightRight;
+      }
   
 
       // if (isHelpCenter) {
@@ -2089,9 +2093,20 @@ lazySizesConfig.expFactor = 4;
           setTransitionHeight(container, height, isOpen, isAutoHeight);
         }, 0);
       }
+
+      if (isOpen && isAutoHeightRight) {
+        setTimeout(function() {
+          heightRight = 0;
+          setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
+        }, 0);
+      }
   
       if (isOpen && !isAutoHeight) {
         height = 0;
+      }
+
+      if (isOpen && !isAutoHeightRight) {
+        heightRight = 0;
       }
   
       el.setAttribute('aria-expanded', !isOpen);
@@ -2100,8 +2115,13 @@ lazySizesConfig.expFactor = 4;
       } else {
         el.classList.add(classes.open);
       }
-  
+
       setTransitionHeight(container, height, isOpen, isAutoHeight);
+
+      if (containerRight) {
+        setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
+      }
+
   
       // If we are in a nested collapsible element like the mobile nav,
       // also set the parent element's height
@@ -2117,6 +2137,20 @@ lazySizesConfig.expFactor = 4;
                             : height + parentCollapsibleEl.offsetHeight;
 
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
+      }
+
+      if (parentCollapsibleElRight) {
+        var parentHeight = parentCollapsibleElRight.style.heightRight;
+
+        if (isOpen && parentHeightRight === 'auto') {
+          childHeightRight = 0; // Set childHeight to 0 if parent is initially opened
+        }
+
+          var totalHeightRight = isOpen
+                            ? parentCollapsibleElRight.offsetHeight - childHeightRight
+                            : heightRight + parentCollapsibleElRight.offsetHeight;
+
+          setTransitionHeightRight(parentCollapsibleElRight, totalHeightRight, false, false);
       }
   
       // If Shopify Product Reviews app installed,
