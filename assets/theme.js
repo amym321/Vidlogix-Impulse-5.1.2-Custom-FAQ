@@ -1949,6 +1949,10 @@ lazySizesConfig.expFactor = 4;
     return CartForm;
   })();
   
+
+// faq help center
+
+
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
   theme.collapsibles = (function() {
@@ -1956,14 +1960,18 @@ lazySizesConfig.expFactor = 4;
       trigger: '.collapsible-trigger',
       module: '.collapsible-content',
       moduleInner: '.collapsible-content__inner',
-      tabs: '.collapsible-trigger--tab'
+      tabs: '.collapsible-trigger--tab',
+      helpTrigger: '.collapsible-right-trigger',
+      helpModule: '.collapsible-right-container'
     };
   
     var classes = {
       hide: 'hide',
       open: 'is-open',
       autoHeight: 'collapsible--auto-height',
-      tabs: 'collapsible-trigger--tab'
+      tabs: 'collapsible-trigger--tab',
+      helpTrigger: '.collapsible-right-trigger',
+      helpModule: '.collapsible-right-container'
     };
   
     var namespace = '.collapsible';
@@ -1993,7 +2001,14 @@ lazySizesConfig.expFactor = 4;
       var isTab = el.classList.contains(classes.tabs);
       var moduleId = el.getAttribute('aria-controls');
       var container = document.getElementById(moduleId);
+      var isHelpCenter = el.classList.contains(classes.helpModule);
   
+      // console.log('log 10) element'+ el);
+      // console.log('log 11) element .is-open'+ isOpen);
+      // console.log('log 12) element .collapsible-trigger--tab'+ isTab);
+      // console.log('log 13) attribute aria-controls'+ moduleId);
+      // console.log('log 14) container w/ attribute'+ container);
+
       if (!moduleId) {
         moduleId = el.dataset.controls;
       }
@@ -2023,10 +2038,39 @@ lazySizesConfig.expFactor = 4;
       var parentCollapsibleEl = container.parentNode.closest(selectors.module);
       var childHeight = height;
   
-      if (isTab) {
-        if(isOpen) {
-          isTransitioning = false;
-          return;
+
+      // if (isHelpCenter) {
+        // if(isOpen) {
+        //   isTransitioning = false;
+        //   return;
+        // }
+  
+      //   if (  block.id  ) {
+      //     el.classList.add(classes.open);
+      //   } else {
+      //     el.classList.remove(classes.open);
+      //   }
+
+
+      //   var newModule;
+      //   document.querySelectorAll(selectors.helpModule + '[data-help="'+ el.dataset.id +'"]').forEach(el => {
+      //     el.classList.remove(classes.open);
+      //     newModule = document.querySelector('#' + el.getAttribute('aria-controls'));
+      //     setTransitionHeight(newModule, 0, true);
+      //   });
+      // }
+
+        // if (isHelpCenter != null){
+        //   trigger.onclick = function() {
+        //     helpModule.classList.add(classes.open);
+        //   }
+        // }
+
+
+        if (isTab) {
+          if(isOpen) {
+            isTransitioning = false;
+            return;
         }
   
         var newModule;
@@ -2116,6 +2160,9 @@ lazySizesConfig.expFactor = 4;
     };
   })();
   
+
+
+
   // Shopify-built select-like popovers for currency and language selection
   theme.Disclosure = (function() {
     var selectors = {

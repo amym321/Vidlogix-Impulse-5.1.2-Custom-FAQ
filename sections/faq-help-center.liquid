@@ -33,49 +33,55 @@
         <div {{ block.shopify_attributes }} style="max-width: 500px;">
           {% case block.type %}
             {% when 'question'%}
-              <div class="faq-section" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <div class="faq-section faq-left-{{block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
                 {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
-                <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
                   {%- render 'collapsible-icons-alt', no_circle: true -%}
                   <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                 </button>
 
-                {% if block.settings.subheading-1 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-1 }}</span></h4>
-                  </button>
-                {% endif %}
-                {% if block.settings.subheading-2 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-2 }}</span></h4>
-                  </button>
-                {% endif %}
-                {% if block.settings.subheading-3 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-3 }}</span></h4>
-                  </button>
-                {% endif %}
-                {% if block.settings.subheading-4 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-4 }}</span></h4>
-                  </button>
-                {% endif %} 
-                {% if block.settings.subheading-5 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-5 }}</span></h4>
-                  </button>
-                {% endif %}
-                {% if block.settings.subheading-6 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-6 }}</span></h4>
-                  </button>
-                {% endif %} 
-                {% if block.settings.subheading-7 != empty %}
-                  <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                    <h4><span itemprop="name" style="margin-left:30px" >{{ block.settings.subheading-7 }}</span></h4>
-                  </button>
-                {% endif %}
+<div id="FAQ-content-left-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+  <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
+
+                  {% if block.settings.subheading-1 != empty %}
+                    <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-1 }}</a></h4>
+                    </button>
+                  {% endif %}
+                  {% if block.settings.subheading-2 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-2 }}</a></h4>
+                    </button>
+                  {% endif %}
+                  {% if block.settings.subheading-3 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-3 }}</a></h4>
+                    </button>
+                  {% endif %}
+                  {% if block.settings.subheading-4 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-4 }}</a></h4>
+                    </button>
+                  {% endif %} 
+                  {% if block.settings.subheading-5 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-5 }}</a></h4>
+                    </button>
+                  {% endif %}
+                  {% if block.settings.subheading-6 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-6 }}</a></h4>
+                    </button>
+                  {% endif %} 
+                  {% if block.settings.subheading-7 != empty %}
+                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-7 }}</a></h4>
+                    </button>
+                  {% endif %}
+
+                </div>
+                </div>
 
               </div>
           {% endcase %}
@@ -83,6 +89,7 @@
         </div>
       {%- endfor -%}
 
+      {% comment %} contact form {% endcomment %}
       <div class="help-contact-box" style="background: #f7f7f7; padding: 25px 25px 40px; margin: 110px 0 40px;">
         <div class="" style=" font-weight: 700; padding-bottom: 10px;">
           <h3>{{ section.settings.contact-help }}</h3>
@@ -91,13 +98,15 @@
           <svg style="  width: 30px; transform: translateY(10px);" class="svg-icon" viewBox="0 0 20 20">
             <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
           </svg>
-          <span style="padding-left: 8px;" class="  rte"><a href="mailto:hello@vidlogix.com" target="_blank" title="hello@vidlogix.com">hello@vidlogix.com</a></span>
+          <span style="padding-left: 8px;" class="rte"><a href="#" onclick="Beacon('open');" >hello@vidlogix.com</a></span>
         </div>
       </div>
 
     </div>
     </div>
   </div>
+
+
 
 {% comment %} right side - answers {% endcomment %}
   <div class="help-center-right" style="flex-grow: 1; 
@@ -116,58 +125,68 @@
           {% case block.type %}
 
             {% when 'question'%}
-              <div class="faq-section" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
-                {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
-                <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
-                  <span class="" style="transform: translateY(-10px);">{%- render 'collapsible-icons-alt', no_circle: true -%}</span>
-                  {% comment %} <span itemprop="name">{{ block.settings.title }}</span> {% endcomment %}
-                  <h3><span style="font-weight:bold;">{{ block.settings.subheading-1 }}</span></h3>
-                </button>
+              <div id="FAQ-content-right-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
 
-<div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 
-                  <div class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
-                  {% comment %} UPS Map popup - am {% endcomment %}
-                    {% if block.settings.map_popup %}
-                      {% if block.settings.map_text != empty %}
-                        {% comment %} custom coded popup - am {% endcomment %}
-                        <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
-                      {% else %}
-                        {% comment %} Help Scout Beacon popup - am {% endcomment %}
-                        <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
+                <div class="faq-section faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                  <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
+
+  {% comment %} <div class="collapsible-right-container "> {% endcomment %}
+
+  {% comment %} <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"> {% endcomment %}
+
+                    <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+                    {% comment %} UPS Map popup - am {% endcomment %}
+                      {% if block.settings.map_popup %}
+                        {% if block.settings.map_text != empty %}
+                          {% comment %} custom coded popup - am {% endcomment %}
+                          <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
+                        {% else %}
+                          {% comment %} Help Scout Beacon popup - am {% endcomment %}
+                          <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
+                        {% endif %}
                       {% endif %}
-                    {% endif %}
 
-                    {% if block.settings.text-1 != empty %}
+                      {% comment %} {% if block.settings.text-1 != empty %}
+                        {{ block.settings.text-1 }}
+                      {% endif %} {% endcomment %}
+
+                      
+                      <h3 id="" ><span>{{ block.settings.subheading-1 }}</span></h3>
                       {{ block.settings.text-1 }}
-                    {% endif %}
+                      <h3><span>{{ block.settings.subheading-2 }}</span></h3>
+                      {{ block.settings.text-2 }}
+                      <span>{{ block.settings.subheading-3 }}</span>
+                      {{ block.settings.text-3 }}
+                      <span>{{ block.settings.subheading-4 }}</span>
+                      {{ block.settings.text-4 }}
+                      <span>{{ block.settings.subheading-5 }}</span>
+                      {{ block.settings.text-6 }}
+                      <span>{{ block.settings.subheading-5 }}</span>
+                      {{ block.settings.text-6 }}
+                              {% comment %} code added - am. added more text & button to question block{% endcomment %}
+                              {% if block.settings.button_chat2  %}
+                                <a href="/pages\/contact" class="btn">
+                                  {{ block.settings.button_text2 }}
+                                </a>
+                              {% elsif block.settings.button_link2 != blank %}
+                                <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
+                                  {{ block.settings.button_text2 }}
+                                </a>
+                              {% endif %}
+                              {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
+                    </div>
 
-                    <h3><span>{{ block.settings.subheading-2 }}</span></h3>
-                    {{ block.settings.text-2 }}
-                    <span>{{ block.settings.subheading-3 }}</span>
-                    {{ block.settings.text-3 }}
-                    <span>{{ block.settings.subheading-4 }}</span>
-                    {{ block.settings.text-4 }}
-                    <span>{{ block.settings.subheading-5 }}</span>
-                    {{ block.settings.text-6 }}
-                    <span>{{ block.settings.subheading-5 }}</span>
-                    {{ block.settings.text-6 }}
-                            {% comment %} code added - am. added more text & button to question block{% endcomment %}
-                            {% if block.settings.button_chat2  %}
-                              <a href="/pages\/contact" class="btn">
-                                {{ block.settings.button_text2 }}
-                              </a>
-                            {% elsif block.settings.button_link2 != blank %}
-                              <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
-                                {{ block.settings.button_text2 }}
-                              </a>
-                            {% endif %}
-                            {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
-                  </div>
+                  {% comment %} </div> {% endcomment %}
+
+  {% comment %} </div> {% endcomment %}
 
                 </div>
+
               </div>
+              </div>
+
           {% endcase %}
 
         </div>
