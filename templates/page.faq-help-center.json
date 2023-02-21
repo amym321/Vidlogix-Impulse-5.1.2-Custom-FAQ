@@ -68,7 +68,7 @@
             "button_link2": "",
             "button_text2": "",
             "button_chat2": false,
-            "text2": "<p>2.2 Use the text to answer questions<\/p>",
+            "text2": "",
             "anchor_link": ""
           }
         },
@@ -93,9 +93,9 @@
             "map_popup": false,
             "map_text": "",
             "button_link2": "",
-            "button_text2": "Button text",
+            "button_text2": "",
             "button_chat2": false,
-            "text2": "<p>1.2 Use the text to answer questions<\/p>",
+            "text2": "",
             "anchor_link": ""
           }
         },
@@ -122,7 +122,7 @@
             "button_link2": "",
             "button_text2": "",
             "button_chat2": false,
-            "text2": "<p>3.2 Use the text to answer questions<\/p>",
+            "text2": "",
             "anchor_link": ""
           }
         }
