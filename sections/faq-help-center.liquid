@@ -52,7 +52,7 @@
                 </button>
 
 <div id="FAQ-content-left-{{ block.id }}" 
-      style="{% if block.id contains "faq-2" %} height:117px;{% endif %}"  
+      style="{% if block.id contains "faq-2" %} height:247px;{% endif %}"  
       class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
       <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
@@ -102,18 +102,7 @@
         </div>
       {%- endfor -%}
 
-      {% comment %} contact form {% endcomment %}
-      <div class="help-contact-box" style="background: #f7f7f7; padding: 25px 25px 40px; margin: 110px 0 40px;">
-        <div class="" style=" font-weight: 700; padding-bottom: 10px;">
-          <h3>{{ section.settings.contact-help }}</h3>
-        </div>
-        <div>
-          <svg style="  width: 30px; transform: translateY(10px);" class="svg-icon" viewBox="0 0 20 20">
-            <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
-          </svg>
-          <span style="padding-left: 8px;" class="rte"><a href="#" onclick="Beacon('open');" >hello@vidlogix.com</a></span>
-        </div>
-      </div>
+      {% render 'help-contact-box', display: 'desktop'  %}
 
     </div>
     </div>
@@ -159,38 +148,26 @@
                         {% endif %}
                       {% endif %}
 
-                      {% if block.settings.subheading-1 != empty and block.settings.text-1 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
+                      {% if block.settings.subheading-1 != empty %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
                       {% endif %}
-
-                      {% if block.settings.subheading-2 != empty and block.settings.text-2 != empty %}
-                      <div class="faq-section">
-                        <button style="padding: 11px 0 30px;" type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left"  aria-controls="help-content-{{ block.id }}-2">
-                          {%- render 'collapsible-icons-help', no_circle: true -%}
-                          <h3 style="margin-top: 0; margin-bottom: 0;"><span>{{ block.settings.subheading-2 }}</span></h3>
-                        </button>
-                        <div id="help-content-{{ block.id }}-2" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                          <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
-                            {{ block.settings.text-2 }}
-                          </div>
-                        </div>
-                      </div>
+                      {% if block.settings.subheading-2 != empty  %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '2', sub_text: block.settings.text-2, sub_heading: block.settings.subheading-2 %}
                       {% endif %}
-
-                      {% if block.settings.subheading-3 != empty and block.settings.text-3 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
+                      {% if block.settings.subheading-3 != empty %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
                       {% endif %}
-                      {% if block.settings.subheading-4 != empty and block.settings.text-4 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
+                      {% if block.settings.subheading-4 != empty  %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
                       {% endif %}
-                      {% if block.settings.subheading-5 != empty and block.settings.text-5 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
+                      {% if block.settings.subheading-5 != empty  %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
                       {% endif %}
-                      {% if block.settings.subheading-6 != empty and block.settings.text-6 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
+                      {% if block.settings.subheading-6 != empty %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
                       {% endif %}
-                      {% if block.settings.subheading-7 != empty and block.settings.text-7 != empty %}
-                        {% render 'help-center-right', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
+                      {% if block.settings.subheading-7 != empty  %}
+                        {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
                       {% endif %}
 
                       {% comment %} code added - am. added more text & button to question block{% endcomment %}
@@ -209,6 +186,9 @@
                 </div>
 
               </div>
+
+              {% render 'help-contact-box', display: 'mobile'  %}
+
               </div>
 
           {% endcase %}
@@ -294,6 +274,62 @@
   .help-center .faq-section {
     border-bottom: 1px solid #cccbcb;
 }
+
+
+/* help center */
+.subheading-left {
+  margin-left:30px;
+  border-bottom-color: #ffffff00 !important;
+}
+
+.help-center-right .rte.collapsible-content__inner--faq {
+  padding-top: 0;
+}
+
+.help-center-right  .faq-section button.collapsible-trigger span {
+  font-weight: normal;
+}
+
+.collapsible-right-container.is-open {
+  opacity: 1;
+  visibility: visible;
+  max-height: 4000px;
+  -webkit-transition: opacity 600ms, visibility 600ms, max-height 600ms;
+  transition: opacity 600ms, visibility 600ms, max-height 600ms ease-in;
+}
+.collapsible-right-container.is-closed {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  -webkit-transition: opacity 600ms, visibility 600ms, max-height 600ms;
+  transition: opacity 600ms, visibility 600ms, max-height 600ms ease-out;
+}
+
+
+
+
+
+
+
+
+
+/* .subheading-left:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid currentColor;
+  transition: width .5s ease;
+}
+
+ .subheading-left  {
+  text-decoration: none;
+    border-bottom: 1px solid;
+    color: var(--colorLink);
+    position: relative;
+    display: inline-block;
+} */
 
 </style>
 

@@ -17,7 +17,7 @@
         <ul class="no-bullets site-footer__linklist">
           {%- for link in linklists[block.settings.menu].links -%}
             <li>
-              {% if link.title contains 'Request a Return' or link.title contains 'Day Returns' or link.title contains 'Shipping' or link.title contains 'Payment' %}
+              {% if link.title contains 'Day Returns' or link.title contains 'Shipping' or link.title contains 'Payment' %}
                 <a style="cursor:pointer;" id="route-help" data-help-center="request-return" onclick="helpCenterLink()">{{ link.title }}</a>
               {% else %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
