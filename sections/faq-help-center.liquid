@@ -3,10 +3,18 @@
 {% assign initial-height-left =  %}
 {% assign initial-height-right = "710px" %}
 
+{% render 'help-center-variables' %}
+
+<script>
+  if (window.helpSection3) {
+    console.log('log 57) window.helpSection3 = '+ window.helpSection3);
+  }
+</script>
+
 
 {%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
 
-<Div class="help-center {% unless template == 'page.terms' %} index-section {% endunless %}">
+<Div id="help-center" class="help-center {% unless template == 'page.terms' %} index-section {% endunless %}">
 
   <div class="" >
 
@@ -38,7 +46,6 @@
             {% when 'question'%}
               <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
-                {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
                 <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
                   {%- render 'collapsible-icons-alt', no_circle: true -%}
                   <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
@@ -47,7 +54,8 @@
 <div id="FAQ-content-left-{{ block.id }}" 
       style="{% if block.id contains "faq-2" %} height:117px;{% endif %}"  
       class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-  <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+          {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
+      <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
 
                   {% if block.settings.subheading-1 != empty %}
                     <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-1">

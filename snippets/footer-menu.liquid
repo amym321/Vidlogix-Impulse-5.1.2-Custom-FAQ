@@ -16,10 +16,18 @@
       <div class="footer__collapsible{% unless block.settings.show_footer_title %} footer_collapsible--disabled{% endunless %}">
         <ul class="no-bullets site-footer__linklist">
           {%- for link in linklists[block.settings.menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            <li>
+              {% if link.title contains 'Request a Return' or link.title contains 'Day Returns' or link.title contains 'Shipping' or link.title contains 'Payment' %}
+                <a style="cursor:pointer;" id="route-help" data-help-center="request-return" onclick="helpCenterLink()">{{ link.title }}</a>
+              {% else %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {% endif %}
+            </li>
           {%- endfor -%}
         </ul>
       </div>
     </div>
   </div>
 {%- endif -%}
+
+{% render 'help-center-variables' %}
