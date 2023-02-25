@@ -192,6 +192,8 @@
               "phone_text": "631-372-5004 (text)",
               "show_phone_text": true,
               "phone_text_text": "631-372-5004",
+              "include_address": false,
+              "business_address": "160 Varick St • NY, NY 10013",
               "container_width": 40
             }
           },
@@ -200,7 +202,25 @@
             "settings": {
               "show_footer_title": true,
               "menu": "footer",
-              "container_width": 20
+              "container_width": 20,
+              "help_link_title_1": "",
+              "help_link_block_1": "",
+              "help_link_subblock_1": "",
+              "help_link_title_2": "",
+              "help_link_block_2": "",
+              "help_link_subblock_2": "",
+              "help_link_title_3": "",
+              "help_link_block_3": "",
+              "help_link_subblock_3": "",
+              "help_link_title_4": "",
+              "help_link_block_4": "",
+              "help_link_subblock_4": "",
+              "help_link_title_5": "",
+              "help_link_block_5": "",
+              "help_link_subblock_5": "",
+              "help_link_title_6": "",
+              "help_link_block_6": "",
+              "help_link_subblock_6": ""
             }
           },
           "13e6becc-b2e9-43d2-b6c6-60d7d8707474": {
@@ -208,7 +228,25 @@
             "settings": {
               "show_footer_title": true,
               "menu": "help",
-              "container_width": 20
+              "container_width": 20,
+              "help_link_title_1": "Free Shipping $50",
+              "help_link_block_1": "",
+              "help_link_subblock_1": "",
+              "help_link_title_2": "30-Day Returns",
+              "help_link_block_2": "",
+              "help_link_subblock_2": "",
+              "help_link_title_3": "",
+              "help_link_block_3": "",
+              "help_link_subblock_3": "",
+              "help_link_title_4": "",
+              "help_link_block_4": "",
+              "help_link_subblock_4": "",
+              "help_link_title_5": "",
+              "help_link_block_5": "",
+              "help_link_subblock_5": "",
+              "help_link_title_6": "",
+              "help_link_block_6": "",
+              "help_link_subblock_6": ""
             }
           },
           "e7893142-776a-4fd1-84e3-f24ce50ecd33": {
@@ -216,7 +254,25 @@
             "settings": {
               "show_footer_title": true,
               "menu": "company",
-              "container_width": 20
+              "container_width": 20,
+              "help_link_title_1": "",
+              "help_link_block_1": "",
+              "help_link_subblock_1": "",
+              "help_link_title_2": "",
+              "help_link_block_2": "",
+              "help_link_subblock_2": "",
+              "help_link_title_3": "",
+              "help_link_block_3": "",
+              "help_link_subblock_3": "",
+              "help_link_title_4": "",
+              "help_link_block_4": "",
+              "help_link_subblock_4": "",
+              "help_link_title_5": "",
+              "help_link_block_5": "",
+              "help_link_subblock_5": "",
+              "help_link_title_6": "",
+              "help_link_block_6": "",
+              "help_link_subblock_6": ""
             }
           },
           "b7aab9ae-cc9a-4895-a3a3-8df9003a75a7": {
@@ -237,6 +293,8 @@
               "phone_text": "(212) 431-5086",
               "show_phone_text": false,
               "phone_text_text": "626-539-4937",
+              "include_address": false,
+              "business_address": "160 Varick St • NY, NY 10013",
               "container_width": 25
             }
           }
