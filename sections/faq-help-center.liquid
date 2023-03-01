@@ -28,178 +28,176 @@
 
     {%- if section.blocks.size > 0 -%}
 
-<div class="help-center-wrapper" style="display: flex; margin: 0 auto; min-height: 375px;">
+      <div class="help-center-wrapper" >
 
-{% comment %} left side - questions {% endcomment %}
+      {% comment %} left side - questions {% endcomment %}
 
-{% comment %} FLEX BASIS CHANGES WITH SCREEN WIDTH {% endcomment %}
-  <div class="help-center-left" style=" flex-shrink: 0;
-    padding-top: 50px;  padding-bottom: 50px;
-    background-color: #fff !important;">
+      {% comment %} FLEX BASIS CHANGES WITH SCREEN WIDTH {% endcomment %}
+        <div id="helpCenterLeft" class="help-center-left" style=" ">
 
-    <div style="position:relative;">
-    <div class="left-wrapper" style="padding: 50px 50px;  margin-left:auto; max-width: 400px;">
-      {%- for block in section.blocks -%}
+          <div style="position:relative;">
+          <div class="left-wrapper" style="">
+            {%- for block in section.blocks -%}
 
-        <div {{ block.shopify_attributes }} style="max-width: 500px;">
-          {% case block.type %}
-            {% when 'question'%}
-              <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
-                <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
-                  {%- render 'collapsible-icons-alt', no_circle: true -%}
-                  <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
-                </button>
+              <div {{ block.shopify_attributes }} class="left-section-block">
+                {% case block.type %}
+                  {% when 'question'%}
+                    <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                      <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
+                      <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
+                        {%- render 'collapsible-icons-alt', no_circle: true -%}
+                        <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
+                      </button>
 
-<div id="FAQ-content-left-{{ block.id }}" 
-      style="{% if block.id contains "faq-2" %} height:247px;{% endif %}"  
-      class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
-      <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+      <div id="FAQ-content-left-{{ block.id }}" 
+            style="{% if block.id contains "faq-2" %} height:247px;{% endif %}"  
+            class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
+            <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
 
-                  {% if block.settings.subheading-1 != empty %}
-                    <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-1">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-1 }}</a></h4>
-                    </button>
-                  {% endif %}
-                  {% if block.settings.subheading-2 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-2">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-2 }}</a></h4>
-                    </button>
-                  {% endif %}
-                  {% if block.settings.subheading-3 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-3">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-3 }}</a></h4>
-                    </button>
-                  {% endif %}
-                  {% if block.settings.subheading-4 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-4">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-4 }}</a></h4>
-                    </button>
-                  {% endif %} 
-                  {% if block.settings.subheading-5 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-5">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-5 }}</a></h4>
-                    </button>
-                  {% endif %}
-                  {% if block.settings.subheading-6 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-6">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-6 }}</a></h4>
-                    </button>
-                  {% endif %} 
-                  {% if block.settings.subheading-7 != empty %}
-                    <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-7">
-                      <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-7 }}</a></h4>
-                    </button>
-                  {% endif %}
+                        {% if block.settings.subheading-1 != empty %}
+                          <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-1">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-1 }}</a></h4>
+                          </button>
+                        {% endif %}
+                        {% if block.settings.subheading-2 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-2">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-2 }}</a></h4>
+                          </button>
+                        {% endif %}
+                        {% if block.settings.subheading-3 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-3">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-3 }}</a></h4>
+                          </button>
+                        {% endif %}
+                        {% if block.settings.subheading-4 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-4">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-4 }}</a></h4>
+                          </button>
+                        {% endif %} 
+                        {% if block.settings.subheading-5 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-5">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-5 }}</a></h4>
+                          </button>
+                        {% endif %}
+                        {% if block.settings.subheading-6 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-6">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-6 }}</a></h4>
+                          </button>
+                        {% endif %} 
+                        {% if block.settings.subheading-7 != empty %}
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-7">
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-7 }}</a></h4>
+                          </button>
+                        {% endif %}
 
-                </div>
-                </div>
+                      </div>
+                      </div>
+
+                    </div>
+                {% endcase %}
 
               </div>
-          {% endcase %}
+            {%- endfor -%}
 
+            {% render 'help-contact-box', display: 'desktop'  %}
+
+          </div>
+          </div>
         </div>
-      {%- endfor -%}
 
-      {% render 'help-contact-box', display: 'desktop'  %}
+      {% render 'help-nav-mobile' %}
 
-    </div>
-    </div>
-  </div>
+      {% comment %} right side - answers {% endcomment %}
+        <div class="help-center-right" style="flex-grow: 1; 
+            padding-top: 50px;  padding-bottom: 50px;
+            background: top center repeat;
+            background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
+          <div class="right-wrapper" style="padding: 50px 50px; max-width: 1000px;">
+          
+            {%- for block in section.blocks -%}
 
+            {% comment %} UPS Map popup - am {% endcomment %}
+            {% render 'map-popup' %}
 
+              <div {{ block.shopify_attributes }} >
+                {% case block.type %}
 
-{% comment %} right side - answers {% endcomment %}
-  <div class="help-center-right" style="flex-grow: 1; 
-      padding-top: 50px;  padding-bottom: 50px;
-      background: top center repeat;
-      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
-    <div class="right-wrapper" style="padding: 50px 50px; max-width: 1000px;">
-    
-      {%- for block in section.blocks -%}
-
-      {% comment %} UPS Map popup - am {% endcomment %}
-      {% render 'map-popup' %}
-
-        <div {{ block.shopify_attributes }} >
-          {% case block.type %}
-
-            {% when 'question'%}
-              <div id="FAQ-content-right-{{ block.id }}"
-                  style="{% if block.id contains "faq-2" %} height:710px; {% endif %}"  
-                  class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-              <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
+                  {% when 'question'%}
+                    <div id="FAQ-content-right-{{ block.id }}"
+                        style="{% if block.id contains "faq-2" %} height:710px; {% endif %}"  
+                        class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
 
 
-                <div class="faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
+                      <div class="faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
 
 
-                    <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
-                    {% comment %} UPS Map popup - am {% endcomment %}
-                      {% if block.settings.map_popup %}
-                        {% if block.settings.map_text != empty %}
-                          {% comment %} custom coded popup - am {% endcomment %}
-                          <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
-                        {% else %}
-                          {% comment %} Help Scout Beacon popup - am {% endcomment %}
-                          <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
-                        {% endif %}
-                      {% endif %}
+                          <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+                          {% comment %} UPS Map popup - am {% endcomment %}
+                            {% if block.settings.map_popup %}
+                              {% if block.settings.map_text != empty %}
+                                {% comment %} custom coded popup - am {% endcomment %}
+                                <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
+                              {% else %}
+                                {% comment %} Help Scout Beacon popup - am {% endcomment %}
+                                <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
+                              {% endif %}
+                            {% endif %}
 
-                      {% if block.settings.subheading-1 != empty %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
-                      {% endif %}
-                      {% if block.settings.subheading-2 != empty  %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '2', sub_text: block.settings.text-2, sub_heading: block.settings.subheading-2 %}
-                      {% endif %}
-                      {% if block.settings.subheading-3 != empty %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
-                      {% endif %}
-                      {% if block.settings.subheading-4 != empty  %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
-                      {% endif %}
-                      {% if block.settings.subheading-5 != empty  %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
-                      {% endif %}
-                      {% if block.settings.subheading-6 != empty %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
-                      {% endif %}
-                      {% if block.settings.subheading-7 != empty  %}
-                        {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
-                      {% endif %}
+                            {% if block.settings.subheading-1 != empty %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
+                            {% endif %}
+                            {% if block.settings.subheading-2 != empty  %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '2', sub_text: block.settings.text-2, sub_heading: block.settings.subheading-2 %}
+                            {% endif %}
+                            {% if block.settings.subheading-3 != empty %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
+                            {% endif %}
+                            {% if block.settings.subheading-4 != empty  %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
+                            {% endif %}
+                            {% if block.settings.subheading-5 != empty  %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
+                            {% endif %}
+                            {% if block.settings.subheading-6 != empty %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
+                            {% endif %}
+                            {% if block.settings.subheading-7 != empty  %}
+                              {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
+                            {% endif %}
 
-                      {% comment %} code added - am. added more text & button to question block{% endcomment %}
-                      {% if block.settings.button_chat2  %}
-                        <a href="/pages\/contact" class="btn">
-                          {{ block.settings.button_text2 }}
-                        </a>
-                      {% elsif block.settings.button_link2 != blank %}
-                        <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
-                          {{ block.settings.button_text2 }}
-                        </a>
-                      {% endif %}
-                      {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
+                            {% comment %} code added - am. added more text & button to question block{% endcomment %}
+                            {% if block.settings.button_chat2  %}
+                              <a href="/pages\/contact" class="btn">
+                                {{ block.settings.button_text2 }}
+                              </a>
+                            {% elsif block.settings.button_link2 != blank %}
+                              <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
+                                {{ block.settings.button_text2 }}
+                              </a>
+                            {% endif %}
+                            {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
+                          </div>
+
+                      </div>
+
                     </div>
 
-                </div>
+                    {% render 'help-contact-box', display: 'mobile'  %}
+
+                    </div>
+
+                {% endcase %}
 
               </div>
-
-              {% render 'help-contact-box', display: 'mobile'  %}
-
-              </div>
-
-          {% endcase %}
+            {%- endfor -%}
+          </div>
 
         </div>
-      {%- endfor -%}
-    </div>
 
-  </div>
-
-</div>
+      </div>
 
       
     {%- endif -%}
@@ -221,6 +219,7 @@
     font-weight: bold;
   }
 
+  
   /* FAQ's */
   .help-center {
     padding:0;
@@ -238,49 +237,167 @@
     border-color: #ffffff00;
   }
 
-  @media screen and (min-width: 769px) {
-    .help-center {
-      /*background: top center repeat;
-      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_2.jpg');*/
-    }
+
+
+
+
+
+/* LEFT DESKTOP */
+@media (min-width: 1024px) {
+  .help-center-wrapper {
+    display: flex;
+    margin: 0 auto;
+    min-height: 375px;
   }
-  @media screen and (max-width: 768px) {
-    .help-center {
-      background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');
-      /*background-image: linear-gradient(to right, white, white,  #ffffff00, #ffffff00);*/
-      /*background-image: linear-gradient(to right, white, white,  #ffffff00), url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');*/
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    .help-center .help-center-left-wrapper {
-      flex-basis: 35%;
-    }
-  }
-  @media screen and (min-width: 1485px) {
-    .help-center .help-center-left {
-      flex-basis: 490px;
-    }
-  }
-  @media screen and (min-width: 1600px) {
-    .help-center .help-center-left {
-      flex-basis: 550px;
-    }
-  }
-  @media screen and (min-width: 2095px) {
-    .help-center .help-center-left {
-      flex-basis: calc((100% - (1900px + 180px))/ 2 + 490px);
-    }
-  }
-  .help-center .faq-section {
-    border-bottom: 1px solid #cccbcb;
+}
+/* MOBILE NAV */
+@media (max-width: 1023px) {
+  .help-center-wrapper {   } 
 }
 
 
-/* help center */
-.subheading-left {
-  margin-left:30px;
-  border-bottom-color: #ffffff00 !important;
+
+  /* MOBILE NAV */
+@media screen and (max-width: 1023px) {
+  .help-center .help-center-left {
+    padding-top: 0;
+    padding-bottom: 0;
+    /*background-color: #000 !important;*/
+    color: #fff;
+  }
+  .help-center .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+  }
+  .help-center .sticky + .help-center-right {
+    padding-top: 102px;
+  }
 }
+
+/* LEFT DESKTOP */
+@media screen and (min-width: 1024px) {
+  .help-center-left {
+    flex-shrink: 0;
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    background-color: #fff !important;
+  }
+}
+@media screen and (min-width: 1485px) {
+  .help-center .help-center-left {
+    flex-basis: 490px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .help-center .help-center-left {
+    flex-basis: 550px;
+  }
+}
+@media screen and (min-width: 2095px) {
+  .help-center .help-center-left {
+    flex-basis: calc((100% - (1900px + 180px))/ 2 + 490px);
+  }
+}
+
+
+
+/* LEFT DESKTOP */
+@media screen and (min-width: 1024px) {
+  .left-wrapper {
+    padding: 50px 50px;  
+    margin-left:auto; 
+    max-width: 400px;
+  }
+}
+  /* MOBILE NAV */
+@media screen and (max-width: 1023px) {
+  .left-wrapper {
+    padding: 0 20px 0 20px;
+    /*display: flex: */  /* trying to get the top triggers inline with each other */
+  }
+}
+
+
+/* LEFT DESKTOP */
+@media screen and (min-width: 1024px) {
+  .help-center .left-section-block {
+    max-width: 500px;
+  }
+}
+  /* MOBILE NAV */
+@media screen and (max-width: 1023px) {
+  .help-center .left-section-block {
+    min-width: 100%;
+  }
+}
+
+
+  /* MOBILE NAV */
+@media screen and (max-width: 1023px) {
+  .help-center-left .collapsible-trigger {
+    background-color: #000;
+    width: unset !important;
+  }
+  .help-center-left .collapsible-content {
+    background-color: rgba(23,23,23,.65);
+  }
+}
+
+
+
+@media screen and (max-width: 1023px) {
+  .help-center-left .collapsible-content__inner  {
+    display:flex;
+    white-space: nowrap;
+    justify-content: space-evenly;   /* needs width unset on collapsible-trigger */
+  }
+}
+
+
+
+
+
+.help-center .faq-section {
+  border-bottom: 1px solid #cccbcb;
+}
+
+/* LEFT  MOBILE  */
+@media screen and (max-width: 1023px) {
+  .help-center .help-center-left .faq-section {
+    border-bottom: 1px solid #ffffff00;
+    /*border-bottom: 1px solid #000;*/
+  }
+}
+
+/* MOBILE NAV */
+@media screen and (max-width: 1023px) {
+  .subheading-left {
+    border-bottom-color: #ffffff00 !important;
+    color: #fff !important;
+  }
+}
+/* LEFT DESKTOP */
+@media screen and (min-width: 1024px) {
+  .subheading-left {
+    margin-left:30px;
+    border-bottom-color: #ffffff00 !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .help-center-right .rte.collapsible-content__inner--faq {
   padding-top: 0;
@@ -290,6 +407,7 @@
   font-weight: normal;
 }
 
+/* RIGHT */
 .collapsible-right-container.is-open {
   opacity: 1;
   visibility: visible;
@@ -332,6 +450,27 @@
 } */
 
 </style>
+
+
+
+<script>
+  window.onscroll = function() { stickyHelp()};
+
+  var helpHeader = document.getElementById("helpCenterLeft");
+  var stickyLeft = helpHeader.offsetTop;
+
+  function stickyHelp() {
+    if (window.pageYOffset > stickyLeft) {
+      helpHeader.classList.add("sticky");
+    } else {
+      helpHeader.classList.remove("sticky");
+    }
+  }
+</script>
+
+
+
+
 
 {% schema %}
   {

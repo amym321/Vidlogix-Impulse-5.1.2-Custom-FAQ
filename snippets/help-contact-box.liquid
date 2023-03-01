@@ -15,17 +15,27 @@
 </div>
 
 <style>
+.help-contact-box {
+  max-width: 300px;
+}
+@media (max-width:1023px) {
+  .help-contact-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .help-contact-desktop,
 .help-contact-mobile {
   background: #f7f7f7;
   padding: 25px 25px 40px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .help-contact-desktop  {
     display: none;
   }
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .help-contact-desktop  {
     margin: 110px 0 40px;
   }
