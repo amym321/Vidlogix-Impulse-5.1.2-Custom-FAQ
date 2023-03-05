@@ -33,7 +33,7 @@
       {% comment %} left side - questions {% endcomment %}
 
       {% comment %} FLEX BASIS CHANGES WITH SCREEN WIDTH {% endcomment %}
-        <div id="helpCenterLeft" class="help-center-left" style=" ">
+        <div id="helpCenterLeft" class="help-center-left" style="display:none;" >
 
           <div style="position:relative;">
           <div class="left-wrapper" style="">
@@ -44,7 +44,9 @@
                   {% when 'question'%}
                     <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                       <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
-                      <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
+                      <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} 
+                          collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                          aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
                         {%- render 'collapsible-icons-alt', no_circle: true -%}
                         <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                       </button>
@@ -109,7 +111,7 @@
       {% render 'help-nav-mobile' %}
 
       {% comment %} right side - answers {% endcomment %}
-        <div class="help-center-right" style="flex-grow: 1; 
+        <div id="helpCenterRight" class="help-center-right" style="flex-grow: 1; 
             padding-top: 50px;  padding-bottom: 50px;
             background: top center repeat;
             background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
@@ -213,29 +215,37 @@
 {%- if section.settings.divider -%}</div>{%- endif -%}
 
 <style>
-  /* Slidewhow Hero Banner */
-  .help-center-banner .animation-contents {
-    color: #fff;
-    font-weight: bold;
-  }
+/* Slidewhow Hero Banner */
+.help-center-banner .animation-contents {
+  color: #fff;
+  font-weight: bold;
+}
 
   
-  /* FAQ's */
-  .help-center {
-    padding:0;
-    margin:0;
+/* FAQ's */
+  /*show left nav */
+@media (min-width: 1024px) {
+  #helpCenterLeft {
+    display:block !important;
   }
+}
 
-  .help-center h1, .help-center h2, .help-center h3, .help-center h4, .help-center h5 {
-    font-family: "Sofia Pro";
-  }
 
-  .help-center .collapsible-trigger__icon {
-    transform: translateY(-20px);
-  }
-  .help-center .collapsible-trigger__icon--circle {
-    border-color: #ffffff00;
-  }
+.help-center {
+  padding:0;
+  margin:0;
+}
+
+.help-center h1, .help-center h2, .help-center h3, .help-center h4, .help-center h5 {
+  font-family: "Sofia Pro";
+}
+
+.help-center .collapsible-trigger__icon {
+  transform: translateY(-20px);
+}
+.help-center .collapsible-trigger__icon--circle {
+  border-color: #ffffff00;
+}
 
 
 
@@ -251,18 +261,17 @@
   }
 }
 /* MOBILE NAV */
-@media (max-width: 1023px) {
+/*@media (max-width: 1023px) {
   .help-center-wrapper {   } 
-}
+}*/
 
 
 
   /* MOBILE NAV */
-@media screen and (max-width: 1023px) {
+/*@media screen and (max-width: 1023px) {
   .help-center .help-center-left {
     padding-top: 0;
     padding-bottom: 0;
-    /*background-color: #000 !important;*/
     color: #fff;
   }
   .help-center .sticky {
@@ -274,7 +283,7 @@
   .help-center .sticky + .help-center-right {
     padding-top: 102px;
   }
-}
+}*/
 
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
@@ -312,12 +321,11 @@
   }
 }
   /* MOBILE NAV */
-@media screen and (max-width: 1023px) {
+/*@media screen and (max-width: 1023px) {
   .left-wrapper {
     padding: 0 20px 0 20px;
-    /*display: flex: */  /* trying to get the top triggers inline with each other */
   }
-}
+}*/    /*display: flex: */  /* trying to get the top triggers inline with each other */
 
 
 /* LEFT DESKTOP */
@@ -335,16 +343,15 @@
 
 
   /* MOBILE NAV */
-@media screen and (max-width: 1023px) {
-  .help-center-left .collapsible-trigger {
+/*@media screen and (max-width: 1023px) {
+  .help-center-left .collapsible-trigger--inline {
     background-color: #000;
     width: unset !important;
   }
   .help-center-left .collapsible-content {
     background-color: rgba(23,23,23,.65);
   }
-}
-
+}*/
 
 
 @media screen and (max-width: 1023px) {
@@ -364,20 +371,20 @@
 }
 
 /* LEFT  MOBILE  */
-@media screen and (max-width: 1023px) {
+/*@media screen and (max-width: 1023px) {
   .help-center .help-center-left .faq-section {
     border-bottom: 1px solid #ffffff00;
-    /*border-bottom: 1px solid #000;*/
   }
-}
+}*/    /*border-bottom: 1px solid #000;*/
+
 
 /* MOBILE NAV */
-@media screen and (max-width: 1023px) {
+/*@media screen and (max-width: 1023px) {
   .subheading-left {
     border-bottom-color: #ffffff00 !important;
     color: #fff !important;
   }
-}
+}*/
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
   .subheading-left {
@@ -403,19 +410,19 @@
   padding-top: 0;
 }
 
-.help-center-right  .faq-section button.collapsible-trigger span {
+.help-center-right  .faq-section button.collapsible-trigger--inline span {
   font-weight: normal;
 }
 
 /* RIGHT */
-.collapsible-right-container.is-open {
+.help-center .collapsible-right-container.is-open {
   opacity: 1;
   visibility: visible;
   max-height: 4000px;
   -webkit-transition: opacity 600ms, visibility 600ms, max-height 600ms;
   transition: opacity 600ms, visibility 600ms, max-height 600ms ease-in;
 }
-.collapsible-right-container.is-closed {
+.help-center .collapsible-right-container.is-closed {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
@@ -425,7 +432,9 @@
 
 
 
-
+.help-center .sticky-padded {
+  padding-top: 140px !important;
+}
 
 
 
@@ -454,16 +463,19 @@
 
 
 <script>
-  window.onscroll = function() { stickyHelp()};
+  window.onscroll = function() { stickyHelp2()};
 
-  var helpHeader = document.getElementById("helpCenterLeft");
-  var stickyLeft = helpHeader.offsetTop;
+  var helpHeader2 = document.getElementById("helpCenterNav2");
+  var stickyLeft2 = helpHeader2.offsetTop;
+  var helpRight = document.getElementById("helpCenterRight");
 
-  function stickyHelp() {
-    if (window.pageYOffset > stickyLeft) {
-      helpHeader.classList.add("sticky");
+  function stickyHelp2() {
+    if (window.pageYOffset > stickyLeft2) {
+      helpHeader2.classList.add("sticky");
+      helpRight.classList.add("sticky-padded");
     } else {
-      helpHeader.classList.remove("sticky");
+      helpHeader2.classList.remove("sticky");
+      helpRight.classList.remove("sticky-padded");
     }
   }
 </script>
