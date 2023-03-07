@@ -1,7 +1,7 @@
 {% comment %} help center - am {% endcomment %}
 
 {% assign initial-height-left =  %}
-{% assign initial-height-right = "710px" %}
+{% assign initial-height-right = "550px" %}
 
 {% render 'help-center-variables' %}
 
@@ -111,7 +111,7 @@
 
       {% comment %} right side - answers {% endcomment %}
         <div id="helpCenterRight" class="help-center-right" style="flex-grow: 1; 
-            padding-top: 50px;  padding-bottom: 50px;
+            padding-top: 50px; 
             background: top center repeat;
             background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
           <div class="right-wrapper" style="padding: 50px 50px; max-width: 1000px;">
@@ -123,7 +123,7 @@
 
                   {% when 'question'%}
                     <div id="FAQ-content-right-{{ block.id }}"
-                        style="{% if block.id contains "faq-2" %} height:710px; {% endif %}"  
+                        style="{% if block.id contains "faq-2" %} height:550px; {% endif %}"  
                         class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
 
@@ -161,7 +161,6 @@
 
                     </div>
 
-                    {% render 'help-contact-box', display: 'mobile'  %}
 
                     </div>
 
@@ -172,6 +171,8 @@
           </div>
 
         </div>
+
+        {% render 'help-contact-box', display: 'mobile'  %}
 
       </div>
 
@@ -401,16 +402,19 @@
   transition: opacity 600ms, visibility 600ms, max-height 600ms ease-out;
 }
 
-.left-section-block .collapsible-content__inner .is-open .subheading-left span {
+.left-section-block .collapsible-content__inner .is-open .subheading-left span,
+.help-center-nav .sub-nav-list .is-open a span {
   border-bottom: 2px solid;
   bottom: 1px;
-  color: #000;
+  /*color: #000;*/
   position: relative;
   display: inline-block;
   -webkit-transition: border-bottom 600ms, color 600ms;
   transition: border-bottom 600ms, color 600ms;
 }
-
+.help-center-nav .sub-nav-list .is-open a span {
+  bottom: -1px;
+}
 
 
 
