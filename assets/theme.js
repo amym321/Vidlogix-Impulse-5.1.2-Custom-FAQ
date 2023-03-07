@@ -1950,7 +1950,21 @@ lazySizesConfig.expFactor = 4;
   })();
   
 
-// faq help center
+// FAQ HELP CENTER - am
+
+  // get opening initial heights for use when on Help Center Page
+  if (document.body.classList.contains('template-page')) {
+    // console.log('log 40) template-page');
+    var helpPage = document.getElementById('help-center');
+
+    if (helpPage) {
+      console.log('log 41) helpPage = '+ helpPage);
+      console.log('log 42) window.helpSection = '+ window.helpSection);
+
+      // get height of left & right
+    }
+  }
+
 
 
   // Either collapsible containers all acting individually,
@@ -2001,8 +2015,10 @@ lazySizesConfig.expFactor = 4;
       var isTab = el.classList.contains(classes.tabs);
       var moduleId = el.getAttribute('aria-controls');
       var moduleIdRight = el.getAttribute('aria-controls-right');
+      var moduleIdMobile = el.getAttribute('aria-controls-mobile');
       var container = document.getElementById(moduleId);
       var containerRight = document.getElementById(moduleIdRight);
+      var containerMobile = document.getElementById(moduleIdMobile);
       // var isHelpCenter = el.classList.contains(classes.helpModule);
   
 
@@ -2042,6 +2058,13 @@ lazySizesConfig.expFactor = 4;
         var childHeightRight = heightRight;
       }
   
+      if (containerMobile) {
+        var heightMobile = 'auto';
+        var isAutoHeightMobile = false;
+        var activeMobileTitle = containerMobile.previousElementSibling.firstElementChild;
+      }
+
+
 
       // if (isHelpCenter) {
         // if(isOpen) {
@@ -2120,8 +2143,26 @@ lazySizesConfig.expFactor = 4;
 
       if (containerRight) {
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
+        console.log('log 90) containerRight = '+containerRight);
+        console.log('log 91) heightRight = '+ heightRight);
+        console.log('log 92) isOpen = '+ isOpen);
+        console.log('log 93) isAutoHeightRight = '+ isAutoHeightRight);
       }
 
+      if (containerMobile) {
+        setTransitionHeight(containerMobile, heightMobile, isOpen, isAutoHeightMobile);
+        console.log('log 94) containerMobile = '+containerMobile);
+        console.log('log 95) heightMobile = '+ heightMobile);
+        console.log('log 96) isOpen = '+ isOpen);
+        console.log('log 97) isAutoHeightMobile = '+ isAutoHeightMobile);
+        console.log('log 98) activeTitle = '+ activeMobileTitle);
+      }
+
+      if (containerMobile && isOpen) {
+        activeMobileTitle.classList.remove("active-title");
+      } else if (containerMobile && !isOpen) {
+        activeMobileTitle.classList.add("active-title");
+      }
   
       // If we are in a nested collapsible element like the mobile nav,
       // also set the parent element's height
