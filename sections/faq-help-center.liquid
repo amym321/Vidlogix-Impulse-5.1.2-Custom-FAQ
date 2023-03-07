@@ -43,7 +43,6 @@
                 {% case block.type %}
                   {% when 'question'%}
                     <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                      <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
                       <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} 
                           collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
                           aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
@@ -119,9 +118,6 @@
           
             {%- for block in section.blocks -%}
 
-            {% comment %} UPS Map popup - am {% endcomment %}
-            {% render 'map-popup' %}
-
               <div {{ block.shopify_attributes }} >
                 {% case block.type %}
 
@@ -133,20 +129,9 @@
 
 
                       <div class="faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
 
 
                           <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
-                          {% comment %} UPS Map popup - am {% endcomment %}
-                            {% if block.settings.map_popup %}
-                              {% if block.settings.map_text != empty %}
-                                {% comment %} custom coded popup - am {% endcomment %}
-                                <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
-                              {% else %}
-                                {% comment %} Help Scout Beacon popup - am {% endcomment %}
-                                <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
-                              {% endif %}
-                            {% endif %}
 
                             {% if block.settings.subheading-1 != empty %}
                               {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
@@ -170,17 +155,6 @@
                               {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
                             {% endif %}
 
-                            {% comment %} code added - am. added more text & button to question block{% endcomment %}
-                            {% if block.settings.button_chat2  %}
-                              <a href="/pages\/contact" class="btn">
-                                {{ block.settings.button_text2 }}
-                              </a>
-                            {% elsif block.settings.button_link2 != blank %}
-                              <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
-                                {{ block.settings.button_text2 }}
-                              </a>
-                            {% endif %}
-                            {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
                           </div>
 
                       </div>
@@ -615,47 +589,6 @@
             "id": "text-7",
             "label": "Text Response to Subheading 7",
             "default": "<p>Use the text to answer questions</p>"
-          },
-          {
-            "type": "checkbox",
-            "id": "map_popup",
-            "label": "Link opens UPS map popup.",
-            "default": false
-          },
-          {
-            "type": "richtext",
-            "id": "map_text",
-            "label": "Map Popup Text",
-            "default": "<p></p>",
-            "info": "Empty text opens Beacon popup. Entered text opens custom popup."
-          },
-          {
-            "type": "url",
-            "id": "button_link2",
-            "label": "Button link"
-          },
-          {
-            "type": "text",
-            "id": "button_text2",
-            "label": "Button text",
-            "default": "Button text"
-          },
-          {
-            "type": "checkbox",
-            "id": "button_chat2",
-            "label": "Button launches chat widget. Defaults to Contact page for now",
-            "default": false
-          },
-              {
-                "type": "richtext",
-                "id": "text2",
-                "label": "Text Response",
-                "default": "<p>Use the text to answer questions</p>"
-              },
-          {
-            "type": "text",
-            "id": "anchor_link",
-            "label": "Anchor link keyword"
           }
         ]
       }
