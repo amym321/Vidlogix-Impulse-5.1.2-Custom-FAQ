@@ -144,23 +144,25 @@
         {% if block_id_1 != empty %}
           <li  style=" box-sizing: border-box; height: 50px; padding: 2px 16px 0; display: flex;
                 -webkit-box-align: center; align-items: center; transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent;">
-            <h4 class="collapsible-trigger"  aria-controls="{{aria_controls_main_1}}" aria-controls-right="{{aria_controls_right_1}}"
+            <h4 class="collapsible-trigger rte nav-title"
+                aria-controls-mobile="{{aria_controls_main_1}}-mobile"  aria-controls="{{aria_controls_main_1}}" aria-controls-right="{{aria_controls_right_1}}"
                 style="margin:unset; font-size: 13px;  color: #fff; outline: 0;display: inline-block;
                 padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
-                {{ block_title_1 }}
+                <a itemprop="name" class="subheading-left     active-title" style="color:#fff;">{{ block_title_1 }}</a>
             </h4>
-            <div style="visibility: visible; height: auto;
-                position: absolute;
-                background: #808080;  top: 55px; left: 0; width: 100%; z-index: 1; overflow-x: scroll; overflow-y: hidden; display: flex;">
-              <ul style="margin: 0 auto; padding: 0 20px; white-space: nowrap;display: flex;  -webkit-box-pack: center; margin-block-start: 0px;
+            <div id="{{aria_controls_main_1}}-mobile" class="is-open showing collapsible-content help-subnav"
+                itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"
+                style="height: auto !important; visibility: hidden; position: absolute;
+                background: #808080;  top: 55px; left: 0; width: 100%; z-index: 2; overflow-x: scroll; overflow-y: hidden; display: flex;">
+              <ul class="" style="margin: 0 auto; padding: 0 20px; white-space: nowrap;display: flex;  -webkit-box-pack: center; margin-block-start: 0px;
                   margin-block-end: 0px; margin-inline-start: 0px; margin-inline-end: 0px; justify-content: center; list-style: none;"> {% comment %} padding-inline-start: 40px; {% endcomment %}
                 {% if block_1_subheader_1 != empty %}
-                  <li class="collapsible-trigger"   aria-controls="{{aria_controls_1_sub_1}}"
-                      style="cursor:pointer; box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
+                  <li class="collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_1}}"
+                      style="margin-bottom:unset; cursor:pointer; box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                       transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
                     <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
                         position: relative;  background-color: transparent;">
-                      {{ block_1_subheader_1 }}
+                        <a itemprop="name" class="subheading-left" style="color:#fff;">{{ block_1_subheader_1 }}</a>
                     </h4>
                   </li>
                 {% endif  %}
@@ -198,9 +200,9 @@
                 padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
                 {{ block_title_2 }}
             </h4>
-            <div style="visibility: visible; height: auto;
+            <div class=""  style="height: auto; visibility: hidden; 
                 position: absolute;
-                background: #808080;  top: 55px; left: 0; width: 100%; z-index: 1; overflow-x: scroll; overflow-y: hidden; display: flex;">
+                background: #808080;  top: 55px; left: 0; width: 100%; z-index: 2; overflow-x: scroll; overflow-y: hidden; display: flex;">
               <ul style="margin: 0 auto; padding: 0 20px; white-space: nowrap;display: flex;  -webkit-box-pack: center; margin-block-start: 0px;
                   margin-block-end: 0px; margin-inline-start: 0px; margin-inline-end: 0px; justify-content: center; list-style: none;"> {% comment %} padding-inline-start: 40px; {% endcomment %}
                 {% if block_2_subheader_1 != empty %}
@@ -239,6 +241,25 @@
         {% endif %}
 
 
+        {% comment %} empty sub-nav used as placeholder when no other sub-nav is open - am  {% endcomment %}
+        <li  style=" box-sizing: border-box; height: 50px; padding: 2px 16px 0; display: flex;
+              -webkit-box-align: center; align-items: center; transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent;">
+
+          <div class=""  style="height: auto;       z-index: 1; 
+              position: absolute;
+              background: #808080;  top: 55px; left: 0; width: 100%; z-index: 1; overflow-x: scroll; overflow-y: hidden; display: flex;">
+            <ul style="margin: 0 auto; padding: 0 20px; white-space: nowrap;display: flex;  -webkit-box-pack: center; margin-block-start: 0px;
+                margin-block-end: 0px; margin-inline-start: 0px; margin-inline-end: 0px; justify-content: center; list-style: none;"> {% comment %} padding-inline-start: 40px; {% endcomment %}
+              <li class="collapsible-trigger"   aria-controls="{{aria_controls_2_sub_1}}"
+                  style="cursor:pointer; box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
+                  transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
+
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
       </ul>
     </div>
   </div>
@@ -258,13 +279,6 @@
   }
 }
 
-
-.help-center-nav .collapsible-trigger {
-  position: unset;
-}
-
-
-
 /* sticky header */
 .help-center-nav .sticky {
   position: fixed;
@@ -276,12 +290,42 @@
 
 
 
+.help-center-nav .collapsible-trigger {
+  position: unset;
+}
 
-
+.help-center-nav .is-open {
+  z-index: 5 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display:flex !important;
+}
+.help-center-nav .help-subnav {
+  display:flex !important;
+}
 
 .help-center-nav .subheading-left {
   border-bottom-color: #ffffff00 !important;
 }
+.help-center-nav .active-title {
+  /*text-decoration: underline;
+  -webkit-transition: text-decoration 600ms;
+  transition: text-decoration 600ms;*/
+
+  border-bottom: 2px solid;
+  bottom: 1px;
+  border-bottom-color: #fff !important;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: border-bottom 600ms, color 600ms;
+  transition: border-bottom 600ms, color 600ms;
+}
+
+
+
+
+
+
 </style>
 
 
