@@ -59,37 +59,37 @@
 
                         {% if block.settings.subheading-1 != empty %}
                           <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-1">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-1 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-2 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-2">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-2 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-2 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-3 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-3">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-3 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-3 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-4 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-4">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-4 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-4 }}</span></a></h4>
                           </button>
                         {% endif %} 
                         {% if block.settings.subheading-5 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-5">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-5 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-5 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-6 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-6">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-6 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-6 }}</span></a></h4>
                           </button>
                         {% endif %} 
                         {% if block.settings.subheading-7 != empty %}
                           <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-7">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" >{{ block.settings.subheading-7 }}</a></h4>
+                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-7 }}</span></a></h4>
                           </button>
                         {% endif %}
 
@@ -390,12 +390,9 @@
   .subheading-left {
     margin-left:30px;
     border-bottom-color: #ffffff00 !important;
+    display: unset !important;
   }
 }
-
-
-
-
 
 
 
@@ -430,6 +427,18 @@
   transition: opacity 600ms, visibility 600ms, max-height 600ms ease-out;
 }
 
+.left-section-block .collapsible-content__inner .is-open .subheading-left span {
+  border-bottom: 2px solid;
+  bottom: 1px;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: border-bottom 600ms, color 600ms;
+  transition: border-bottom 600ms, color 600ms;
+}
+
+
+
 
 
 .help-center .sticky-padded {
@@ -463,7 +472,10 @@
 
 
 <script>
-  window.onscroll = function() { stickyHelp2()};
+ // sticky header for left mobile nav - only run when < 1024 since right side padding gets adjusted
+  if (window.innerWidth < 1024) {
+    window.onscroll = function() { stickyHelp2()};
+  }
 
   var helpHeader2 = document.getElementById("helpCenterNav2");
   var stickyLeft2 = helpHeader2.offsetTop;
