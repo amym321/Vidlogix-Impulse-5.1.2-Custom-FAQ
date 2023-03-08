@@ -147,9 +147,10 @@
             <h4 class="collapsible-trigger rte nav-title"
                 aria-controls-mobile="{{aria_controls_main_1}}-mobile"  aria-controls="{{aria_controls_main_1}}" aria-controls-right="{{aria_controls_right_1}}"
                 style="margin:unset; font-size: 13px;  color: #fff; outline: 0;display: inline-block;
-                padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
+                padding: 0; box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
                 <a itemprop="name" class="subheading-left     active-title" style="color:#fff;">{{ block_title_1 }}</a>
             </h4>
+            {% comment %} JS gets 1st level title above via id below, then getting previousElementSibling.firstElementChild - am {% endcomment %}
             <div id="{{aria_controls_main_1}}-mobile" class="is-open showing collapsible-content help-subnav"
                 itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"
                 style="height: auto !important; visibility: hidden; position: absolute;
@@ -160,7 +161,7 @@
                   <li class="collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_1}}"
                       style="margin-bottom:unset; cursor:pointer; box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                       transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
-                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
+                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0; box-sizing: border-box; overflow: hidden;
                         position: relative;  background-color: transparent;">
                         <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_1 }}</span></a>
                     </h4>
@@ -170,7 +171,7 @@
                   <li class="collapsible-trigger"   aria-controls="{{aria_controls_1_sub_2 }}"
                       style="cursor:pointer;  box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                       transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
-                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
+                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0; box-sizing: border-box; overflow: hidden;
                         position: relative;  background-color: transparent;">
                       {{ block_1_subheader_2 }}
                     </h4>
@@ -180,7 +181,7 @@
                 <li  class="collapsible-trigger"   aria-controls="{{aria_controls_1_sub_3}}"
                     style="cursor:pointer;  box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                     transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
-                  <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
+                  <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0; box-sizing: border-box; overflow: hidden;
                       position: relative;  background-color: transparent;">
                     {{ block_1_subheader_3 }}
                   </h4>
@@ -197,7 +198,7 @@
                 -webkit-box-align: center; align-items: center; transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent;">
             <h4 class="collapsible-trigger"  aria-controls="{{aria_controls_main_2}}" aria-controls-right="{{aria_controls_right_2}}"
                 style="margin:unset; font-size: 13px;  color: #fff; outline: 0;display: inline-block;
-                padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
+                padding: 0; box-sizing: border-box; overflow: hidden; position: relative;text-transform: uppercase; background-color: transparent; cursor: pointer;">
                 {{ block_title_2 }}
             </h4>
             <div class=""  style="height: auto; visibility: hidden; 
@@ -209,7 +210,7 @@
                   <li class="collapsible-trigger"   aria-controls="{{aria_controls_2_sub_1}}"
                       style="cursor:pointer; box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                       transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
-                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
+                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0; box-sizing: border-box; overflow: hidden;
                         position: relative;  background-color: transparent;">
                       {{ block_2_subheader_1 }}
                     </h4>
@@ -219,7 +220,7 @@
                   <li class="collapsible-trigger"   aria-controls="{{aria_controls_2_sub_2 }}"
                       style="cursor:pointer;  box-sizing: border-box; height: 50px; padding: 2px 16px 0;display: flex;  -webkit-box-align: center;    align-items: center;    
                       transition: padding .2s cubic-bezier(.25,.46,.45,.94); text-align: -webkit-match-parent; ">
-                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0 0 0.35em;box-sizing: border-box; overflow: hidden;
+                    <h4 style="margin:unset; font-size: 13px; color: #fff; outline: 0;display: inline-block; padding: 0; box-sizing: border-box; overflow: hidden;
                         position: relative;  background-color: transparent;">
                       {{ block_2_subheader_2 }}
                     </h4>
@@ -304,23 +305,37 @@
   display:flex !important;
 }
 
-.help-center-nav .subheading-left {
+.help-center-nav .subheading-left,
+.help-center-nav  a  {
   border-bottom-color: #ffffff00 !important;
 }
-.help-center-nav .active-title {
+.help-center-nav .active-title { /* add next to subheading-left when active */
   /*text-decoration: underline;
   -webkit-transition: text-decoration 600ms;
   transition: text-decoration 600ms;*/
 
+  /*border-bottom: 2px solid;
+  bottom: 1px;
+  border-bottom-color: #fff !important;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: border-bottom 600ms, border-bottom-color 600ms;
+  transition: border-bottom 600ms, border-bottom-color 600ms;*/
+
+  text-decoration: none;
+  border-bottom: 1px solid;
+  position: relative;
+  display: inline-block;
+}
+.help-center-nav .subheading-left:hover {
   border-bottom: 2px solid;
   bottom: 1px;
   border-bottom-color: #fff !important;
   position: relative;
   display: inline-block;
-  -webkit-transition: border-bottom 600ms, color 600ms;
-  transition: border-bottom 600ms, color 600ms;
+  -webkit-transition: border-bottom 600ms, border-bottom-color 600ms;
+  transition: border-bottom 600ms, border-bottom-color 600ms;
 }
-
 
 
 
