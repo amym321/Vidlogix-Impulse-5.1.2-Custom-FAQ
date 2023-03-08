@@ -57,7 +57,8 @@
             <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
 
                         {% if block.settings.subheading-1 != empty %}
-                          <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-1">
+                          <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                            aria-controls="help-content-{{ block.id }}-1">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
                           </button>
                         {% endif %}
@@ -418,12 +419,24 @@
 
 
 
-
+/* sticky mobile header */
 .help-center .sticky-padded {
   padding-top: 140px !important;
 }
 
-
+/* icons */
+/*
+.help-center-nav 
+.collapsible-trigger__icon--circle .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) !important;
+}
+.collapsible-trigger.is-open .collapsible-trigger__icon--circle>.icon-chevron-down {
+    transform: translate(-50%,-50%) scaleY(-1) !important;
+}
+*/
 
 
 

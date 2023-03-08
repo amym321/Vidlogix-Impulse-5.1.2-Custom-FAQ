@@ -2019,8 +2019,39 @@ lazySizesConfig.expFactor = 4;
       var container = document.getElementById(moduleId);
       var containerRight = document.getElementById(moduleIdRight);
       var containerMobile = document.getElementById(moduleIdMobile);
-      // var isHelpCenter = el.classList.contains(classes.helpModule);
-  
+
+      console.log('log 77) moduleId = '+ moduleId); // help-content-faq-2-1
+
+      // var elArias = document.querySelectorAll("[aria-controls='help-content-faq-2-1']"); // WORKS
+      var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
+      var elAriasNodeList = $("elArias").not('el');
+      var secondEl = elAriasNodeList[0];
+
+      var elString = JSON.stringify(el, null, 2);
+      var elAriasString = JSON.stringify(elArias, null, 2);
+      var secondElString = JSON.stringify(secondEl, null, 2);
+
+
+      console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
+      console.log('log 71) elArias = '+ elArias);  // [object NodeList]
+      console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
+      console.log('log 71.3) elAriasNodeList.length = '+ elAriasNodeList.length);  // 0
+      console.log('log 72) secondEl = '+ secondEl); //  undefined
+
+      console.log('log 73) elString = '+ elString);
+      console.log('log 74) elAriasString = '+ elAriasString);  // looks like log 73 when all aria-controls and not limited to a value
+      //console.log('log 75) secondElString = '+ secondElString);
+
+      for (var index = 0; index < elArias.length; index++) {
+        //alert(elArias[index]);
+        console.log('log 76) each node = '+ elArias[index]);
+      }
+
+      // for (var index = 0; index < elAriasNodeList.length; index++) {
+      //   alert(elAriasNodeList[index]);
+      //   console.log('log 77) each node = '+ elAriasNodeList[index]);
+      // }
+    
 
       if (!moduleId) {
         moduleId = el.dataset.controls;
@@ -2132,12 +2163,71 @@ lazySizesConfig.expFactor = 4;
         heightRight = 0;
       }
   
-      el.setAttribute('aria-expanded', !isOpen);
-      if (isOpen) {
-        el.classList.remove(classes.open);
+
+
+
+
+          // el.setAttribute('aria-expanded', !isOpen);
+          // if (isOpen) {
+          //   el.classList.remove(classes.open);
+          // } else {
+          //   el.classList.add(classes.open);
+          // }
+
+
+
+      // 3 aria-controls for left, mobile, right on 2nd level buttons. 1st level has no button on right
+      if (elArias.length >=3 ) {
+        elArias.forEach((element) => {
+          // if (element != el) {  // this is working! But really don't want it. Want to change every element
+            console.log('log 78) >= 3 nodes');
+            console.log('log 80) el = '+ el);
+            console.log('log 81) element = '+ element);
+            console.log('log 80.2) el.classList = '+ el.classList);
+            console.log('log 81.2) element.classList = '+ element.classList);
+            // SECOND is the element not el that has same aria-controls
+            // if (secondEl) {
+            //   secondEl.setAttribute('aria-expanded', !isOpen);
+            // }
+            element.setAttribute('aria-expanded', !isOpen); // every matching node, one of which will be el
+
+
+            // // toggle .is-open on duplicate trigger for Help Center
+            // if (secondEl && isOpen) {
+            //   secondEl.classList.remove(classes.open);
+            // } else if (secondEl && !isOpen) {
+            //   secondEl.classList.add(classes.open);
+            // }
+            if (isOpen) {     // every matching node, one of which will be el
+              element.classList.remove(classes.open);   
+            } else {
+              //if doesn't already have classes.open
+              var stateElement = element.classList.contains(classes.open); // if it odesn't already have .is-open
+              if (!stateElement) {
+                element.classList.add(classes.open);
+              }
+            }
+
+          // *** TO DO *** need to add .active-title to 2nd level left button for desktop & mobile
+
+          // }
+        });
       } else {
-        el.classList.add(classes.open);
+        console.log('log 79) < 3 nodes');
+
+        el.setAttribute('aria-expanded', !isOpen);
+        if (isOpen) {
+          el.classList.remove(classes.open);
+        } else {
+          el.classList.add(classes.open);
+        }
+
+        // *** TO DO *** need to add .active-title to 1st level left button for mobile
+
       }
+
+
+
 
       setTransitionHeight(container, height, isOpen, isAutoHeight);
 
