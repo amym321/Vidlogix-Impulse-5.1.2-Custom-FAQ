@@ -31,7 +31,17 @@
 
 
   //set global variable  
-  window.helpSection3 = "returns3"; // = data-attribute value
+  //window.helpSection3 = "returns3"; // = data-attribute value
+
+  //var globalVar = '111111';
+
+
+ // window.temp1 = window.temp1 || 'XXXXX';
+  //window.temp1;
+
+  //(function helpCenterVar() {
+  //  window.temp2 = '11111111111';
+  //})();
 
 
   function helpCenterLink() {
@@ -50,8 +60,61 @@
     //  console.log('log 31) no relevant links');
     //}
 
-    //then route to HC page
-    window.location.href = '/pages/help-center';
+
+
+
+    //route to Help Center page
+    //window.location.href = '/pages/help-center';
+   // console.log('log 30) href');
+
+
+   //var w = window.open("/pages/help-center", "_self");
+  // w.myVariable = '44444444';  //not working
+
+    //window.open("/pages/help-center?main_block=" + "FAQ-content-right-faq-1", "_self");
+
+    window.open("/pages/help-center?main_block=" + "FAQ-content-left-faq-1", "_self");
+
+
+    // have to get the attribute of the element CLICKED
+    //var elem = document.querySelector('[aria-controls-right="FAQ-content-right-faq-1"]');
+    //console.log('log 31) el = '+ elem);
+
+    //var temp1 = "XXXXXX2";
+   // window.temp1 = 'YYYYYY';
+
+   // let globalVar = '222222';
+
+    //theme.collapsibles();
+    //theme.collapsibles.init(document.getElementById('NavDrawer'));
+    //theme.collapsibles.init();
+    //console.log('log 32) run theme.collapsibles.init()');
+
+   // theme.collapsibles.init(elem);  //runs for just 1 element, however same f() may have already run for all on page load
+   // console.log('log 33) run theme.collapsibles.init(elem)');
+
+    //theme.collapsibles.toggle(elem);   //doesn't run
+    //theme.collapsibles.toggle(elem.onload);   //doesn't run
+    //console.log('log 34) run theme.collapsibles.toggle(el)');
+
+    //theme.collapsibles.temp();   //runs since I returned temp: temp at end of theme.collapsibles
+
+
+   // theme.collapsibles.temp(elem);   //runs since I returned temp: temp at end of theme.collapsibles
+    // doesn't run when going to new href. loses the var el
+
+
+
+
+
+
+
+    //el.onload = function() {myFunction()};
+
+    //function myFunction() {
+    //  document.getElementById("demo").innerHTML = "Iframe is loaded.";
+    //}
+
 
   }
 </script>

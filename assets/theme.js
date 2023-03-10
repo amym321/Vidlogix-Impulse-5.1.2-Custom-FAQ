@@ -1950,33 +1950,37 @@ lazySizesConfig.expFactor = 4;
   })();
   
 
-// FAQ HELP CENTER - am
+  // on Help Center page - am
 
   // get opening initial heights for use when on Help Center Page
   if (document.body.classList.contains('template-page')) {
-    // console.log('log 40) template-page');
-    var helpPage = document.getElementById('help-center');
+    if (document.getElementById('helpCenterRight')) {
 
-    if (helpPage) {
-      console.log('log 41) helpPage = '+ helpPage);
-      console.log('log 42) window.helpSection = '+ window.helpSection);
+    // if (document.body.classList.contains('help-center-wrapper')) {
+      // console.log('log 40) template-page');
+      var helpPage = document.getElementById('help-center');
 
-      // get height of left & right
+      if (helpPage) {
+        console.log('log 41) helpPage = '+ helpPage);
+        console.log('log 42) window.helpSection = '+ window.helpSection);
+
+        // get height of left & right
+      }
     }
   }
-
 
 
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
   theme.collapsibles = (function() {
+    window.flag = false;
+    console.log('log 124) window.flag = '+ window.flag);
+
     var selectors = {
       trigger: '.collapsible-trigger',
       module: '.collapsible-content',
       moduleInner: '.collapsible-content__inner',
       tabs: '.collapsible-trigger--tab'
-      // helpTrigger: '.collapsible-right-trigger',
-      // helpModule: '.collapsible-right-container'
     };
   
     var classes = {
@@ -1984,8 +1988,6 @@ lazySizesConfig.expFactor = 4;
       open: 'is-open',
       autoHeight: 'collapsible--auto-height',
       tabs: 'collapsible-trigger--tab'
-      // helpTrigger: '.collapsible-right-trigger',
-      // helpModule: '.collapsible-right-container'
     };
   
     var namespace = '.collapsible';
@@ -1993,24 +1995,58 @@ lazySizesConfig.expFactor = 4;
     var isTransitioning = false;
   
     function init(scope) {
+      console.log('log 43.2)  scope = '+ scope);
+
       var el = scope ? scope : document;
+      console.log('log 43.4) el = '+ el);
+
+
       el.querySelectorAll(selectors.trigger).forEach(trigger => {
         var state = trigger.classList.contains(classes.open);
         trigger.setAttribute('aria-expanded', state);
   
         trigger.off('click' + namespace);
-        trigger.on('click' + namespace, toggle);
+        trigger.on('click' + namespace, toggle);  // calls f() toggle below.  event is 'click.collapsible'
       });
+
+      // open Help Center block 1st time if linked form elsewhere - am
+      // links to Help Center with no block should be https://vidlogix.com/pages/help-center?main_block=FAQ-content-left-faq-2
+      var queryStringUrl = window.location.search;
+
+      if (queryStringUrl != "") {
+        window.flag = true;
+        console.log('log 125) window.flag = '+ window.flag);
+
+        var urlParams = new URLSearchParams(queryStringUrl);
+        var mainBlock = urlParams.get('main_block');
+        console.log('log 116)  mainBlock = '+  mainBlock);
+        //use the 1st trigger element
+        var elem = document.querySelector('[aria-controls="' + mainBlock + '"]'); 
+        console.log('log 128) elem = '+ elem);
+
+        toggle(elem);
+        window.flag = false;
+      }
     }
-  
+
+
     function toggle(evt) {
       if (isTransitioning) {
         return;
       }
   
       isTransitioning = true;
-  
-      var el = evt.currentTarget;
+
+
+      console.log('log 126) window.flag = '+ window.flag);
+      if (window.flag) {
+        var el = evt;
+        console.log('log 122) el = '+ el); // [object HTMLButtonElement]
+      } else {
+        var el = evt.currentTarget;
+        console.log('log 123) el = '+ el); // [object HTMLButtonElement]
+      }
+
       var isOpen = el.classList.contains(classes.open);
       var isTab = el.classList.contains(classes.tabs);
       var moduleId = el.getAttribute('aria-controls');
@@ -2023,35 +2059,29 @@ lazySizesConfig.expFactor = 4;
       console.log('log 77) moduleId = '+ moduleId); // help-content-faq-2-1
 
       // var elArias = document.querySelectorAll("[aria-controls='help-content-faq-2-1']"); // WORKS
-      var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
-      var elAriasNodeList = $("elArias").not('el');
-      var secondEl = elAriasNodeList[0];
+      var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]'); // all elements matching trigger including trigger
+      //var elAriasNodeList = $("elArias").not('el');
+      //var secondEl = elAriasNodeList[0];
 
-      var elString = JSON.stringify(el, null, 2);
-      var elAriasString = JSON.stringify(elArias, null, 2);
-      var secondElString = JSON.stringify(secondEl, null, 2);
+      //var elString = JSON.stringify(el, null, 2);
+      // var elAriasString = JSON.stringify(elArias, null, 2);
+      // var secondElString = JSON.stringify(secondEl, null, 2);
 
 
       console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
       console.log('log 71) elArias = '+ elArias);  // [object NodeList]
       console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
-      console.log('log 71.3) elAriasNodeList.length = '+ elAriasNodeList.length);  // 0
-      console.log('log 72) secondEl = '+ secondEl); //  undefined
+      // console.log('log 71.3) elAriasNodeList.length = '+ elAriasNodeList.length);  // 0
+      // console.log('log 72) secondEl = '+ secondEl); //  undefined
 
       console.log('log 73) elString = '+ elString);
-      console.log('log 74) elAriasString = '+ elAriasString);  // looks like log 73 when all aria-controls and not limited to a value
+      // console.log('log 74) elAriasString = '+ elAriasString);  // looks like log 73 when all aria-controls and not limited to a value
       //console.log('log 75) secondElString = '+ secondElString);
 
-      for (var index = 0; index < elArias.length; index++) {
-        //alert(elArias[index]);
-        console.log('log 76) each node = '+ elArias[index]);
-      }
-
-      // for (var index = 0; index < elAriasNodeList.length; index++) {
-      //   alert(elAriasNodeList[index]);
-      //   console.log('log 77) each node = '+ elAriasNodeList[index]);
-      // }
-    
+      // for (var index = 0; index < elArias.length; index++) {
+      //   //alert(elArias[index]);
+      //   console.log('log 76) each node = '+ elArias[index]);
+      // }    
 
       if (!moduleId) {
         moduleId = el.dataset.controls;
@@ -2082,6 +2112,7 @@ lazySizesConfig.expFactor = 4;
       var parentCollapsibleEl = container.parentNode.closest(selectors.module);
       var childHeight = height;
 
+      // on Help Center page - am
       if (containerRight) {
         var heightRight = containerRight.querySelector(selectors.moduleInner).offsetHeight;
         var isAutoHeightRight = containerRight.classList.contains(classes.autoHeight);
@@ -2089,6 +2120,7 @@ lazySizesConfig.expFactor = 4;
         var childHeightRight = heightRight;
       }
   
+      // on Help Center page - am
       if (containerMobile) {
         var heightMobile = 'auto';
         var isAutoHeightMobile = false;
@@ -2125,10 +2157,10 @@ lazySizesConfig.expFactor = 4;
         // }
 
 
-        if (isTab) {
-          if(isOpen) {
-            isTransitioning = false;
-            return;
+      if (isTab) {
+        if(isOpen) {
+          isTransitioning = false;
+          return;
         }
   
         var newModule;
@@ -2164,9 +2196,6 @@ lazySizesConfig.expFactor = 4;
       }
   
 
-
-
-
           // el.setAttribute('aria-expanded', !isOpen);
           // if (isOpen) {
           //   el.classList.remove(classes.open);
@@ -2175,7 +2204,7 @@ lazySizesConfig.expFactor = 4;
           // }
 
 
-
+      // on Help Center page - am
       // 3 aria-controls for left, mobile, right on 2nd level buttons. 1st level has no button on right
       if (elArias.length >=3 ) {
         elArias.forEach((element) => {
@@ -2198,8 +2227,8 @@ lazySizesConfig.expFactor = 4;
             // } else if (secondEl && !isOpen) {
             //   secondEl.classList.add(classes.open);
             // }
-            if (isOpen) {     // every matching node, one of which will be el
-              element.classList.remove(classes.open);   
+            if (isOpen) {     // every matching node, including el
+              element.classList.remove(classes.open);
             } else {
               //if doesn't already have classes.open
               var stateElement = element.classList.contains(classes.open); // if it odesn't already have .is-open
@@ -2207,11 +2236,9 @@ lazySizesConfig.expFactor = 4;
                 element.classList.add(classes.open);
               }
             }
-
-          // *** TO DO *** need to add .active-title to 2nd level left button for desktop & mobile
-
           // }
         });
+      // ALL collapsibles as well as Help Center page buttons at the 1st level - am
       } else {
         console.log('log 79) < 3 nodes');
 
@@ -2231,6 +2258,7 @@ lazySizesConfig.expFactor = 4;
 
       setTransitionHeight(container, height, isOpen, isAutoHeight);
 
+      // on Help Center page - am
       if (containerRight) {
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
         console.log('log 90) containerRight = '+containerRight);
@@ -2239,6 +2267,7 @@ lazySizesConfig.expFactor = 4;
         console.log('log 93) isAutoHeightRight = '+ isAutoHeightRight);
       }
 
+      // on Help Center page - am
       if (containerMobile) {
         setTransitionHeight(containerMobile, heightMobile, isOpen, isAutoHeightMobile);
         console.log('log 94) containerMobile = '+containerMobile);
@@ -2248,6 +2277,7 @@ lazySizesConfig.expFactor = 4;
         console.log('log 98) activeTitle = '+ activeMobileTitle);
       }
 
+      // on Help Center page - am
       if (containerMobile && isOpen) {
         activeMobileTitle.classList.remove("active-title");
       } else if (containerMobile && !isOpen) {
@@ -2270,6 +2300,7 @@ lazySizesConfig.expFactor = 4;
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
       }
 
+      // on Help Center page - am
       if (parentCollapsibleElRight) {
         var parentHeight = parentCollapsibleElRight.style.heightRight;
 
@@ -2321,7 +2352,8 @@ lazySizesConfig.expFactor = 4;
     }
   
     return {
-      init: init
+      init: init,
+      temp: temp
     };
   })();
   
