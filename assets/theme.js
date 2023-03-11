@@ -2074,7 +2074,7 @@ lazySizesConfig.expFactor = 4;
       // console.log('log 71.3) elAriasNodeList.length = '+ elAriasNodeList.length);  // 0
       // console.log('log 72) secondEl = '+ secondEl); //  undefined
 
-      console.log('log 73) elString = '+ elString);
+      //console.log('log 73) elString = '+ elString);
       // console.log('log 74) elAriasString = '+ elAriasString);  // looks like log 73 when all aria-controls and not limited to a value
       //console.log('log 75) secondElString = '+ secondElString);
 
@@ -2352,8 +2352,7 @@ lazySizesConfig.expFactor = 4;
     }
   
     return {
-      init: init,
-      temp: temp
+      init: init
     };
   })();
   

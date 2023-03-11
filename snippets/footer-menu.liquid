@@ -51,14 +51,17 @@
           {%- for link in linklists[block.settings.menu].links -%}
             <li>
               {% if link.title contains link_title_1 %}
-                <a style="cursor:pointer;" id="route-help" data-help-block="{{ block.settings.help_link_block_1}}" 
-                  data-help-subblock="{{ block.settings.help_link_subblock_1}}"  onclick="helpCenterLink()">{{ block.settings.help_link_title_1 }}</a>
+              <a onclick="helpCenterLink('{{ block.settings.help_link_block_1}}', '{{ block.settings.help_link_subblock_1}}')"
+                  style="cursor:pointer;" id="route-help" >
+                  {{ block.settings.help_link_title_1 }}</a>
               {% elsif link.title contains link_title_2 %}
-                <a style="cursor:pointer;" id="route-help" data-help-block="{{ block.settings.help_link_block_2}}" 
-                  data-help-subblock="{{ block.settings.help_link_subblock_2}}"  onclick="helpCenterLink()">{{ block.settings.help_link_title_2 }}</a>
+                <a onclick="helpCenterLink('{{ block.settings.help_link_block_2}}', '{{ block.settings.help_link_subblock_2}}')"
+                  style="cursor:pointer;" id="route-help" >
+                  {{ block.settings.help_link_title_2 }}</a>
               {% elsif link.title contains link_title_3 %}
-                <a style="cursor:pointer;" id="route-help" data-help-block="{{ block.settings.help_link_block_3}}" 
-                  data-help-subblock="{{ block.settings.help_link_subblock_3}}"  onclick="helpCenterLink()">{{ block.settings.help_link_title_3 }}</a>
+                <a onclick="helpCenterLink('{{ block.settings.help_link_block_3 }}', '{{ block.settings.help_link_subblock_3 }}')"
+                  style="cursor:pointer;" id="route-help" >
+                  {{ block.settings.help_link_title_3 }}</a>
               {% elsif link.title contains link_title_4 %}
                 <a style="cursor:pointer;" id="route-help" data-help-block="{{ block.settings.help_link_block_4}}" 
                   data-help-subblock="{{ block.settings.help_link_subblock_4 }}"  onclick="helpCenterLink()">{{ block.settings.help_link_title_4 }}</a>

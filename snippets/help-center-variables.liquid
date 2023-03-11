@@ -44,7 +44,7 @@
   //})();
 
 
-  function helpCenterLink() {
+  function helpCenterLink(mainBlock, subBlock) {
   //needs a no-JS href link
 
     // if helpReturns or some ID, get data attribute
@@ -73,7 +73,16 @@
 
     //window.open("/pages/help-center?main_block=" + "FAQ-content-right-faq-1", "_self");
 
-    window.open("/pages/help-center?main_block=" + "FAQ-content-left-faq-1", "_self");
+
+    // Pass the blocks to opened in the URL
+    //when mainBlock is empty or incorrect, just the genric page opens
+    //when subBlock is empty or incorrect, the main block opens but no subblock opens
+    var help_block = mainBlock;
+    var help_sub_block = subBlock;
+    console.log('log 130) help_block = '+ help_block);
+
+    window.open("/pages/help-center?main_block=" + help_block, "_self");
+
 
 
     // have to get the attribute of the element CLICKED
