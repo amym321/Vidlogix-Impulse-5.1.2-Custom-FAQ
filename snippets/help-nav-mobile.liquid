@@ -26,19 +26,19 @@
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
           {% assign aria_controls_1_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
-          {% assign block_1_subheader_4 = block.settings.subheading-1 %}
+          {% assign block_1_subheader_4 = block.settings.subheading-4 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
           {% assign aria_controls_1_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
-          {% assign block_1_subheader_5 = block.settings.subheading-2 %}
+          {% assign block_1_subheader_5 = block.settings.subheading-5 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
           {% assign aria_controls_1_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_1_subheader_6 = block.settings.subheading-3 %}
+          {% assign block_1_subheader_6 = block.settings.subheading-6 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
           {% assign aria_controls_1_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_1_subheader_7 = block.settings.subheading-3 %}
+          {% assign block_1_subheader_7 = block.settings.subheading-7 %}
         {% endif %}
       {% endif %}
 
@@ -62,19 +62,19 @@
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
           {% assign aria_controls_2_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
-          {% assign block_2_subheader_4 = block.settings.subheading-1 %}
+          {% assign block_2_subheader_4 = block.settings.subheading-4 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
           {% assign aria_controls_2_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
-          {% assign block_2_subheader_5 = block.settings.subheading-2 %}
+          {% assign block_2_subheader_5 = block.settings.subheading-5 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
           {% assign aria_controls_2_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_2_subheader_6 = block.settings.subheading-3 %}
+          {% assign block_2_subheader_6 = block.settings.subheading-6 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
           {% assign aria_controls_2_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_2_subheader_7 = block.settings.subheading-3 %}
+          {% assign block_2_subheader_7 = block.settings.subheading-7 %}
         {% endif %}
       {% endif %}
 
@@ -98,19 +98,56 @@
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
           {% assign aria_controls_3_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
-          {% assign block_3_subheader_4 = block.settings.subheading-1 %}
+          {% assign block_3_subheader_4 = block.settings.subheading-4 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
           {% assign aria_controls_3_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
-          {% assign block_3_subheader_5 = block.settings.subheading-2 %}
+          {% assign block_3_subheader_5 = block.settings.subheading-5 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
           {% assign aria_controls_3_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_3_subheader_6 = block.settings.subheading-3 %}
+          {% assign block_3_subheader_6 = block.settings.subheading-6 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
           {% assign aria_controls_3_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
-          {% assign block_3_subheader_7 = block.settings.subheading-3 %}
+          {% assign block_3_subheader_7 = block.settings.subheading-7 %}
+        {% endif %}
+      {% endif %}
+
+      
+      {% if help_counter == 4 %}
+        {% assign block_id_4 = block.id %}
+        {% assign block_title_4 = block.settings.title %}
+        {% assign aria_controls_main_4 = "HC-left-"| append: block.id  %}
+        {% assign aria_controls_right_4 = "HC-right-"| append: block.id  %}
+
+        {% if block.settings.subheading-1 != empty %}
+          {% assign aria_controls_4_sub_1 = "HC-"| append: block.id | append: '-' | append: 1 %}
+          {% assign block_4_subheader_1 = block.settings.subheading-1 %}
+        {% endif %}
+        {% if block.settings.subheading-2 != empty %}
+          {% assign aria_controls_4_sub_2 = "HC-"| append: block.id | append: '-' | append: 2 %}
+          {% assign block_4_subheader_2 = block.settings.subheading-2 %}
+        {% endif %}
+        {% if block.settings.subheading-3 != empty %}
+          {% assign aria_controls_3_sub_3 = "HC-"| append: block.id | append: '-' | append: 3 %}
+          {% assign block_4_subhea4er_3 = block.settings.subheading-3 %}
+        {% endif %}
+        {% if block.settings.subheading-4 != empty %}
+          {% assign aria_controls_4_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
+          {% assign block_4_subheader_4 = block.settings.subheading-4 %}
+        {% endif %}
+        {% if block.settings.subheading-5 != empty %}
+          {% assign aria_controls_4_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
+          {% assign block_4_subheader_5 = block.settings.subheading-5 %}
+        {% endif %}
+        {% if block.settings.subheading-6 != empty %}
+          {% assign aria_controls_4_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
+          {% assign block_4_subheader_6 = block.settings.subheading-6 %}
+        {% endif %}
+        {% if block.settings.subheading-7 != empty %}
+          {% assign aria_controls_4_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
+          {% assign block_4_subheader_7 = block.settings.subheading-7 %}
         {% endif %}
       {% endif %}
 
