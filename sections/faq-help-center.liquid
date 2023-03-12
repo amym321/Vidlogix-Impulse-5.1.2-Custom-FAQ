@@ -21,14 +21,13 @@
         <div id="helpCenterLeft" class="help-center-left" style="display:none;" >
 
           <div style="position:relative;">
-            <div class="left-wrapper" style="">
+            <div class="left-wrapper">
               {%- for block in section.blocks -%}
                 <div {{ block.shopify_attributes }} class="left-section-block">
                   {% case block.type %}
                     {% when 'question'%}
                       <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button style="padding: 20px 0 11px;" type="button" class=" 
-                            collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                        <button type="button" class="left-main-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left"
                             aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
                           {%- render 'collapsible-icons-alt', no_circle: true -%}
                           <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
@@ -38,7 +37,7 @@
                             itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                           <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
                             {% if block.settings.subheading-1 != empty %}
-                              <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                              <button  type="button" class="left-sub-trigger collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
                                 aria-controls="HC-{{ block.id }}-1">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
                               </button>
@@ -90,11 +89,8 @@
       {% render 'help-nav-mobile' %}
 
       {% comment %} right side - answers {% endcomment %}
-        <div id="helpCenterRight" class="help-center-right" style="flex-grow: 1; 
-            padding-top: 50px; 
-            background: top center repeat;
-            background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');">
-          <div class="right-wrapper" style="padding: 50px 50px; max-width: 1000px;">
+        <div id="helpCenterRight" class="help-center-right">
+          <div class="right-wrapper">
           
             {%- for block in section.blocks -%}
               <div {{ block.shopify_attributes }} >
@@ -186,11 +182,6 @@
   border-color: #ffffff00;
 }
 
-
-
-
-
-
 /* LEFT DESKTOP */
 @media (min-width: 1024px) {
   .help-center-wrapper {
@@ -247,9 +238,11 @@
   }
 }
 
+.help-center  .left-main-trigger {
+  padding: 20px 0 11px;
+}
 
-
-
+/* MOBILE NAV */
 @media screen and (max-width: 1023px) {
   .help-center-left .collapsible-content__inner  {
     display:flex;
@@ -257,10 +250,6 @@
     justify-content: space-evenly;   /* needs width unset on collapsible-trigger */
   }
 }
-
-
-
-
 
 .help-center .faq-section {
   border-bottom: 1px solid #cccbcb;
@@ -275,18 +264,28 @@
   }
 }
 
+.help-center .help-center-right {
+  flex-grow: 1;
+  padding-top: 50px;
+  background: top center repeat;
+  background-image: url('//cdn.shopify.com/s/files/1/0056/9632/3651/files/help_center_background_d28a5386-e31b-4a16-bc2d-2461e317a7a9.jpg');
+}
 
+.help-center .right-wrapper {
+  padding: 50px 50px; 
+  max-width: 1000px;
+}
+@media screen and (max-width: 550px) {
+  .help-center .right-wrapper {
+    padding: 20px 36px; 
+  }
+}
 
-
-
-
-
-
-.help-center-right .rte.collapsible-content__inner--faq {
+.help-center .help-center-right .rte.collapsible-content__inner--faq {
   padding-top: 0;
 }
 
-.help-center-right  .faq-section button.collapsible-trigger--inline span {
+.help-center .help-center-right  .faq-section button.collapsible-trigger--inline span {
   font-weight: normal;
 }
 
@@ -320,19 +319,11 @@
   bottom: -1px;
 }
 
-
-
 /* sticky mobile header */
 .help-center .sticky-padded {
   padding-top: 140px !important;
 }
-
-
-
-
-
 </style>
-
 
 
 <script>
@@ -355,9 +346,6 @@
     }
   }
 </script>
-
-
-
 
 
 {% schema %}
