@@ -1950,25 +1950,7 @@ lazySizesConfig.expFactor = 4;
   })();
   
 
-  // on Help Center page - am
-
-  // get opening initial heights for use when on Help Center Page
-  if (document.body.classList.contains('template-page')) {
-    if (document.getElementById('helpCenterRight')) {
-
-    // if (document.body.classList.contains('help-center-wrapper')) {
-      // console.log('log 40) template-page');
-      var helpPage = document.getElementById('help-center');
-
-      if (helpPage) {
-        console.log('log 41) helpPage = '+ helpPage);
-        console.log('log 42) window.helpSection = '+ window.helpSection);
-
-        // get height of left & right
-      }
-    }
-  }
-
+  // includes Help Center page - am
 
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
@@ -2007,10 +1989,10 @@ lazySizesConfig.expFactor = 4;
         trigger.setAttribute('aria-expanded', state);
   
         trigger.off('click' + namespace);
-        trigger.on('click' + namespace, toggle);  // calls f() toggle below.  event is 'click.collapsible'
+        trigger.on('click' + namespace, toggle);
       });
 
-      // open Help Center block 1st time if linked form elsewhere - am
+      // open Help Center block 1st time if linked from other page, ie. not triggered by click on Help Center page- am
       // links to Help Center with no block should be https://vidlogix.com/pages/help-center?main_block=FAQ-content-left-faq-2
       var queryStringUrl = window.location.search;
 
@@ -2026,12 +2008,9 @@ lazySizesConfig.expFactor = 4;
         console.log('log 116)  mainBlock = '+  mainBlock);
         console.log('log 116.2)  subBlock = '+  subBlock);
 
-        //use the 1st trigger element
+        //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
         var elem = document.querySelector('[aria-controls="' + mainBlock + '"]'); 
-        console.log('log 128) elem = '+ elem);
-
         var subElem = document.querySelector('[aria-controls="' + subBlock + '"]'); 
-        console.log('log 129) subElem = '+ subElem);
 
         if (subElem != null) {
           toggle(subElem);
@@ -2039,8 +2018,8 @@ lazySizesConfig.expFactor = 4;
         if (elem != null) {
           toggle(elem);
         }
-        window.flag = false;
-        window.subHeight = 0;
+        window.flag = false;  // turn off flag when done
+        window.subHeight = 0; // reset height when done
       }
 
     }
@@ -2070,32 +2049,12 @@ lazySizesConfig.expFactor = 4;
       var containerRight = document.getElementById(moduleIdRight);
       var containerMobile = document.getElementById(moduleIdMobile);
 
-      console.log('log 77) moduleId = '+ moduleId); // help-content-faq-2-1
-
-      // var elArias = document.querySelectorAll("[aria-controls='help-content-faq-2-1']"); // WORKS
-      var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]'); // all elements matching trigger including trigger
-      //var elAriasNodeList = $("elArias").not('el');
-      //var secondEl = elAriasNodeList[0];
-
-      //var elString = JSON.stringify(el, null, 2);
-      // var elAriasString = JSON.stringify(elArias, null, 2);
-      // var secondElString = JSON.stringify(secondEl, null, 2);
-
+      // all elements matching trigger including trigger
+      var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
 
       console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
       console.log('log 71) elArias = '+ elArias);  // [object NodeList]
       console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
-      // console.log('log 71.3) elAriasNodeList.length = '+ elAriasNodeList.length);  // 0
-      // console.log('log 72) secondEl = '+ secondEl); //  undefined
-
-      //console.log('log 73) elString = '+ elString);
-      // console.log('log 74) elAriasString = '+ elAriasString);  // looks like log 73 when all aria-controls and not limited to a value
-      //console.log('log 75) secondElString = '+ secondElString);
-
-      // for (var index = 0; index < elArias.length; index++) {
-      //   //alert(elArias[index]);
-      //   console.log('log 76) each node = '+ elArias[index]);
-      // }    
 
       if (!moduleId) {
         moduleId = el.dataset.controls;
@@ -2148,35 +2107,6 @@ lazySizesConfig.expFactor = 4;
       }
 
 
-
-      // if (isHelpCenter) {
-        // if(isOpen) {
-        //   isTransitioning = false;
-        //   return;
-        // }
-  
-      //   if (  block.id  ) {
-      //     el.classList.add(classes.open);
-      //   } else {
-      //     el.classList.remove(classes.open);
-      //   }
-
-
-      //   var newModule;
-      //   document.querySelectorAll(selectors.helpModule + '[data-help="'+ el.dataset.id +'"]').forEach(el => {
-      //     el.classList.remove(classes.open);
-      //     newModule = document.querySelector('#' + el.getAttribute('aria-controls'));
-      //     setTransitionHeight(newModule, 0, true);
-      //   });
-      // }
-
-        // if (isHelpCenter != null){
-        //   trigger.onclick = function() {
-        //     helpModule.classList.add(classes.open);
-        //   }
-        // }
-
-
       if (isTab) {
         if(isOpen) {
           isTransitioning = false;
@@ -2216,37 +2146,17 @@ lazySizesConfig.expFactor = 4;
       }
   
 
-          // el.setAttribute('aria-expanded', !isOpen);
-          // if (isOpen) {
-          //   el.classList.remove(classes.open);
-          // } else {
-          //   el.classList.add(classes.open);
-          // }
-
-
-      // on Help Center page - am
+      // on Help Center page Open & change state for all matching elements - am
       // 3 aria-controls for left, mobile, right on 2nd level buttons. 1st level has no button on right
       if (elArias.length >=3 ) {
         elArias.forEach((element) => {
-          // if (element != el) {  // this is working! But really don't want it. Want to change every element
             console.log('log 78) >= 3 nodes');
             console.log('log 80) el = '+ el);
             console.log('log 81) element = '+ element);
             console.log('log 80.2) el.classList = '+ el.classList);
             console.log('log 81.2) element.classList = '+ element.classList);
-            // SECOND is the element not el that has same aria-controls
-            // if (secondEl) {
-            //   secondEl.setAttribute('aria-expanded', !isOpen);
-            // }
             element.setAttribute('aria-expanded', !isOpen); // every matching node, one of which will be el
 
-
-            // // toggle .is-open on duplicate trigger for Help Center
-            // if (secondEl && isOpen) {
-            //   secondEl.classList.remove(classes.open);
-            // } else if (secondEl && !isOpen) {
-            //   secondEl.classList.add(classes.open);
-            // }
             if (isOpen) {     // every matching node, including el
               element.classList.remove(classes.open);
             } else {
@@ -2256,24 +2166,16 @@ lazySizesConfig.expFactor = 4;
                 element.classList.add(classes.open);
               }
             }
-          // }
         });
       // ALL collapsibles as well as Help Center page buttons at the 1st level - am
       } else {
-        console.log('log 79) < 3 nodes');
-
         el.setAttribute('aria-expanded', !isOpen);
         if (isOpen) {
           el.classList.remove(classes.open);
         } else {
           el.classList.add(classes.open);
         }
-
-        // *** TO DO *** need to add .active-title to 1st level left button for mobile
-
       }
-
-
 
 
       setTransitionHeight(container, height, isOpen, isAutoHeight);
@@ -2281,20 +2183,11 @@ lazySizesConfig.expFactor = 4;
       // on Help Center page - am
       if (containerRight) {
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
-        console.log('log 90) containerRight = '+containerRight);
-        console.log('log 91) heightRight = '+ heightRight);
-        console.log('log 92) isOpen = '+ isOpen);
-        console.log('log 93) isAutoHeightRight = '+ isAutoHeightRight);
       }
 
       // on Help Center page - am
       if (containerMobile) {
         setTransitionHeight(containerMobile, heightMobile, isOpen, isAutoHeightMobile);
-        console.log('log 94) containerMobile = '+containerMobile);
-        console.log('log 95) heightMobile = '+ heightMobile);
-        console.log('log 96) isOpen = '+ isOpen);
-        console.log('log 97) isAutoHeightMobile = '+ isAutoHeightMobile);
-        console.log('log 98) activeTitle = '+ activeMobileTitle);
       }
 
       // on Help Center page - am
