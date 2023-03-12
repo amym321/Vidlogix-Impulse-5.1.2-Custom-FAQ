@@ -45,50 +45,49 @@
                     <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                       <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} 
                           collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
-                          aria-controls-right="FAQ-content-right-{{ block.id }}" aria-controls="FAQ-content-left-{{ block.id }}">
+                          aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
                         {%- render 'collapsible-icons-alt', no_circle: true -%}
                         <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                       </button>
 
-      <div id="FAQ-content-left-{{ block.id }}" 
-            style="{% if block.id contains "faq-2" %} height:247px;{% endif %}"  
-            class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div id="HC-left-{{ block.id }}" 
+            class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
             <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
 
                         {% if block.settings.subheading-1 != empty %}
                           <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
-                            aria-controls="help-content-{{ block.id }}-1">
+                            aria-controls="HC-{{ block.id }}-1">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-2 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-2">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-2">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-2 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-3 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-3">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-3">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-3 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-4 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-4">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-4">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-4 }}</span></a></h4>
                           </button>
                         {% endif %} 
                         {% if block.settings.subheading-5 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-5">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-5">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-5 }}</span></a></h4>
                           </button>
                         {% endif %}
                         {% if block.settings.subheading-6 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-6">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-6">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-6 }}</span></a></h4>
                           </button>
                         {% endif %} 
                         {% if block.settings.subheading-7 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="help-content-{{ block.id }}-7">
+                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-7">
                             <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-7 }}</span></a></h4>
                           </button>
                         {% endif %}
@@ -123,9 +122,8 @@
                 {% case block.type %}
 
                   {% when 'question'%}
-                    <div id="FAQ-content-right-{{ block.id }}"
-                        style="{% if block.id contains "faq-2" %} height:550px; {% endif %}"  
-                        class="{% if block.id contains "faq-2" %} is-open {% endif %} collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div id="HC-right-{{ block.id }}"
+                        class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
 
 

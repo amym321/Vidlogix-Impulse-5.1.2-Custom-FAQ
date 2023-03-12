@@ -6,45 +6,38 @@
 {%- for block in section.blocks -%}
   {% case block.type %}
     {% when 'question'%}
-
-      {% comment %} 
-      aria-controls='FAQ-content-left-faq-2'
-      aria-controls-right='FAQ-content-right-faq-2'
-      aria-controls='help-content-faq-2-1'
-    {% endcomment %}
-
       {% if help_counter == 1 %}
         {% assign block_id_1 = block.id %}
         {% assign block_title_1 = block.settings.title %}
-        {% assign aria_controls_main_1 = "FAQ-content-left-"| append: block.id  %}
-        {% assign aria_controls_right_1 = "FAQ-content-right-"| append: block.id  %}
+        {% assign aria_controls_main_1 = "HC-left-"| append: block.id  %}
+        {% assign aria_controls_right_1 = "HC-right-"| append: block.id  %}
 
         {% if block.settings.subheading-1 != empty %}
-          {% assign aria_controls_1_sub_1 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_1_sub_1 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_1_subheader_1 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-2 != empty %}
-          {% assign aria_controls_1_sub_2 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_1_sub_2 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_1_subheader_2 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-3 != empty %}
-          {% assign aria_controls_1_sub_3 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_1_sub_3 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_1_subheader_3 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
-          {% assign aria_controls_1_sub_4 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_1_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_1_subheader_4 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
-          {% assign aria_controls_1_sub_5 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_1_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_1_subheader_5 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
-          {% assign aria_controls_1_sub_6 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_1_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_1_subheader_6 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
-          {% assign aria_controls_1_sub_7 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_1_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_1_subheader_7 = block.settings.subheading-3 %}
         {% endif %}
       {% endif %}
@@ -52,35 +45,35 @@
       {% if help_counter == 2 %}
         {% assign block_id_2 = block.id %}
         {% assign block_title_2 = block.settings.title %}
-        {% assign aria_controls_main_2 = "FAQ-content-left-"| append: block.id  %}
-        {% assign aria_controls_right_2 = "FAQ-content-right-"| append: block.id  %}
+        {% assign aria_controls_main_2 = "HC-left-"| append: block.id  %}
+        {% assign aria_controls_right_2 = "HC-right-"| append: block.id  %}
 
         {% if block.settings.subheading-1 != empty %}
-          {% assign aria_controls_2_sub_1 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_2_sub_1 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_2_subheader_1 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-2 != empty %}
-          {% assign aria_controls_2_sub_2 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_2_sub_2 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_2_subheader_2 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-3 != empty %}
-          {% assign aria_controls_2_sub_3 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_2_sub_3 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_2_subheader_3 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
-          {% assign aria_controls_2_sub_4 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_2_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_2_subheader_4 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
-          {% assign aria_controls_2_sub_5 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_2_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_2_subheader_5 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
-          {% assign aria_controls_2_sub_6 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_2_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_2_subheader_6 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
-          {% assign aria_controls_2_sub_7 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_2_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_2_subheader_7 = block.settings.subheading-3 %}
         {% endif %}
       {% endif %}
@@ -88,35 +81,35 @@
       {% if help_counter == 3 %}
         {% assign block_id_3 = block.id %}
         {% assign block_title_3 = block.settings.title %}
-        {% assign aria_controls_main_3 = "FAQ-content-left-"| append: block.id  %}
-        {% assign aria_controls_right_3 = "FAQ-content-right-"| append: block.id  %}
+        {% assign aria_controls_main_3 = "HC-left-"| append: block.id  %}
+        {% assign aria_controls_right_3 = "HC-right-"| append: block.id  %}
 
         {% if block.settings.subheading-1 != empty %}
-          {% assign aria_controls_3_sub_1 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_3_sub_1 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_3_subheader_1 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-2 != empty %}
-          {% assign aria_controls_3_sub_2 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_3_sub_2 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_3_subheader_2 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-3 != empty %}
-          {% assign aria_controls_3_sub_3 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_3_sub_3 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_3_subheader_3 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-4 != empty %}
-          {% assign aria_controls_3_sub_4 = "help-content-"| append: block.id | append: '-' | append: 1 %}
+          {% assign aria_controls_3_sub_4 = "HC-"| append: block.id | append: '-' | append: 1 %}
           {% assign block_3_subheader_4 = block.settings.subheading-1 %}
         {% endif %}
         {% if block.settings.subheading-5 != empty %}
-          {% assign aria_controls_3_sub_5 = "help-content-"| append: block.id | append: '-' | append: 2 %}
+          {% assign aria_controls_3_sub_5 = "HC-"| append: block.id | append: '-' | append: 2 %}
           {% assign block_3_subheader_5 = block.settings.subheading-2 %}
         {% endif %}
         {% if block.settings.subheading-6 != empty %}
-          {% assign aria_controls_3_sub_6 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_3_sub_6 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_3_subheader_6 = block.settings.subheading-3 %}
         {% endif %}
         {% if block.settings.subheading-7 != empty %}
-          {% assign aria_controls_3_sub_7 = "help-content-"| append: block.id | append: '-' | append: 3 %}
+          {% assign aria_controls_3_sub_7 = "HC-"| append: block.id | append: '-' | append: 3 %}
           {% assign block_3_subheader_7 = block.settings.subheading-3 %}
         {% endif %}
       {% endif %}
