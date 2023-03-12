@@ -81,7 +81,15 @@
     var help_sub_block = subBlock;
     console.log('log 130) help_block = '+ help_block);
 
-    window.open("/pages/help-center?main_block=" + help_block, "_self");
+   if (help_block != "" and sub_block != "") {
+      window.open("/pages/help-center?main_block=" + help_block + "&sub_block=" + help_sub_block, "_self");
+    } else if (help_block != "" and sub_block == "") {
+      window.open("/pages/help-center?main_block=" + help_block, "_self");
+    } else {    // no mainBlock & no subBlock, or has subBlock but no mainBlock
+      window.open("/pages/help-center", "_self");
+    }
+    
+
 
 
 

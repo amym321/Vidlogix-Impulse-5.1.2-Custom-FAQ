@@ -1974,6 +1974,7 @@ lazySizesConfig.expFactor = 4;
   // or tabs that can only have one open at a time
   theme.collapsibles = (function() {
     window.flag = false;
+    window.subHeight = 0;
     console.log('log 124) window.flag = '+ window.flag);
 
     var selectors = {
@@ -2018,15 +2019,30 @@ lazySizesConfig.expFactor = 4;
         console.log('log 125) window.flag = '+ window.flag);
 
         var urlParams = new URLSearchParams(queryStringUrl);
+
         var mainBlock = urlParams.get('main_block');
+        var subBlock = urlParams.get('sub_block');
+
         console.log('log 116)  mainBlock = '+  mainBlock);
+        console.log('log 116.2)  subBlock = '+  subBlock);
+
         //use the 1st trigger element
         var elem = document.querySelector('[aria-controls="' + mainBlock + '"]'); 
         console.log('log 128) elem = '+ elem);
 
-        toggle(elem);
+        var subElem = document.querySelector('[aria-controls="' + subBlock + '"]'); 
+        console.log('log 129) subElem = '+ subElem);
+
+        if (subElem != null) {
+          toggle(subElem);
+        }
+        if (elem != null) {
+          toggle(elem);
+        }
         window.flag = false;
+        window.subHeight = 0;
       }
+
     }
 
 
@@ -2041,10 +2057,8 @@ lazySizesConfig.expFactor = 4;
       console.log('log 126) window.flag = '+ window.flag);
       if (window.flag) {
         var el = evt;
-        console.log('log 122) el = '+ el); // [object HTMLButtonElement]
       } else {
         var el = evt.currentTarget;
-        console.log('log 123) el = '+ el); // [object HTMLButtonElement]
       }
 
       var isOpen = el.classList.contains(classes.open);
@@ -2111,6 +2125,9 @@ lazySizesConfig.expFactor = 4;
       var isAutoHeight = container.classList.contains(classes.autoHeight);
       var parentCollapsibleEl = container.parentNode.closest(selectors.module);
       var childHeight = height;
+      if (window.flag === true && window.subHeight === 0) {
+        window.subHeight = height;  // store the subcontainer height to be used on the right container, page load only
+      }
 
       // on Help Center page - am
       if (containerRight) {
@@ -2118,6 +2135,9 @@ lazySizesConfig.expFactor = 4;
         var isAutoHeightRight = containerRight.classList.contains(classes.autoHeight);
         var parentCollapsibleElRight = containerRight.parentNode.closest(selectors.module);
         var childHeightRight = heightRight;
+        if (window.flag === true && window.subHeight !== 0) {
+          var heightRight = heightRight + window.subHeight;  //increase right container by the subcontainer height, page load only
+        }
       }
   
       // on Help Center page - am
