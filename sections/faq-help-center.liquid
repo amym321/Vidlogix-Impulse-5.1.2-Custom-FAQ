@@ -3,8 +3,6 @@
 {% assign initial-height-left =  %}
 {% assign initial-height-right = "550px" %}
 
-{% render 'help-center-variables' %}
-
 <script>
   if (window.helpSection3) {
     console.log('log 57) window.helpSection3 = '+ window.helpSection3);
@@ -43,7 +41,7 @@
                 {% case block.type %}
                   {% when 'question'%}
                     <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                      <button style="padding: 20px 0 11px;" type="button" class="{% if block.id contains "faq-2" %} is-open {% endif %} 
+                      <button style="padding: 20px 0 11px;" type="button" class=" 
                           collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
                           aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
                         {%- render 'collapsible-icons-alt', no_circle: true -%}
