@@ -2009,11 +2009,15 @@ lazySizesConfig.expFactor = 4;
         console.log('log 116.2)  subBlock = '+  subBlock);
 
         //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
-        var elem = document.querySelector('[aria-controls="' + mainBlock + '"]'); 
-        var subElem = document.querySelector('[aria-controls="' + subBlock + '"]'); 
+        var elem = document.querySelector('[aria-controls="' + mainBlock + '"]');
+        var elemMobile = document.querySelector('[aria-controls-mobile="' + mainBlock + '-mobile"]');
+        var subElem = document.querySelector('[aria-controls="' + subBlock + '"]');
 
         if (subElem != null) {
           toggle(subElem);
+        }
+        if (elemMobile != null) {
+          toggle(elemMobile);
         }
         if (elem != null) {
           toggle(elem);
