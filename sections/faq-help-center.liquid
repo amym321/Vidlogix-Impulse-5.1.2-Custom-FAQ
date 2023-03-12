@@ -1,21 +1,10 @@
 {% comment %} help center - am {% endcomment %}
 
-{% assign initial-height-left =  %}
-{% assign initial-height-right = "550px" %}
-
-<script>
-  if (window.helpSection3) {
-    console.log('log 57) window.helpSection3 = '+ window.helpSection3);
-  }
-</script>
-
-
 {%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
 
 <Div id="help-center" class="help-center {% unless template == 'page.terms' %} index-section {% endunless %}">
 
-  <div class="" >
-
+  <div>
     {%- if section.settings.title != blank -%}
       <header class="section-header">
         <h2 class="section-header__title">
@@ -25,83 +14,76 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-
       <div class="help-center-wrapper" >
 
       {% comment %} left side - questions {% endcomment %}
-
       {% comment %} FLEX BASIS CHANGES WITH SCREEN WIDTH {% endcomment %}
         <div id="helpCenterLeft" class="help-center-left" style="display:none;" >
 
           <div style="position:relative;">
-          <div class="left-wrapper" style="">
-            {%- for block in section.blocks -%}
+            <div class="left-wrapper" style="">
+              {%- for block in section.blocks -%}
+                <div {{ block.shopify_attributes }} class="left-section-block">
+                  {% case block.type %}
+                    {% when 'question'%}
+                      <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <button style="padding: 20px 0 11px;" type="button" class=" 
+                            collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                            aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
+                          {%- render 'collapsible-icons-alt', no_circle: true -%}
+                          <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
+                        </button>
 
-              <div {{ block.shopify_attributes }} class="left-section-block">
-                {% case block.type %}
-                  {% when 'question'%}
-                    <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                      <button style="padding: 20px 0 11px;" type="button" class=" 
-                          collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
-                          aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
-                        {%- render 'collapsible-icons-alt', no_circle: true -%}
-                        <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
-                      </button>
-
-      <div id="HC-left-{{ block.id }}" 
-            class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                {% comment %} (if block.settings.title contains "return" and VARIABLE)  is-open  (endif)   {% endcomment %}
-            <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
-
-                        {% if block.settings.subheading-1 != empty %}
-                          <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
-                            aria-controls="HC-{{ block.id }}-1">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
-                          </button>
-                        {% endif %}
-                        {% if block.settings.subheading-2 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-2">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-2 }}</span></a></h4>
-                          </button>
-                        {% endif %}
-                        {% if block.settings.subheading-3 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-3">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-3 }}</span></a></h4>
-                          </button>
-                        {% endif %}
-                        {% if block.settings.subheading-4 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-4">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-4 }}</span></a></h4>
-                          </button>
-                        {% endif %} 
-                        {% if block.settings.subheading-5 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-5">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-5 }}</span></a></h4>
-                          </button>
-                        {% endif %}
-                        {% if block.settings.subheading-6 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-6">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-6 }}</span></a></h4>
-                          </button>
-                        {% endif %} 
-                        {% if block.settings.subheading-7 != empty %}
-                          <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-7">
-                            <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-7 }}</span></a></h4>
-                          </button>
-                        {% endif %}
+                        <div id="HC-left-{{ block.id }}" class="collapsible-content collapsible-content--all"
+                            itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                          <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+                            {% if block.settings.subheading-1 != empty %}
+                              <button  type="button" class="collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                                aria-controls="HC-{{ block.id }}-1">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
+                              </button>
+                            {% endif %}
+                            {% if block.settings.subheading-2 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-2">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-2 }}</span></a></h4>
+                              </button>
+                            {% endif %}
+                            {% if block.settings.subheading-3 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-3">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-3 }}</span></a></h4>
+                              </button>
+                            {% endif %}
+                            {% if block.settings.subheading-4 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-4">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-4 }}</span></a></h4>
+                              </button>
+                            {% endif %} 
+                            {% if block.settings.subheading-5 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-5">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-5 }}</span></a></h4>
+                              </button>
+                            {% endif %}
+                            {% if block.settings.subheading-6 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-6">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-6 }}</span></a></h4>
+                              </button>
+                            {% endif %} 
+                            {% if block.settings.subheading-7 != empty %}
+                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-7">
+                                <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-7 }}</span></a></h4>
+                              </button>
+                            {% endif %}
+                          </div>
+                        </div>
 
                       </div>
-                      </div>
+                  {% endcase %}
+                </div>
+              {%- endfor -%}
 
-                    </div>
-                {% endcase %}
+              {% render 'help-contact-box', display: 'desktop'  %}
 
-              </div>
-            {%- endfor -%}
-
-            {% render 'help-contact-box', display: 'desktop'  %}
-
-          </div>
+            </div>
           </div>
         </div>
 
@@ -115,54 +97,40 @@
           <div class="right-wrapper" style="padding: 50px 50px; max-width: 1000px;">
           
             {%- for block in section.blocks -%}
-
               <div {{ block.shopify_attributes }} >
                 {% case block.type %}
-
                   {% when 'question'%}
                     <div id="HC-right-{{ block.id }}"
                         class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
-
-
-                      <div class="faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-
-
-                          <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
-
-                            {% if block.settings.subheading-1 != empty %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
-                            {% endif %}
-                            {% if block.settings.subheading-2 != empty  %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '2', sub_text: block.settings.text-2, sub_heading: block.settings.subheading-2 %}
-                            {% endif %}
-                            {% if block.settings.subheading-3 != empty %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
-                            {% endif %}
-                            {% if block.settings.subheading-4 != empty  %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
-                            {% endif %}
-                            {% if block.settings.subheading-5 != empty  %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
-                            {% endif %}
-                            {% if block.settings.subheading-6 != empty %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
-                            {% endif %}
-                            {% if block.settings.subheading-7 != empty  %}
-                              {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
-                            {% endif %}
-
-                          </div>
-
+                      <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
+                        <div class="faq-right-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class=" collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+                              {% if block.settings.subheading-1 != empty %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '1', sub_text: block.settings.text-1, sub_heading: block.settings.subheading-1  %}
+                              {% endif %}
+                              {% if block.settings.subheading-2 != empty  %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '2', sub_text: block.settings.text-2, sub_heading: block.settings.subheading-2 %}
+                              {% endif %}
+                              {% if block.settings.subheading-3 != empty %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '3', sub_text: block.settings.text-3, sub_heading: block.settings.subheading-3 %}
+                              {% endif %}
+                              {% if block.settings.subheading-4 != empty  %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '4', sub_text: block.settings.text-4, sub_heading: block.settings.subheading-4 %}
+                              {% endif %}
+                              {% if block.settings.subheading-5 != empty  %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '5', sub_text: block.settings.text-5, sub_heading: block.settings.subheading-5 %}
+                              {% endif %}
+                              {% if block.settings.subheading-6 != empty %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '6', sub_text: block.settings.text-6, sub_heading: block.settings.subheading-6 %}
+                              {% endif %}
+                              {% if block.settings.subheading-7 != empty  %}
+                                {% render 'help-right-subblock', block_id: block.id, sub_block: '7', sub_text: block.settings.text-7, sub_heading: block.settings.subheading-7 %}
+                              {% endif %}
+                            </div>
+                        </div>
                       </div>
-
                     </div>
-
-
-                    </div>
-
                 {% endcase %}
-
               </div>
             {%- endfor -%}
           </div>
@@ -202,7 +170,6 @@
   }
 }
 
-
 .help-center {
   padding:0;
   margin:0;
@@ -232,30 +199,6 @@
     min-height: 375px;
   }
 }
-/* MOBILE NAV */
-/*@media (max-width: 1023px) {
-  .help-center-wrapper {   } 
-}*/
-
-
-
-  /* MOBILE NAV */
-/*@media screen and (max-width: 1023px) {
-  .help-center .help-center-left {
-    padding-top: 0;
-    padding-bottom: 0;
-    color: #fff;
-  }
-  .help-center .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5;
-  }
-  .help-center .sticky + .help-center-right {
-    padding-top: 102px;
-  }
-}*/
 
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
@@ -282,8 +225,6 @@
   }
 }
 
-
-
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
   .left-wrapper {
@@ -292,13 +233,6 @@
     max-width: 400px;
   }
 }
-  /* MOBILE NAV */
-/*@media screen and (max-width: 1023px) {
-  .left-wrapper {
-    padding: 0 20px 0 20px;
-  }
-}*/    /*display: flex: */  /* trying to get the top triggers inline with each other */
-
 
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
@@ -314,16 +248,6 @@
 }
 
 
-  /* MOBILE NAV */
-/*@media screen and (max-width: 1023px) {
-  .help-center-left .collapsible-trigger--inline {
-    background-color: #000;
-    width: unset !important;
-  }
-  .help-center-left .collapsible-content {
-    background-color: rgba(23,23,23,.65);
-  }
-}*/
 
 
 @media screen and (max-width: 1023px) {
@@ -342,31 +266,14 @@
   border-bottom: 1px solid #cccbcb;
 }
 
-/* LEFT  MOBILE  */
-/*@media screen and (max-width: 1023px) {
-  .help-center .help-center-left .faq-section {
-    border-bottom: 1px solid #ffffff00;
-  }
-}*/    /*border-bottom: 1px solid #000;*/
-
-
-/* MOBILE NAV */
-/*@media screen and (max-width: 1023px) {
-  .subheading-left {
-    border-bottom-color: #ffffff00 !important;
-    color: #fff !important;
-  }
-}*/
 /* LEFT DESKTOP */
 @media screen and (min-width: 1024px) {
-  .subheading-left {
+  .help-center .subheading-left {
     margin-left:30px;
     border-bottom-color: #ffffff00 !important;
     display: unset !important;
   }
 }
-
-
 
 
 
@@ -420,39 +327,9 @@
   padding-top: 140px !important;
 }
 
-/* icons */
-/*
-.help-center-nav 
-.collapsible-trigger__icon--circle .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) !important;
-}
-.collapsible-trigger.is-open .collapsible-trigger__icon--circle>.icon-chevron-down {
-    transform: translate(-50%,-50%) scaleY(-1) !important;
-}
-*/
 
 
 
-/* .subheading-left:after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0%;
-  border-bottom: 2px solid currentColor;
-  transition: width .5s ease;
-}
-
- .subheading-left  {
-  text-decoration: none;
-    border-bottom: 1px solid;
-    color: var(--colorLink);
-    position: relative;
-    display: inline-block;
-} */
 
 </style>
 
