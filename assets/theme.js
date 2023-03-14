@@ -1954,10 +1954,14 @@ lazySizesConfig.expFactor = 4;
 
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
+  window.counter = 0;
+  window.flag = false;
+  if (window.location.href.includes("help-center")) {
+    window.flag = true;
+  }
+
   theme.collapsibles = (function() {
-    window.flag = false;
     window.subHeight = 0;
-    console.log('log 124) window.flag = '+ window.flag);
 
     var selectors = {
       trigger: '.collapsible-trigger',
@@ -1994,40 +1998,44 @@ lazySizesConfig.expFactor = 4;
 
       // open Help Center block 1st time if linked from other page, ie. not triggered by click on Help Center page- am
       // links to Help Center with no block should be https://vidlogix.com/pages/help-center?main_block=FAQ-content-left-faq-2
-      var queryStringUrl = window.location.search;
+      if (window.location.href.includes("help-center") && window.flag == true) {
+        var queryStringUrl = window.location.search;
+        console.log('log 134) queryStringUrl = '+ queryStringUrl); // ?main_block=HC-left-faq-1&sub_block=HC-faq-1-1
 
-      if (queryStringUrl != "") {
-        window.flag = true;
-        console.log('log 125) window.flag = '+ window.flag);
+        if (queryStringUrl != "") {
+          var urlParams = new URLSearchParams(queryStringUrl);
+          console.log('log 133) urlParams = '+ urlParams); // main_block=HC-left-faq-1&sub_block=HC-faq-1-1
 
-        var urlParams = new URLSearchParams(queryStringUrl);
+          var mainBlock = urlParams.get('main_block');
+          var subBlock = urlParams.get('sub_block');
 
-        var mainBlock = urlParams.get('main_block');
-        var subBlock = urlParams.get('sub_block');
+          console.log('log 116)  mainBlock = '+  mainBlock); // HC-left-faq-1
+          console.log('log 116.2)  subBlock = '+  subBlock); // subBlock = HC-faq-1-1
 
-        console.log('log 116)  mainBlock = '+  mainBlock);
-        console.log('log 116.2)  subBlock = '+  subBlock);
+          //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
+          var elem = document.querySelector('[aria-controls="' + mainBlock + '"]');
+          var elemMobile = document.querySelector('[aria-controls-mobile="' + mainBlock + '-mobile"]');
+          var subElem = document.querySelector('[aria-controls="' + subBlock + '"]');
 
-        //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
-        var elem = document.querySelector('[aria-controls="' + mainBlock + '"]');
-        var elemMobile = document.querySelector('[aria-controls-mobile="' + mainBlock + '-mobile"]');
-        var subElem = document.querySelector('[aria-controls="' + subBlock + '"]');
-
-        if (subElem != null) {
-          toggle(subElem);
+          if (subElem != null) {
+            window.counter = window.counter + 1;
+            toggle(subElem);
+          }
+          if (elemMobile != null) {
+            window.counter = window.counter + 1;
+            toggle(elemMobile);
+          }
+          if (elem != null) {
+            window.counter = window.counter + 1;
+            toggle(elem);
+          }
+          window.flag = false;  // turn off flag when done
+          console.log('log 136 b) window.flag init = '+ window.flag); //turned false at end of page load (3 times)
+          window.subHeight = 0; // reset height when done
         }
-        if (elemMobile != null) {
-          toggle(elemMobile);
-        }
-        if (elem != null) {
-          toggle(elem);
-        }
-        window.flag = false;  // turn off flag when done
-        window.subHeight = 0; // reset height when done
+
       }
-
     }
-
 
     function toggle(evt) {
       if (isTransitioning) {
@@ -2036,8 +2044,11 @@ lazySizesConfig.expFactor = 4;
   
       isTransitioning = true;
 
+      console.log('log 132) evt.currentTarget = '+ evt.currentTarget);
+      console.log('log 132 b) evt = '+ evt); // [object HTMLButtonElement]
 
-      console.log('log 126) window.flag = '+ window.flag);
+      console.log('log 136c ) window.flag toggle = '+ window.flag); //
+
       if (window.flag) {
         var el = evt;
       } else {
@@ -2055,7 +2066,6 @@ lazySizesConfig.expFactor = 4;
 
       // all elements matching trigger including trigger
       var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
-
       console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
       console.log('log 71) elArias = '+ elArias);  // [object NodeList]
       console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
@@ -2231,7 +2241,46 @@ lazySizesConfig.expFactor = 4;
 
           setTransitionHeightRight(parentCollapsibleElRight, totalHeightRight, false, false);
       }
-  
+
+      window.counter = window.counter - 1;
+
+      // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
+      if (window.counter <= 0 && window.location.href.includes("help-center")) {  // el is from a click, not the url params
+        var elMain = el.classList.contains("main-block"); 
+        var elSub = el.classList.contains("sub-block"); 
+
+        if (elMain) {  //el is a main trigger
+          var allMainBlocks = document.querySelectorAll(".main-block");
+
+          allMainBlocks.forEach((item) => {
+            var elAttribute = item.getAttribute('aria-controls');
+            var elRightAttribute = item.getAttribute('aria-controls-right');
+            var elMobileAttribute = item.getAttribute('aria-controls-mobile');
+
+            if (elAttribute != moduleId) { // all main triggers have same aria-controls
+              var itemOpen = item.classList.contains("is-open"); 
+              if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
+                item.classList.remove("is-open");
+                item.setAttribute('aria-expanded', false);
+
+                var itemContainer = document.getElementById(elAttribute);
+                var itemRightContainer = document.getElementById(elRightAttribute);
+                var itemMobileContainer = document.getElementById(elMobileAttribute);
+                var closeHeight = 0;
+                
+                setTransitionHeight(itemContainer, closeHeight, true, true);
+                setTransitionHeight(itemRightContainer, closeHeight, true, true);
+                if (itemMobileContainer) {
+                  setTransitionHeight(itemMobileContainer, closeHeight, true, true);
+                }
+              }
+            }
+          });
+        } else if (elMain) {  //el is a sub trigger
+          console.log('sub');
+        }
+      }
+
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click
       // that shows form
