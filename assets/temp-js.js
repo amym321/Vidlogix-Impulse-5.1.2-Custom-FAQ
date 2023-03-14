@@ -1954,11 +1954,16 @@ lazySizesConfig.expFactor = 4;
 
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
-  window.counter = 0;
   window.flag = false;
+  window.target = false;
+  window.counter = 0;
+  window.counter2 = 0;
+  window.lastElement = "nothing";
+  console.log('log 141)   window.counter = '+   window.counter); // runs once
   if (window.location.href.includes("help-center")) {
     window.flag = true;
   }
+  console.log('log 136 a) window.flag onload = '+ window.flag);
 
   theme.collapsibles = (function() {
     window.subHeight = 0;
@@ -1994,6 +1999,12 @@ lazySizesConfig.expFactor = 4;
   
         trigger.off('click' + namespace);
         trigger.on('click' + namespace, toggle);
+        if (trigger.classList.contains('main-block')) {
+          trigger.on('click' + namespace, toggleLastMain);  // namespace is .collapsible
+        }
+        // if (trigger.classList.contains('sub-block')) {
+        //   trigger.on('click' + namespace, toggleLastSub);  // namespace is .collapsible
+        // }
       });
 
       // open Help Center block 1st time if linked from other page, ie. not triggered by click on Help Center page- am
@@ -2018,16 +2029,14 @@ lazySizesConfig.expFactor = 4;
           var subElem = document.querySelector('[aria-controls="' + subBlock + '"]');
 
           if (subElem != null) {
-            window.counter = window.counter + 1;
             toggle(subElem);
           }
           if (elemMobile != null) {
-            window.counter = window.counter + 1;
             toggle(elemMobile);
           }
           if (elem != null) {
-            window.counter = window.counter + 1;
             toggle(elem);
+            setLastEl();
           }
           window.flag = false;  // turn off flag when done
           console.log('log 136 b) window.flag init = '+ window.flag); //turned false at end of page load (3 times)
@@ -2037,6 +2046,54 @@ lazySizesConfig.expFactor = 4;
       }
     }
 
+
+
+    function toggleLastMain(evt) {
+      console.log('log 131) toggle lastElem');
+      var el = evt.currentTarget;
+      var lastEl = window.lastElement;
+      console.log('log 142) el = '+ el); // [object HTMLButtonElement]
+      console.log('log 135) lastEl = '+ lastEl); // [object HTMLButtonElement]
+      console.log('log 143) lastEl classes = '+ lastEl.classList); //
+      
+if (window.counter == 0) {
+window.target = true;  //
+}
+      window.counter = 1;
+      console.log('log 141 b)   window.counter = '+   window.counter); // 
+
+      // if (el != lastEl && lastEl != "nothing") {   // but window.lastElem already gets changed when running for trigger el if var is set in toggle
+      if (el != lastEl) {   // but window.lastElem already gets changed when running for trigger el if var is set in toggle
+        console.log('log 144) toggle(lastEl) '); // 
+toggle(lastEl); //THIS IS FAILING. DOESN'T RECOGNIZE lastEl
+      }
+    }
+
+    // function toggleLastSub(evt) {
+    // }
+
+    function setLastEl() {
+      var queryStringUrl2 = window.location.search;
+      console.log('log 134 2) queryStringUrl2 = '+ queryStringUrl2); // ?main_block=HC-left-faq-1&sub_block=HC-faq-1-1
+      console.log('log 138) window.firstLoad = '+ window.firstLoad); 
+      console.log('log 136 c) window.flag setLastEl = '+ window.flag); //
+
+      // if (queryStringUrl2 != "" && window.firstLoad == true) {
+        //this isn't causing HTMLButtonElement.toggle error
+      if (queryStringUrl2 != "" && window.counter2 == 0) {
+        var urlParams = new URLSearchParams(queryStringUrl2);
+
+        var mainBlock = urlParams.get('main_block');
+
+        var elem = document.querySelector('[aria-controls="' + mainBlock + '"]'); // not gonna work since toggle() el is evt.currentTarget
+
+        window.lastElement = elem;
+        console.log('log 124 b) window.lastElement= '+ window.lastElement); // [object HTMLButtonElement]
+        window.counter2 = 1;
+      }
+
+    }
+
     function toggle(evt) {
       if (isTransitioning) {
         return;
@@ -2044,15 +2101,26 @@ lazySizesConfig.expFactor = 4;
   
       isTransitioning = true;
 
+
+
+      console.log('log 124 c) window.lastElement = '+ window.lastElement);
       console.log('log 132) evt.currentTarget = '+ evt.currentTarget);
       console.log('log 132 b) evt = '+ evt); // [object HTMLButtonElement]
 
       console.log('log 136c ) window.flag toggle = '+ window.flag); //
+      console.log('log 137) window.target = '+ window.target); //
 
       if (window.flag) {
         var el = evt;
+      // } else if (window.target) {
+      //   var el = evt;
       } else {
         var el = evt.currentTarget;
+      }
+      console.log('log 140) el = '+ el); //
+
+      if (window.lastElement != "nothing") {
+        window.lastElement = el;
       }
 
       var isOpen = el.classList.contains(classes.open);
@@ -2066,6 +2134,8 @@ lazySizesConfig.expFactor = 4;
 
       // all elements matching trigger including trigger
       var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
+      window.target = false;  // turn off flag when done
+
       console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
       console.log('log 71) elArias = '+ elArias);  // [object NodeList]
       console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
@@ -2241,62 +2311,31 @@ lazySizesConfig.expFactor = 4;
 
           setTransitionHeightRight(parentCollapsibleElRight, totalHeightRight, false, false);
       }
+  
 
-      window.counter = window.counter - 1;
 
-      // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
-      if (window.counter <= 0 && window.location.href.includes("help-center")) {  // el is from a click, not the url params
-        var elMain = el.classList.contains("main-block"); 
-        var elSub = el.classList.contains("sub-block"); 
 
-        if (elMain) {  //el is a main trigger
-          var allMainBlocks = document.querySelectorAll(".main-block");
+      // close all other blocks & sub-blocks on Help Page when target element is opening (isOpen) - am
+      // if (containerRight && isOpen) {
+      //   var otherSelectorsRight = document.querySelectorAll('[aria-controls-right]');
 
-          allMainBlocks.forEach((item) => {
-            var elAttribute = item.getAttribute('aria-controls');
-            var elRightAttribute = item.getAttribute('aria-controls-right');
-            var elMobileAttribute = item.getAttribute('aria-controls-mobile');
+      //   if (otherSelectorsRight.length > 0) {
+      //     otherSelectorsRight.forEach((selector) => {
+      //       if (selector != el) {
+      //         console.log('log 140) other selector right');
 
-            if (elAttribute != moduleId) { // all main triggers have same aria-controls
-              var itemOpen = item.classList.contains("is-open"); 
-              if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
-                item.classList.remove("is-open");
-                item.setAttribute('aria-expanded', false);
+      //       } else {
+      //         console.log('log 141) same selector right');
+      //       }
+      //     })
+      //   }
+      // }
+  
+      
 
-                var itemContainer = document.getElementById(elAttribute);
-                var itemRightContainer = document.getElementById(elRightAttribute);
-                var itemMobileContainer = document.getElementById(elMobileAttribute);
-                var closeHeight = 0;
-                
-                setTransitionHeight(itemContainer, closeHeight, true, true);
-                setTransitionHeight(itemRightContainer, closeHeight, true, true);
-                if (itemMobileContainer) {
-                  setTransitionHeight(itemMobileContainer, closeHeight, true, true);
-                }
-              }
-            }
-          });
-        } else if (elSub) {  //el is a sub trigger
-          var allSubBlocks = document.querySelectorAll(".sub-block");
 
-          allSubBlocks.forEach((item) => {
-            var elAttribute = item.getAttribute('aria-controls');
 
-            if (elAttribute != moduleId) { // all main triggers have same aria-controls
-              var itemOpen = item.classList.contains("is-open"); 
-              if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
-                item.classList.remove("is-open");
-                item.setAttribute('aria-expanded', false);
 
-                var itemContainer = document.getElementById(elAttribute);
-                var closeHeight = 0;
-                
-                setTransitionHeight(itemContainer, closeHeight, true, true);
-              }
-            }
-          });
-        }
-      }
 
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click

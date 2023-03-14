@@ -164,8 +164,9 @@
 
           {% if block_id_1 != empty %}
             <li class="hc-nav-list-item">
-              <h4 class="hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_1}}-mobile"
-                  aria-controls="{{aria_controls_main_1}}" aria-controls-right="{{aria_controls_right_1}}">
+              <h4 class="main-block hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_1}}-mobile"
+                  aria-controls="{{aria_controls_main_1}}" aria-controls-right="{{aria_controls_right_1}}"
+                  data-main-trigger="{{block.id}}">
                   <a itemprop="name" class="subheading-left active-title" style="color:#fff;">{{ block_title_1 }}</a>
               </h4>
               {% comment %} JS gets 1st level title above via id below, then getting previousElementSibling.firstElementChild - am {% endcomment %}
@@ -173,42 +174,42 @@
                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <ul class="sub-nav-list">
                   {% if block_1_subheader_1 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_1}}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"  aria-controls="{{aria_controls_1_sub_1}}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_1 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_1_subheader_2 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_2 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_2 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_2 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_1_subheader_3 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_3 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_3 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_3 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_1_subheader_4 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_4 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_4 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_4 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_1_subheader_5 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_5 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_5 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_5 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_1_subheader_6 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_6 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_1_sub_6 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_1_subheader_6 }}</span></a>
                       </h4>
@@ -221,7 +222,7 @@
 
           {% if block_id_2 != empty %}
             <li class="hc-nav-list-item">
-              <h4 class="hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_2}}-mobile"
+              <h4 class="main-block hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_2}}-mobile"
                   aria-controls="{{aria_controls_main_2}}" aria-controls-right="{{aria_controls_right_2}}">
                   <a itemprop="name" class="subheading-left active-title" style="color:#fff;">{{ block_title_2 }}</a>
               </h4>
@@ -230,42 +231,42 @@
                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <ul class="sub-nav-list">
                   {% if block_2_subheader_1 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_1}}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_1}}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_1 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_2_subheader_2 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_2 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_2 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_2 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_2_subheader_3 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_3 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_3 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_3 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_2_subheader_4 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_4 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_4 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_4 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_2_subheader_5 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_5 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_5 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_5 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_2_subheader_6 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_6 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_2_sub_6 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_2_subheader_6 }}</span></a>
                       </h4>
@@ -278,7 +279,7 @@
 
           {% if block_id_3 != empty %}
             <li class="hc-nav-list-item">
-              <h4 class="hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_3}}-mobile"
+              <h4 class="main-block hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_3}}-mobile"
                   aria-controls="{{aria_controls_main_3}}" aria-controls-right="{{aria_controls_right_3}}">
                   <a itemprop="name" class="subheading-left active-title" style="color:#fff;">{{ block_title_3 }}</a>
               </h4>
@@ -287,42 +288,42 @@
                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <ul class="sub-nav-list">
                   {% if block_3_subheader_1 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_1}}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_1}}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_1 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_3_subheader_2 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_2 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_2 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_2 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_3_subheader_3 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_3 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_3 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_3 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_3_subheader_4 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_4 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_4 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_4 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_3_subheader_5 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_5 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_5 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_5 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_3_subheader_6 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_6 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_3_sub_6 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_3_subheader_6 }}</span></a>
                       </h4>
@@ -335,7 +336,7 @@
 
           {% if block_id_4 != empty %}
             <li class="hc-nav-list-item">
-              <h4 class="hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_4}}-mobile"
+              <h4 class="main-block hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{aria_controls_main_4}}-mobile"
                   aria-controls="{{aria_controls_main_4}}" aria-controls-right="{{aria_controls_right_4}}">
                   <a itemprop="name" class="subheading-left active-title" style="color:#fff;">{{ block_title_4 }}</a>
               </h4>
@@ -344,42 +345,42 @@
                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <ul class="sub-nav-list">
                   {% if block_4_subheader_1 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_1}}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_1}}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_1 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_4_subheader_2 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_2 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_2 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_2 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_4_subheader_3 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_3 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_3 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_3 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_4_subheader_4 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_4 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_4 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_4 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_4_subheader_5 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_5 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_5 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_5 }}</span></a>
                       </h4>
                     </li>
                   {% endif %}
                   {% if block_4_subheader_6 != empty %}
-                    <li class="sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_6 }}">
+                    <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_4_sub_6 }}">
                       <h4 class="sub-nav-title">
                           <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block_4_subheader_6 }}</span></a>
                       </h4>

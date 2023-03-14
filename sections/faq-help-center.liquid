@@ -27,8 +27,9 @@
                   {% case block.type %}
                     {% when 'question'%}
                       <div class="faq-section faq-left-{{ block.id }}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <button type="button" class="left-main-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left"
-                            aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}">
+                        <button type="button" class="main-block left-main-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left"
+                            aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}"
+                            data-main-trigger="{{block.id}}">
                           {%- render 'collapsible-icons-alt', no_circle: true -%}
                           <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
                         </button>
@@ -37,38 +38,38 @@
                             itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                           <div style="padding-top:0;" class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
                             {% if block.settings.subheading-1 != empty %}
-                              <button  type="button" class="left-sub-trigger collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
+                              <button  type="button" class="sub-block left-sub-trigger collapsible-right-trigger collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" 
                                 aria-controls="HC-{{ block.id }}-1">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-1 }}</span></a></h4>
                               </button>
                             {% endif %}
                             {% if block.settings.subheading-2 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-2">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-2">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-2 }}</span></a></h4>
                               </button>
                             {% endif %}
                             {% if block.settings.subheading-3 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-3">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-3">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-3 }}</span></a></h4>
                               </button>
                             {% endif %}
                             {% if block.settings.subheading-4 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-4">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-4">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-4 }}</span></a></h4>
                               </button>
                             {% endif %} 
                             {% if block.settings.subheading-5 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-5">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-5">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-5 }}</span></a></h4>
                               </button>
                             {% endif %}
                             {% if block.settings.subheading-6 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-6">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-6">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-6 }}</span></a></h4>
                               </button>
                             {% endif %} 
                             {% if block.settings.subheading-7 != empty %}
-                              <button  type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-7">
+                              <button  type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="HC-{{ block.id }}-7">
                                 <h4 class="rte"><a itemprop="name" class="subheading-left" ><span>{{ block.settings.subheading-7 }}</span></a></h4>
                               </button>
                             {% endif %}
