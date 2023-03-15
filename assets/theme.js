@@ -2025,6 +2025,16 @@ lazySizesConfig.expFactor = 4;
           }
           window.flag = false;  // turn off flag when done
           window.subHeight = 0; // reset height when done
+        } else {
+          var elem = document.querySelector('[aria-controls]');
+          console.log('log 170) elem = '+ elem);
+          if (elem != null) {
+            window.counter = window.counter + 1;
+            toggle(elem);
+            newTitle(elem);
+            window.flag = false;  // turn off flag when done
+            window.subHeight = 0; // reset height when done
+          }
         }
 
       }
