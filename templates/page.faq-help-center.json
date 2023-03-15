@@ -62,14 +62,7 @@
             "subheading-6": "",
             "text-6": "",
             "subheading-7": "",
-            "text-7": "",
-            "map_popup": false,
-            "map_text": "",
-            "button_link2": "",
-            "button_text2": "",
-            "button_chat2": false,
-            "text2": "",
-            "anchor_link": ""
+            "text-7": ""
           }
         },
         "faq-2": {
@@ -89,14 +82,7 @@
             "subheading-6": "Shipping Delays",
             "text-6": "<p>Weather, natural disasters and other uncontrollable events can interrupt UPS transportation flow. Shipments delayed due to an uncontrollable event are not eligible for a refund or credit under the UPS money-back guarantee policy.<\/p>",
             "subheading-7": "Shipping Errors",
-            "text-7": "<p>Contact our Customer Support team at <a href=\"mailto:hello@vidlogix.com\" target=\"_blank\" title=\"mailto:hello@vidlogix.com\">hello@vidlogix.com<\/a>and we will coordinate a reorder to ship the correct merchandise at no additional cost to you. We may also provide you with a prepaid return shipping label and request an immediate return of the incorrectly received merchandise. To avoid additional charges the incorrectly received merchandise must be shipped within 7 days of receiving the prepaid return shipping label. All regular return policies still apply. All merchandise must be returned unused and in original packaging in order to avoid being charged.<\/p>",
-            "map_popup": false,
-            "map_text": "",
-            "button_link2": "",
-            "button_text2": "",
-            "button_chat2": false,
-            "text2": "",
-            "anchor_link": ""
+            "text-7": "<p>Contact our Customer Support team at <a href=\"mailto:hello@vidlogix.com\" target=\"_blank\" title=\"mailto:hello@vidlogix.com\">hello@vidlogix.com<\/a>and we will coordinate a reorder to ship the correct merchandise at no additional cost to you. We may also provide you with a prepaid return shipping label and request an immediate return of the incorrectly received merchandise. To avoid additional charges the incorrectly received merchandise must be shipped within 7 days of receiving the prepaid return shipping label. All regular return policies still apply. All merchandise must be returned unused and in original packaging in order to avoid being charged.<\/p>"
           }
         },
         "faq-3": {
@@ -116,14 +102,7 @@
             "subheading-6": "Sales Tax Policy",
             "text-6": "<p>Your order contains one or more items from Vidlogix and may be subject to local sales tax, depending on the state to which the item is being shipped. Unless otherwise noted, Vidlogix's items are subject to sales tax in select states following the state's applicable laws. We do not collect sales or use taxes in all states. For states imposing sales or use taxes, your purchase is subject to use tax unless specifically exempt from taxation. Your purchase is not exempt merely because it is made over the Internet or other remote means. Many states require purchasers to file a sales\/use tax return at the end of the year reporting all of the taxable purchases that were not taxed and to pay tax on those purchases. You may find details on how to file these returns at the websites of your respective taxing authorities. The sales tax indicated on the checkout form is an estimate. The sales tax ultimately charged to your credit card will be calculated when your credit card charge is authorized and will reflect applicable state and local taxes.<\/p>",
             "subheading-7": "",
-            "text-7": "",
-            "map_popup": false,
-            "map_text": "",
-            "button_link2": "",
-            "button_text2": "",
-            "button_chat2": false,
-            "text2": "",
-            "anchor_link": ""
+            "text-7": ""
           }
         }
       },
