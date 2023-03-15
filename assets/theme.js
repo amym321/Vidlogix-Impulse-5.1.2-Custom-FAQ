@@ -1983,11 +1983,8 @@ lazySizesConfig.expFactor = 4;
     var isTransitioning = false;
   
     function init(scope) {
-      console.log('log 43.2)  scope = '+ scope);
 
       var el = scope ? scope : document;
-      console.log('log 43.4) el = '+ el);
-
 
       el.querySelectorAll(selectors.trigger).forEach(trigger => {
         var state = trigger.classList.contains(classes.open);
@@ -2001,17 +1998,12 @@ lazySizesConfig.expFactor = 4;
       // links to Help Center with no block should be https://vidlogix.com/pages/help-center?main_block=FAQ-content-left-faq-2
       if (window.location.href.includes("help-center") && window.flag == true) {
         var queryStringUrl = window.location.search;
-        console.log('log 134) queryStringUrl = '+ queryStringUrl); // ?main_block=HC-left-faq-1&sub_block=HC-faq-1-1
 
         if (queryStringUrl != "") {
           var urlParams = new URLSearchParams(queryStringUrl);
-          console.log('log 133) urlParams = '+ urlParams); // main_block=HC-left-faq-1&sub_block=HC-faq-1-1
 
           var mainBlock = urlParams.get('main_block');
           var subBlock = urlParams.get('sub_block');
-
-          console.log('log 116)  mainBlock = '+  mainBlock); // HC-left-faq-1
-          console.log('log 116.2)  subBlock = '+  subBlock); // subBlock = HC-faq-1-1
 
           //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
           var elem = document.querySelector('[aria-controls="' + mainBlock + '"]');
@@ -2032,7 +2024,6 @@ lazySizesConfig.expFactor = 4;
             newTitle(elem);
           }
           window.flag = false;  // turn off flag when done
-          console.log('log 136 b) window.flag init = '+ window.flag); //turned false at end of page load (3 times)
           window.subHeight = 0; // reset height when done
         }
 
@@ -2057,11 +2048,6 @@ lazySizesConfig.expFactor = 4;
   
       isTransitioning = true;
 
-      console.log('log 132) evt.currentTarget = '+ evt.currentTarget);
-      console.log('log 132 b) evt = '+ evt); // [object HTMLButtonElement]
-
-      console.log('log 136c ) window.flag toggle = '+ window.flag); //
-
       if (window.flag) {
         var el = evt;
       } else {
@@ -2079,9 +2065,6 @@ lazySizesConfig.expFactor = 4;
 
       // all elements matching trigger including trigger
       var elArias = document.querySelectorAll('[aria-controls="' + moduleId + '"]');
-      console.log('log 70) el = '+ el);   // [object HTMLButtonElement]
-      console.log('log 71) elArias = '+ elArias);  // [object NodeList]
-      console.log('log 71.2) elArias.length = '+ elArias.length);  // 3
 
       if (!moduleId) {
         moduleId = el.dataset.controls;
@@ -2175,11 +2158,6 @@ lazySizesConfig.expFactor = 4;
       // 3 aria-controls for left, mobile, right on 2nd level buttons. 1st level has no button on right
       if (elArias.length >=3 ) {
         elArias.forEach((element) => {
-            console.log('log 78) >= 3 nodes');
-            console.log('log 80) el = '+ el);
-            console.log('log 81) element = '+ element);
-            console.log('log 80.2) el.classList = '+ el.classList);
-            console.log('log 81.2) element.classList = '+ element.classList);
             element.setAttribute('aria-expanded', !isOpen); // every matching node, one of which will be el
 
             if (isOpen) {     // every matching node, including el
@@ -2285,7 +2263,7 @@ lazySizesConfig.expFactor = 4;
 
                 var itemContainer = document.getElementById(elAttribute);
                 var closeHeight = 0;
-                
+
                 setTransitionHeight(itemContainer, closeHeight, true, true);
 
                 if (parentCollapsibleEl) {
