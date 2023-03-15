@@ -307,7 +307,8 @@
 }
 
 .left-section-block .collapsible-content__inner .is-open .subheading-left span,
-.help-center-nav .sub-nav-list .is-open a span {
+.help-center-nav .sub-nav-list .is-open a span, /* mobile subblock*/
+.help-center-nav .is-open:first-child a span {/* mobile main block*/
   border-bottom: 2px solid;
   bottom: 1px;
   /*color: #000;*/
@@ -316,7 +317,8 @@
   -webkit-transition: border-bottom 600ms, color 600ms;
   transition: border-bottom 600ms, color 600ms;
 }
-.help-center-nav .sub-nav-list .is-open a span {
+.help-center-nav .sub-nav-list .is-open a span, /* mobile subblock*/
+.help-center-nav .is-open:first-child a span { /* mobile main block*/
   bottom: -1px;
 }
 
