@@ -2040,10 +2040,13 @@ lazySizesConfig.expFactor = 4;
     }
 
     function newTitle(elem) {
-      var newTitle = elem.querySelector('.main-title').innerHTML;
-      if (newTitle != null) {
-        var titleEl = document.getElementById("hero-text");
-        titleEl.innerHTML = newTitle;
+      var mainBlock = elem.classList.contains('main-block');
+      if (mainBlock) {
+        var newTitle = elem.querySelector('.main-title').innerHTML;
+        if (newTitle != null) {
+          var titleEl = document.getElementById("hero-text");
+          titleEl.innerHTML = newTitle;
+        }
       }
     }
 
