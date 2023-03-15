@@ -2106,8 +2106,6 @@ lazySizesConfig.expFactor = 4;
       if (containerRight) {
         var heightRight = containerRight.querySelector(selectors.moduleInner).offsetHeight;
         var isAutoHeightRight = containerRight.classList.contains(classes.autoHeight);
-        var parentCollapsibleElRight = containerRight.parentNode.closest(selectors.module);
-        var childHeightRight = heightRight;
         if (window.flag === true && window.subHeight !== 0) {
           var heightRight = heightRight + window.subHeight;  //increase right container by the subcontainer height, page load only
         }
@@ -2227,21 +2225,6 @@ lazySizesConfig.expFactor = 4;
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
       }
 
-      // on Help Center page - am
-      if (parentCollapsibleElRight) {
-        var parentHeight = parentCollapsibleElRight.style.heightRight;
-
-        if (isOpen && parentHeightRight === 'auto') {
-          childHeightRight = 0; // Set childHeight to 0 if parent is initially opened
-        }
-
-          var totalHeightRight = isOpen
-                            ? parentCollapsibleElRight.offsetHeight - childHeightRight
-                            : heightRight + parentCollapsibleElRight.offsetHeight;
-
-          setTransitionHeightRight(parentCollapsibleElRight, totalHeightRight, false, false);
-      }
-
       window.counter = window.counter - 1;
 
       // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
@@ -2292,6 +2275,14 @@ lazySizesConfig.expFactor = 4;
                 var closeHeight = 0;
                 
                 setTransitionHeight(itemContainer, closeHeight, true, true);
+
+                if (parentCollapsibleEl) {
+                    var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
+                    var heightNewItem = height;
+                    var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
+
+                    setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
+                }
               }
             }
           });
