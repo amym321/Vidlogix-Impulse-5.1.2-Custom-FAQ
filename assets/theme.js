@@ -1974,7 +1974,8 @@ lazySizesConfig.expFactor = 4;
       hide: 'hide',
       open: 'is-open',
       autoHeight: 'collapsible--auto-height',
-      tabs: 'collapsible-trigger--tab'
+      tabs: 'collapsible-trigger--tab',
+      mainTitle: 'main-title'
     };
   
     var namespace = '.collapsible';
@@ -2028,12 +2029,21 @@ lazySizesConfig.expFactor = 4;
           if (elem != null) {
             window.counter = window.counter + 1;
             toggle(elem);
+            newTitle(elem);
           }
           window.flag = false;  // turn off flag when done
           console.log('log 136 b) window.flag init = '+ window.flag); //turned false at end of page load (3 times)
           window.subHeight = 0; // reset height when done
         }
 
+      }
+    }
+
+    function newTitle(elem) {
+      var newTitle = elem.querySelector('.main-title').innerHTML;
+      if (newTitle != null) {
+        var titleEl = document.getElementById("hero-text");
+        titleEl.innerHTML = newTitle;
       }
     }
 
@@ -2225,7 +2235,6 @@ lazySizesConfig.expFactor = 4;
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
       }
 
-      window.counter = window.counter - 1;
 
       // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
       if (window.counter <= 0 && window.location.href.includes("help-center")) {  // el is from a click, not the url params
@@ -2250,7 +2259,7 @@ lazySizesConfig.expFactor = 4;
                 var itemRightContainer = document.getElementById(elRightAttribute);
                 var itemMobileContainer = document.getElementById(elMobileAttribute);
                 var closeHeight = 0;
-                
+
                 setTransitionHeight(itemContainer, closeHeight, true, true);
                 setTransitionHeight(itemRightContainer, closeHeight, true, true);
                 if (itemMobileContainer) {
@@ -2288,6 +2297,15 @@ lazySizesConfig.expFactor = 4;
           });
         }
       }
+
+      if (heightRight != 0 && window.location.href.includes("help-center")) { // a main right container is open
+        if (window.counter <= 0 && !isOpen)  {
+          newTitle(el);
+        }
+      }
+
+      window.counter = window.counter - 1;
+
 
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click

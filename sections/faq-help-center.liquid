@@ -31,7 +31,7 @@
                             aria-controls-right="HC-right-{{ block.id }}" aria-controls="HC-left-{{ block.id }}"
                             data-main-trigger="{{block.id}}">
                           {%- render 'collapsible-icons-alt', no_circle: true -%}
-                          <h4><span itemprop="name">{{ block.settings.title }}</span></h4>
+                          <h4><span class="main-title" itemprop="name">{{ block.settings.title }}</span></h4>
                         </button>
 
                         <div id="HC-left-{{ block.id }}" class="collapsible-content collapsible-content--all"
