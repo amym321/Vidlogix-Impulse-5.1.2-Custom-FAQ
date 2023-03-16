@@ -1955,6 +1955,7 @@ lazySizesConfig.expFactor = 4;
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
   window.counter = 0;
+  window.lastEl = "";
   window.flag = false;
   if (window.location.href.includes("help-center")) {
     window.flag = true;
@@ -2004,6 +2005,9 @@ lazySizesConfig.expFactor = 4;
 
           var mainBlock = urlParams.get('main_block');
           var subBlock = urlParams.get('sub_block');
+          // var mainBlock = urlParams.get('a');
+          // var subBlock = urlParams.get('b');
+          console.log('log 169) mainBlock = '+mainBlock);
 
           //use 1st trigger element to open left & right sides, so takes only 1st element with querySelector
           var elem = document.querySelector('[aria-controls="' + mainBlock + '"]');
@@ -2026,7 +2030,7 @@ lazySizesConfig.expFactor = 4;
           window.flag = false;  // turn off flag when done
           window.subHeight = 0; // reset height when done
         } else {
-          var elem = document.querySelector('[aria-controls]');
+          var elem = document.querySelector('[aria-controls]'); // grabs 1st block to open. not working
           console.log('log 170) elem = '+ elem);
           if (elem != null) {
             window.counter = window.counter + 1;
@@ -2229,6 +2233,8 @@ lazySizesConfig.expFactor = 4;
 
       // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
       if (window.counter <= 0 && window.location.href.includes("help-center")) {  // el is from a click, not the url params
+        console.log('log 182) window.counter = '+ window.counter );
+
         var elMain = el.classList.contains("main-block"); 
         var elSub = el.classList.contains("sub-block"); 
 
@@ -2260,32 +2266,41 @@ lazySizesConfig.expFactor = 4;
             }
           });
         } else if (elSub) {  //el is a sub trigger
-          var allSubBlocks = document.querySelectorAll(".sub-block");
+          // var lastEl = window.lastEl.classList.contains("main-block");
+          // console.log('log 183) lastEl = '+ lastEl );
 
-          allSubBlocks.forEach((item) => {
-            var elAttribute = item.getAttribute('aria-controls');
+          // if (lastEl == false) { // only run this when the previous 
 
-            if (elAttribute != moduleId) { // all main triggers have same aria-controls
-              var itemOpen = item.classList.contains("is-open"); 
-              if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
-                item.classList.remove("is-open");
-                item.setAttribute('aria-expanded', false);
+            var allSubBlocks = document.querySelectorAll(".sub-block");
 
-                var itemContainer = document.getElementById(elAttribute);
-                var closeHeight = 0;
+            allSubBlocks.forEach((item) => {
+              var elAttribute = item.getAttribute('aria-controls');
 
-                setTransitionHeight(itemContainer, closeHeight, true, true);
+              if (elAttribute != moduleId) { // all main triggers have same aria-controls
+                var itemOpen = item.classList.contains("is-open"); 
+                if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
+                  item.classList.remove("is-open");
+                  item.setAttribute('aria-expanded', false);
 
-                if (parentCollapsibleEl) {
-                    var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
-                    var heightNewItem = height;
-                    var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
+                  var itemContainer = document.getElementById(elAttribute);
+                  var closeHeight = 0;
 
-                    setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
+                  setTransitionHeight(itemContainer, closeHeight, true, true);
+
+                  // if (parentCollapsibleEl) {
+                  //     var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
+                  //     var heightNewItem = height;
+                  //     var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
+                  //     console.log('log 178) heightOriginalEl = '+ heightOriginalEl );
+                  //     console.log('log 179) heightNewItem = '+ heightNewItem );
+                  //     console.log('log 180) totalNewHeight  = '+ totalNewHeight  );
+
+                  //     setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
+                  // }
                 }
               }
-            }
-          });
+            });
+          // }
         }
       }
 
@@ -2296,7 +2311,7 @@ lazySizesConfig.expFactor = 4;
       }
 
       window.counter = window.counter - 1;
-
+      window.lastEl = el;
 
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click
