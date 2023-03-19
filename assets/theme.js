@@ -2207,7 +2207,6 @@ lazySizesConfig.expFactor = 4;
 
       // on Help Center page - am
       if (containerRight && !isOpen) { // only used to open right container of el, not close it. only closes nelow when another is opened
-        console.log('log 205) isOpen - '+ isOpen);
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
       }
 
@@ -2269,10 +2268,12 @@ lazySizesConfig.expFactor = 4;
                 }
               }
               // now close all right containers not tied to new moduleId whether the left side is open or closed
-              var itemRightContainer = document.getElementById(elRightAttribute);
-              var testRightContainer = itemRightContainer.classList.contains('is-open');
-              if (testRightContainer) {
-                setTransitionHeight(itemRightContainer, closeHeight, true, true);
+              if (elRightAttribute) {
+                var itemRightContainer = document.getElementById(elRightAttribute);
+                var testRightContainer = itemRightContainer.classList.contains('is-open');
+                if (testRightContainer) {
+                  setTransitionHeight(itemRightContainer, closeHeight, true, true);
+                }
               }
             }
           });
