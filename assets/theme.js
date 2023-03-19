@@ -2161,12 +2161,12 @@ lazySizesConfig.expFactor = 4;
         }, 0);
       }
 
-      if (isOpen && isAutoHeightRight) {
-        setTimeout(function() {
-          heightRight = 0;
-          setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
-        }, 0);
-      }
+      // if (isOpen && isAutoHeightRight) {
+      //   setTimeout(function() {
+      //     heightRight = 0;
+      //     setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
+      //   }, 0);
+      // }
   
       if (isOpen && !isAutoHeight) {
         height = 0;
@@ -2207,7 +2207,8 @@ lazySizesConfig.expFactor = 4;
       setTransitionHeight(container, height, isOpen, isAutoHeight);
 
       // on Help Center page - am
-      if (containerRight) {
+      if (containerRight && !isOpen) { // only used to open right container, not close it. only closes nelow when another is opened
+        console.log('log 205) isOpen - '+ isOpen);
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
       }
 
