@@ -1955,7 +1955,7 @@ lazySizesConfig.expFactor = 4;
   // Either collapsible containers all acting individually,
   // or tabs that can only have one open at a time
   window.counter = 0;
-  window.lastEl = "";
+  //window.lastEl = "";
   window.flag = false;
   if (window.location.href.includes("help-center")) {
     window.flag = true;
@@ -2209,6 +2209,7 @@ lazySizesConfig.expFactor = 4;
       if (containerRight && !isOpen) { // only used to open right container of el, not close it. only closes nelow when another is opened
         setTransitionHeight(containerRight, heightRight, isOpen, isAutoHeightRight);
       }
+//if 2nd level from left side, redo height of 1st level right container
 
       // on Help Center page - am
       if (containerMobile) {
@@ -2296,16 +2297,13 @@ lazySizesConfig.expFactor = 4;
 
                   setTransitionHeight(itemContainer, closeHeight, true, true);
 
-                  // if (parentCollapsibleEl) {
-                  //     var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
-                  //     var heightNewItem = height;
-                  //     var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
-                  //     console.log('log 178) heightOriginalEl = '+ heightOriginalEl );
-                  //     console.log('log 179) heightNewItem = '+ heightNewItem );
-                  //     console.log('log 180) totalNewHeight  = '+ totalNewHeight  );
+                  if (parentCollapsibleEl) {
+                      var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
+                      var heightNewItem = height;
+                      var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
 
-                  //     setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
-                  // }
+                      setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
+                  }
                 }
               }
             });
@@ -2320,7 +2318,7 @@ lazySizesConfig.expFactor = 4;
       }
 
       window.counter = window.counter - 1;
-      window.lastEl = el;
+      //window.lastEl = el;
 
       // If Shopify Product Reviews app installed,
       // resize container on 'Write review' click
