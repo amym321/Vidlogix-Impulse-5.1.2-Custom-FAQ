@@ -1960,6 +1960,9 @@ lazySizesConfig.expFactor = 4;
   if (window.location.href.includes("help-center")) {
     window.flag = true;
   }
+  if (window.location.href.includes("help-center")) {
+    window.pinnedHeight = 1;
+  }
 
   theme.collapsibles = (function() {
     window.subHeight = 0;
@@ -1993,6 +1996,9 @@ lazySizesConfig.expFactor = 4;
   
         trigger.off('click' + namespace);
         trigger.on('click' + namespace, toggle);
+        if (window.location.href.includes("help-center")) {
+          trigger.on('click' + namespace, getHeightDiff);  //event listener to adjust scrollMagic duration (height)
+        }
       });
 
       // open Help Center block 1st time if linked from other page, ie. not triggered by click on Help Center page- am
@@ -2024,6 +2030,8 @@ lazySizesConfig.expFactor = 4;
           }
           if (elem != null) {
             window.counter = window.counter + 1;
+            getHeightDiff(); // dynamic duration (height) for scrollMagic
+            scrollMagic();  // set up scrollMagic once
             toggle(elem);
             newTitle(elem);
           }
@@ -2031,9 +2039,10 @@ lazySizesConfig.expFactor = 4;
           window.subHeight = 0; // reset height when done
         } else {
           var elem = document.querySelector('[aria-controls]'); // grabs 1st block to open. not working
-          console.log('log 170) elem = '+ elem);
           if (elem != null) {
             window.counter = window.counter + 1;
+            getHeightDiff(); // dynamic duration (height) for scrollMagic
+            scrollMagic();  // set up scrollMagic once
             toggle(elem);
             newTitle(elem);
             window.flag = false;  // turn off flag when done
@@ -2230,11 +2239,8 @@ lazySizesConfig.expFactor = 4;
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
       }
 
-
       // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
       if (window.counter <= 0 && window.location.href.includes("help-center")) {  // el is from a click, not the url params
-        console.log('log 182) window.counter = '+ window.counter );
-
         var elMain = el.classList.contains("main-block"); 
         var elSub = el.classList.contains("sub-block"); 
 
@@ -2266,9 +2272,6 @@ lazySizesConfig.expFactor = 4;
             }
           });
         } else if (elSub) {  //el is a sub trigger
-          // var lastEl = window.lastEl.classList.contains("main-block");
-          // console.log('log 183) lastEl = '+ lastEl );
-
           // if (lastEl == false) { // only run this when the previous 
 
             var allSubBlocks = document.querySelectorAll(".sub-block");
@@ -2326,6 +2329,31 @@ lazySizesConfig.expFactor = 4;
         });
       }
     }
+
+    // sets duration (height) for scrollMagic on Help Center page - am
+    function getHeightDiff(evt) {
+      var leftWrapper = document.getElementById("pin1").offsetHeight;
+      var rightWrapper = document.getElementById("right-wrapper").offsetHeight;
+      if (rightWrapper > leftWrapper) {
+        window.pinnedHeight = rightWrapper - leftWrapper;
+      } else {
+        window.pinnedHeight = 1;
+      }
+      return window.pinnedHeight;
+    };
+
+    // pins the left container on scroll on Help Center page - am
+    function scrollMagic() {
+      var scene = new ScrollMagic.Scene({
+          triggerElement: "#pin1",
+          duration: getHeightDiff, //window.pinnedHeight, // height, //pinnedHeight,
+          triggerHook: 'onLeave'   //gets the start at the top of screen
+        })
+        .setPin("#pin1")
+        //.addIndicators() // add indicators (requires plugin)
+        .addTo(controller);
+    }
+
   
     function setTransitionHeight(container, height, isOpen, isAutoHeight) {
       container.classList.remove(classes.hide);
