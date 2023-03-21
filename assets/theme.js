@@ -2237,6 +2237,11 @@ lazySizesConfig.expFactor = 4;
                             : height + parentCollapsibleEl.offsetHeight;
 
           setTransitionHeight(parentCollapsibleEl, totalHeight, false, false);
+          console.log('log 320) PARENT HEIGHT of selected');
+          console.log('log 321) parentCollapsibleEl.offsetHeight = '+ parentCollapsibleEl.offsetHeight);
+          console.log('log 322) if used, - childHeight = '+ childHeight);
+          console.log('log 323) if used, + height = '+ height);
+          console.log('log 324) totalHeight = '+ totalHeight);
       }
 
       // close all other blocks & sub-blocks on Help Page when target element is clicked open - am
@@ -2275,32 +2280,65 @@ lazySizesConfig.expFactor = 4;
                 if (testRightContainer) {
                   setTransitionHeight(itemRightContainer, closeHeight, true, true);
                 }
+                console.log('log 310) 1st LEVEL MAIN - closing last main');
+                console.log('log 311) closeHeight = '+ closeHeight);
               }
+              // lastly, close all subblocks in old main container before leaving so they don't interfere with subblock switching later within the new main container
+              var allSubBlocks = document.querySelectorAll(".sub-block"); // all 2nd level button (left, right, mobile)
+              
+              allSubBlocks.forEach((item) => {
+                var elAttribute = item.getAttribute('aria-controls');
+
+                if (elAttribute != moduleId) { // all main triggers have same aria-controls
+                  var itemOpen = item.classList.contains("is-open");
+                  if (itemOpen) {   // for left, right, & mobile subblocks that are open
+                    item.classList.remove("is-open");
+                    item.setAttribute('aria-expanded', false);
+  
+                    var itemContainer = document.getElementById(elAttribute); // gets 1st element with aria-controls in it
+                    console.log('log 306) itemContainer innerhtml = '+ itemContainer.innerHTML);
+                    var closeHeight = 0;
+  
+                    setTransitionHeight(itemContainer, closeHeight, true, true);
+                  }
+                }
+              })
             }
           });
         } else if (elSub) {  //el is a sub trigger
           // if (lastEl == false) { // only run this when the previous 
 
-            var allSubBlocks = document.querySelectorAll(".sub-block");
+            var allSubBlocks = document.querySelectorAll(".sub-block"); // all 2nd level button (left, right, mobile)
+
+      // should do only for subblocks in current main block
+      // or close all subblocks when switching 1st levels earlier.  DOING THIS OPTION. SEE ABOVE
 
             allSubBlocks.forEach((item) => {
               var elAttribute = item.getAttribute('aria-controls');
 
               if (elAttribute != moduleId) { // all main triggers have same aria-controls
                 var itemOpen = item.classList.contains("is-open"); 
-                if (itemOpen) {    // we're only closing main triggers, won't close a sub-trigger with .is-open
+                if (itemOpen) {    // for left, right, & mobile subblock buttons that are open. they all reference the same right content via ID
                   item.classList.remove("is-open");
                   item.setAttribute('aria-expanded', false);
 
-                  var itemContainer = document.getElementById(elAttribute);
+                  var itemContainer = document.getElementById(elAttribute); // gets 1st element with aria-controls in it
+                  console.log('log 305) itemContainer innerhtml = '+ itemContainer.innerHTML); //grabbing 
+
                   var closeHeight = 0;
 
                   setTransitionHeight(itemContainer, closeHeight, true, true);
 
-                  if (parentCollapsibleEl) {
-                      var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight;
+                  if (parentCollapsibleEl) { // overriding the parentheight set earlier. should not run if last el was main
+                      var heightOriginalEl = itemContainer.querySelector(selectors.moduleInner).offsetHeight; // moduleInner = .collapsible-content__inner
                       var heightNewItem = height;
+                      // var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
                       var totalNewHeight = parentCollapsibleEl.offsetHeight - heightOriginalEl + heightNewItem;
+                      console.log('log 300) 2nd LEVEL SUB = ');
+                      console.log('log 301) + parentCollapsibleEl.offsetHeight = '+ parentCollapsibleEl.offsetHeight);
+                      console.log('log 302) - heightOriginalEl = '+heightOriginalEl ); // 158 when should be 0
+                      console.log('log 303) + heightNewItem = '+ heightNewItem );
+                      console.log('log 304) totalNewHeight = '+ totalNewHeight );
 
                       setTransitionHeight(parentCollapsibleEl, totalNewHeight, false, false);
                   }
@@ -2330,6 +2368,9 @@ lazySizesConfig.expFactor = 4;
         btn.on('click' + namespace, function() {
           height = container.querySelector(selectors.moduleInner).offsetHeight;
           setTransitionHeight(container, height, isOpen, isAutoHeight);
+          console.log('log 350) window.SPR = '+ window.SPR );
+          console.log('log 351) SPR height adjusted = '+ height);
+
         });
       }
     }
