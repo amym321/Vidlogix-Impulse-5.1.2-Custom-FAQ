@@ -6,15 +6,6 @@
     {{ form | payment_terms }}
   </div> {% endcomment %}
 
-  {% comment %} Paypal messaging - am {% endcomment %}
-  <div style="padding-bottom:8px;"
-    data-pp-message
-    data-pp-style-layout="text"
-    data-pp-style-logo-type="primary"
-    data-pp-style-text-color="black"
-    data-pp-amount="$50.00"> {% comment %} placeholder value {% endcomment %}
-  </div>
-
   {%- liquid
     assign enable_dynamic_buttons = false
     if show_dynamic_checkout and template != 'product.preorder'
