@@ -611,7 +611,7 @@
             <div class="container">
               <div class="content rte">
                 {{ shop.metafields.accentuate.lifetime_support_message }}
-                <a target="_blank" href="/pages/tech-support" class="more-link">GET HELP</a>
+                {% comment %} <a target="_blank" href="/pages/tech-support" class="more-link">GET HELP</a> {% endcomment %}
               </div>
             </div>
           {% endunless %}
@@ -630,7 +630,8 @@
                   <div data-section-id="4389426856003" data-subsection data-section-type="collection-template">
                   {{ shop.metafields.accentuate.protection_plan_message }}
                   <span class="btn protection-plan__btn quick-product__btn js-modal-open-quick-modal-{{ prod.id }}">Add Plan</span>
-                  <a target="_blank" href="/pages/protection-plans" class="more-link">Learn More</a>
+                  {% comment %} <a target="_blank" href="/pages/protection-plans" class="more-link">Learn More</a> {% endcomment %}
+                  <a target="_blank" href="/products/vidlogix-product-protection-plans" class="more-link">Learn More</a>
 
                   {%- if prod.options.size > 0 -%}
                     {%- render 'quick-shop-modal', product: prod -%}
