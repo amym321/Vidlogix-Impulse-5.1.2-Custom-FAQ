@@ -87,18 +87,13 @@
 
         <div class="grid__item {{ product_description_width }}">
 
-          <div class="product-single__meta">
+          <div class="product-single__meta product-single__container">
             {% comment %} removed 'vendor_handle' code per 4.1.1 customization {% endcomment %}
             <div class="product-block product-block--header">
 
               {%- if isModal -%}
                 <a class="h2 product-single__title" href="{{ product.url }}">{{ product.title }}</a>
               {%- else -%}
-
-
-
-
-
                 <h1 class="h2 product-single__title">
                   {%- unless product.empty? -%}
                     {{-product.title-}}
@@ -319,11 +314,12 @@
                           {%- render 'quantity-input', form_id: form_id, id: qty_id, qty: 1, min: 1 -%}
                         </div>
                       </div>
+                    </div>
 
                     {%- when 'buy_buttons' -%}
                       <div class="product-block buy-width" {{ block.shopify_attributes }}>
                         {%- unless product.empty? -%}
-                            <div class="product-block ">
+                            <div class="product-block atc-block">
                               {%- render 'product-form',
                                 form_id: form_id,
                                 product: product,
@@ -340,6 +336,10 @@
                             ></div>
                         {%- endif -%}
                       </div>
+                      
+                      {% comment %} begin code change per 4.1.1 customization {% endcomment %}
+                      {%- render 'variant-messaging', product: product, current_variant: current_variant -%}
+                      {% comment %} end code change per 4.1.1 customization {% endcomment %}
 
                       {% comment %} display values after Buy button & other blocks on mobile but not quickview. 4.1.1 mod {% endcomment %}
                       {% if isModal %}
@@ -348,7 +348,6 @@
                           <span>{{ section.settings.value_two }}</span>
                         </div>
                       {% endif %}
-                    </div>
 
                   {%- when 'variant_picker' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
@@ -472,10 +471,6 @@
                   <div class="placeholder-content" style="min-height: 86px;"></div>
                 </div>
               {%- endfor -%}
-
-              {% comment %} begin code change per 4.1.1 customization {% endcomment %}
-              {%- render 'variant-messaging', product: product, current_variant: current_variant -%}
-              {% comment %} end code change per 4.1.1 customization {% endcomment %}
 
             </div>
 
