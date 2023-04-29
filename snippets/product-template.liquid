@@ -292,18 +292,23 @@
 
                         <span data-unit-price>{{ current_variant.unit_price | money }}</span>/{{ unit_price_base_unit }}
                       </div>
+                    </div>
 
                       {% comment %} Paypal messaging - am {% endcomment %}
-                      <div class="paypal-link" 
+                      {% comment %} <div class="paypal-link" 
                         data-pp-message
                         data-pp-style-layout="text"
                         data-pp-style-logo-type="alternative"
                         data-pp-style-text-color="black"
-                        data-pp-amount="$50.00"> {% comment %} placeholder value {% endcomment %}
-                      </div>
+                        data-pp-amount="$50.00"> 
+                      </div> {% endcomment %}
 
 
-                    </div>
+                    {% comment %} Shop Pay message. Added another form so message displays - am  {% endcomment %}
+                    {%- form 'product', product, id: form_id, class: 'product-single__form ' -%}
+                      <div class="shopify-payment-terms product__policies">{{ form | payment_terms }}</div>
+                    {%- endform -%}
+
 
                   {%- when 'quantity_selector' -%}
                     <div class="product__quantity-cart">
